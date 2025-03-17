@@ -15,10 +15,13 @@
             <h1 class="creepyHeading">Where are you</h1>
             <h1 class="questionmark">?</h1>
         </div>
-        <div class="buttonContainer">
-            <div class="buttons">Play</div>
-            <div class="buttons">Options</div>
-            <div class="buttons" onclick="javascript:window.close()">Quit</div>
+        <div id="optionContainer">
+            <div class="buttonContainer">
+                <div class="buttons">Play</div>
+                <div class="buttons" id="optionButton" onclick="options()">Options</div>
+                <div class="buttons" onclick="javascript:window.close()">Quit</div>
+            </div>
+            <div id="optionOutput"></div>
         </div>
     </div>
 </body>
