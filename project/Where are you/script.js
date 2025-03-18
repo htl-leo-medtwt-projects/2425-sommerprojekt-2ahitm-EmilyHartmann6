@@ -7,6 +7,7 @@ let body3 = document.getElementById("gameScreen");
 function switchToflashbackScreen(){
     body1.style.display = "none";
     body2.style.display = "block"
+    playVideo();s
 }
 document.addEventListener("DOMContentLoaded", function () {
     let video = document.getElementById("myVideo");
@@ -47,11 +48,10 @@ bars.forEach(bar => {
     });
 });
 
-/*autoplay for the flashbacks*/
-document.addEventListener("click", () => {
+/*Play Video*/
+function playVideo() {
     const video = document.querySelector("video");
-    video.muted = false;  
+    video.muted = false;  // Unmute the video
     video.play().catch(error => console.error("Playback error:", error));
-}, { once: true });
-
+}
 
