@@ -17,12 +17,21 @@
         </div>
         <div id="optionContainer">
             <div class="buttonContainer">
-                <div class="buttons">Play</div>
+                <div class="buttons" onclick="switchToflashbackScreen()">Play</div>
                 <div class="buttons" id="optionButton" onclick="options()">Options</div>
                 <div class="buttons" onclick="javascript:window.close()">Quit</div>
             </div>
             <div id="optionOutput"></div>
         </div>
+    </div>
+    </div>
+    <div id="flashbackScreen" class="body">
+        <video id="myVideo" width="100" height="100" autoplay muted playsinline>
+            <source src="cutscenes/flashbacks.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div id="gameScreen" class="body">
+
     </div>
 </body>
 

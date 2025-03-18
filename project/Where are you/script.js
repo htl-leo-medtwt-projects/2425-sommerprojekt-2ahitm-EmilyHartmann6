@@ -1,3 +1,23 @@
+//bodies
+let body1 = document.getElementById("startScreen");
+let body2 = document.getElementById("flashbackScreen")
+let body3 = document.getElementById("gameScreen");
+
+/*site switching*/
+function switchToflashbackScreen(){
+    body1.style.display = "none";
+    body2.style.display = "block"
+}
+document.addEventListener("DOMContentLoaded", function () {
+    let video = document.getElementById("myVideo");
+    if (video) {
+        video.addEventListener("ended", function () {
+            body2.style.display = "none";
+        body3.style.display = "flex";  
+        });
+    }
+});
+/*options*/
 let optionOutput = document.getElementById("optionOutput");
 let optionButton = document.getElementById("optionButton");
 function options(){
@@ -26,3 +46,12 @@ bars.forEach(bar => {
         });
     });
 });
+
+/*autoplay for the flashbacks*/
+document.addEventListener("click", () => {
+    const video = document.querySelector("video");
+    video.muted = false;  
+    video.play().catch(error => console.error("Playback error:", error));
+}, { once: true });
+
+
