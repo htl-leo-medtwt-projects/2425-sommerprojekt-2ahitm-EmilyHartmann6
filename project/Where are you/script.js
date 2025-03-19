@@ -53,11 +53,30 @@ bars.forEach(bar => {
     });
 });
 
-/*Play Video*/
+/*Video*/
+let skipping = false;
 let video = document.getElementById("myVideo");
+
 function playVideo() {
     
     video.muted = false;
     video.play().catch(error => console.error("Playback error:", error));
 }
+function skipForward() {
+    if (skipping) {
+        video.currentTime += 5;
+        requestAnimationFrame(skipForward);
+    }
+}
+document.addEventListener("keydown", (event) => {
+    if (event.key === "e" && !skipping) { 
+        skipping = true;
+        skipForward();
+    }
+});
+document.addEventListener("keyup", (event) => {
+    if (event.key === "e") {
+        skipping = false;
+    }
+});
 

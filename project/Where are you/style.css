@@ -3,18 +3,21 @@
     font-family: creepy;
     src: url(font/Ghastly\ Panic.ttf);
 }
+
 @font-face {
     font-family: regular;
     src: url(font/NightsideDemoRegular.ttf);
 }
+
 /*body*/
-body{
+body {
     user-select: none;
     padding: 0;
     margin: 0;
 
 }
-.body{
+
+.body {
     width: 100%;
     height: 100vh;
     background-repeat: no-repeat;
@@ -23,19 +26,22 @@ body{
 
 
 }
-#startScreen{
+
+#startScreen {
     background-image: url(img/startBackground.jpg);
 }
-#flashbackScreen{
+
+#flashbackScreen {
     display: none;
 }
-#gameScreen{
+
+#gameScreen {
     display: none;
-    
+
 }
 
 /*text elemnts*/
-.headinContainer{
+.headinContainer {
     display: flex;
     justify-content: left;
     width: 100%;
@@ -43,29 +49,33 @@ body{
     gap: 2%;
     margin-top: 0;
 }
-.creepyHeading{
+
+.creepyHeading {
     font-family: creepy;
     color: #C2CBD5;
     text-shadow: 2px 2px 3px black;
     font-size: 11em;
     font-weight: lighter;
 }
-.questionmark{
+
+.questionmark {
     font-family: creepy;
     color: #702020;
     text-shadow: 2px 2px 3px black;
     font-size: 15em;
-   margin-top: 1.2%;
+    margin-top: 1.2%;
     font-weight: lighter;
 }
-.middelHeading{
+
+.middelHeading {
     text-align: center;
     font-family: regular;
-    color:#C2CBD5;
+    color: #C2CBD5;
     font-size: 4em;
 }
+
 /*buttons*/
-.buttonContainer{
+.buttonContainer {
     display: flex;
     justify-content: left;
     flex-direction: column;
@@ -73,23 +83,27 @@ body{
     height: 100vh;
     margin-left: 2%;
 }
-.buttons{
+
+.buttons {
     font-family: regular;
-    color:#C2CBD5;
+    color: #C2CBD5;
     font-size: 4em;
     margin: 1%;
     transition: 0.4s;
     width: 20%;
 }
-.buttons:hover{
+
+.buttons:hover {
     color: #702020;
 }
+
 .volume-container {
     display: flex;
     justify-content: center;
     gap: 10px;
     margin-top: 20px;
 }
+
 .bar {
     width: 30px;
     height: 80px;
@@ -98,22 +112,26 @@ body{
     transition: background-color 0.3s;
     cursor: pointer;
 }
+
 .bar.active {
     background-color: rgba(255, 255, 255, 1);
 }
 
-#optionContainer{
+#optionContainer {
     display: flex;
     height: 100vh;
 }
 
-#optionOutput{
+#optionOutput {
     margin-top: -7%;
 }
-#skipbutton{
+
+#skip {
     position: absolute;
-   z-index: 100;
-   font-size: 2em;
+    z-index: 100;
+    font-size: 1em;
+    font-family: regular;
+    color: #C2CBD5;
 }
 
 /*video*/
@@ -123,5 +141,5 @@ video {
     left: 0;
     width: 100vw;
     height: 100vh;
-    object-fit: cover; 
+    object-fit: cover;
 }
