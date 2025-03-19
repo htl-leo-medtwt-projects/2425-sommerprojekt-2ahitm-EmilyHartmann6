@@ -4,24 +4,29 @@ let body2 = document.getElementById("flashbackScreen")
 let body3 = document.getElementById("gameScreen");
 
 /*site switching*/
-function switchToflashbackScreen(){
+function switchToflashbackScreen() {
     body1.style.display = "none";
     body2.style.display = "block"
-    playVideo();s
+    playVideo();
 }
 document.addEventListener("DOMContentLoaded", function () {
-    let video = document.getElementById("myVideo");
+    
     if (video) {
         video.addEventListener("ended", function () {
             body2.style.display = "none";
-        body3.style.display = "flex";  
+            body3.style.display = "flex";
         });
     }
 });
+function switchTogameScreen() {
+    body2.style.display = "none";
+    body3.style.display = "flex";
+    video.pause();
+}
 /*options*/
 let optionOutput = document.getElementById("optionOutput");
 let optionButton = document.getElementById("optionButton");
-function options(){
+function options() {
     optionOutput.innerHTML = `
     <h2 class="middelHeading">Volume</h2>
     <div class="volume-container">
@@ -36,7 +41,7 @@ function options(){
 const bars = document.querySelectorAll(".bar");
 
 bars.forEach(bar => {
-    bar.addEventListener("click", function() {
+    bar.addEventListener("click", function () {
         let volumeLevel = parseInt(this.getAttribute("data-level"));
         bars.forEach((b, index) => {
             if (index < volumeLevel) {
@@ -49,9 +54,10 @@ bars.forEach(bar => {
 });
 
 /*Play Video*/
+let video = document.getElementById("myVideo");
 function playVideo() {
-    const video = document.querySelector("video");
-    video.muted = false;  // Unmute the video
+    
+    video.muted = false;
     video.play().catch(error => console.error("Playback error:", error));
 }
 
