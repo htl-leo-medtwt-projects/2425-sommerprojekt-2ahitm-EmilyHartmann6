@@ -14,7 +14,7 @@ body {
     user-select: none;
     padding: 0;
     margin: 0;
-
+    overflow: hidden;
 }
 
 .body {
@@ -39,7 +39,10 @@ body {
     display: none;
     background-color: #030207;
 }
-
+#inGameMenuBody{
+    display: none;
+    background-color: rgba(0, 0, 0, 0.42);
+}
 /*text elemnts*/
 .headinContainer {
     display: flex;
@@ -114,7 +117,7 @@ body {
 }
 
 .bar.active {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: #C2CBD5;
 }
 
 #optionContainer {

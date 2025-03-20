@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Where are you?</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="keyEvents.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 
@@ -34,6 +35,13 @@
     </div>
     <div id="gameScreen" class="body">
             <img class="rooms" id="room1" src="map/bedroom1.png" alt="bedroom">
+    </div>
+    <div id="inGameMenuBody" class="body">
+        <div class="buttonContainer">
+            <div class="buttons" onclick="">Continue</div>
+            <!--<div class="buttons" id="optionButton" onclick="options()">Options</div>*/-->
+            <div class="buttons" onclick="javascript:window.close()">Quit</div>
+        </div>
     </div>
 </body>
 
