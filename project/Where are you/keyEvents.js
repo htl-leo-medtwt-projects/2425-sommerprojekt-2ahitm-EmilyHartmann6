@@ -15,8 +15,10 @@ document.addEventListener("keyup", (event) => {
 
 /*open settings (esc)*/
 document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") { 
-        body3.style.opacity = 0.8;
-        body4.style.display = "block";
+    let gameScreen = document.getElementById("gameScreen");
+    let menuScreen = document.getElementById("inGameMenuBody");
+    if (gameScreen.style.display === "flex" && event.key === "Escape") {
+        menuScreen.style.display = "block"; 
+        gameScreen.style.opacity = 0.8;
     }
 });

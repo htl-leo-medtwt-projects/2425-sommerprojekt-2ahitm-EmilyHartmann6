@@ -41,7 +41,10 @@ body {
 }
 #inGameMenuBody{
     display: none;
-    background-color: rgba(0, 0, 0, 0.42);
+    background-color: rgba(0, 0, 0, 0.815);
+    position: absolute;
+    margin-top: -56.5%;
+   height: 101vh;
 }
 /*text elemnts*/
 .headinContainer {
@@ -125,7 +128,7 @@ body {
     height: 100vh;
 }
 
-#optionOutput {
+.optionOutput {
     margin-top: -7%;
 }
 

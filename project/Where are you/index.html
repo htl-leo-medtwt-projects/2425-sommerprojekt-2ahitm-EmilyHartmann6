@@ -19,29 +19,35 @@
         <div id="optionContainer">
             <div class="buttonContainer">
                 <div class="buttons" onclick="switchToflashbackScreen()">Play</div>
-                <div class="buttons" id="optionButton" onclick="options()">Options</div>
+                <div class="buttons"  onclick="options()">Options</div>
                 <div class="buttons" onclick="javascript:window.close()">Quit</div>
             </div>
-            <div id="optionOutput"></div>
+            <div class="optionOutput"></div>
         </div>
     </div>
-    </div>
+
     <div id="flashbackScreen" class="body">
         <div id="skip" onclick="switchTogameScreen()">hold e to skip</div>
         <video id="myVideo" width="100" height="100" autoplay muted playsinline>
             <source src="cutscenes/flashback.mp4" type="video/mp4">
         </video>
-        
     </div>
+
     <div id="gameScreen" class="body">
-            <img class="rooms" id="room1" src="map/bedroom1.png" alt="bedroom">
+        <img class="rooms" id="room1" src="map/bedroom1.png" alt="bedroom">
     </div>
+
     <div id="inGameMenuBody" class="body">
+        <div class="headinContainer">
+            <h1 class="creepyHeading">Where are you</h1>
+            <h1 class="questionmark">?</h1>
+        </div>
         <div class="buttonContainer">
-            <div class="buttons" onclick="">Continue</div>
-            <!--<div class="buttons" id="optionButton" onclick="options()">Options</div>*/-->
+            <div class="buttons" onclick="continueOn()">Continue</div>
+            <div class="buttons"  onclick="options()">Options</div>
             <div class="buttons" onclick="javascript:window.close()">Quit</div>
         </div>
+        <div class="optionOutput"></div>
     </div>
 </body>
 

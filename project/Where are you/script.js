@@ -1,4 +1,4 @@
-// Bodies
+//bodies
 let body1 = document.getElementById("startScreen");
 let body2 = document.getElementById("flashbackScreen");
 let body3 = document.getElementById("gameScreen");
@@ -6,10 +6,10 @@ let body4 = document.getElementById("inGameMenuBody");
 
 //Variablen
 let video = document.getElementById("myVideo");
-let optionOutput = document.getElementById("optionOutput");
+let optionOutputs = document.querySelectorAll(".optionOutput");
 let optionButton = document.getElementById("optionButton");
 
-// Site Switching
+//side switching
 function switchToflashbackScreen() {
     body1.style.display = "none";
     body2.style.display = "block";
@@ -31,18 +31,23 @@ function switchTogameScreen() {
     video.pause();
 }
 
+//options
 function options() {
-    optionOutput.innerHTML = `
-    <h2 class="middelHeading">Volume</h2>
-    <div class="volume-container">
-        <div class="bar" data-level="1"></div>
-        <div class="bar" data-level="2"></div>
-        <div class="bar" data-level="3"></div>
-        <div class="bar" data-level="4"></div>
-        <div class="bar" data-level="5"></div>
-    </div>`;
-    
-    optionButton.style.color = "#702020";
+    optionOutputs.forEach(optionOutput => {
+        optionOutput.innerHTML = `
+        <h2 class="middelHeading">Volume</h2>
+        <div class="volume-container">
+            <div class="bar" data-level="1"></div>
+            <div class="bar" data-level="2"></div>
+            <div class="bar" data-level="3"></div>
+            <div class="bar" data-level="4"></div>
+            <div class="bar" data-level="5"></div>
+        </div>`;
+    });
+
+    if (optionButton) {
+        optionButton.style.color = "#702020";
+    }
 
     setupVolumeControls();
 }
@@ -63,9 +68,7 @@ function setupVolumeControls() {
             let level = parseInt(this.getAttribute("data-level"));
             let volume = volumeLevels[level]; 
 
-            //Volume
             video.volume = volume;
-            
 
             bars.forEach((b, index) => {
                 if (index < level) {
@@ -74,16 +77,13 @@ function setupVolumeControls() {
                     b.classList.remove("active");
                 }
             });
-
-          
         });
     });
 }
 
-
 document.addEventListener("DOMContentLoaded", setupVolumeControls);
 
-/* Video*/
+//Volume
 let skipping = false;
 
 function playVideo() {
@@ -98,3 +98,7 @@ function skipForward() {
     }
 }
 
+function continueOn() {
+    body4.style.display = "none"; 
+    body3.style.opacity = 1;
+}
