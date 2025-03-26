@@ -12,7 +12,7 @@ document.addEventListener("keyup", (event) => {
     }
 });
 
-/* Open/Close Settings (ESC) */
+/* Open Settings (ESC) */
 document.addEventListener("keydown", (event) => {
     let menuScreen = document.getElementById("inGameMenuBody");
 
