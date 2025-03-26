@@ -83,7 +83,7 @@ function setupVolumeControls() {
 
 document.addEventListener("DOMContentLoaded", setupVolumeControls);
 
-//Volume
+
 let skipping = false;
 
 function playVideo() {
