@@ -38,6 +38,9 @@ body {
 #gameScreen {
     display: none;
     background-color: #030207;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #inGameMenuBody{
     display: none;
@@ -148,4 +151,19 @@ video {
     width: 100vw;
     height: 100vh;
     object-fit: cover;
+}
+/*game*/
+.rooms{
+    width: 60%;
+}
+#room1{
+    opacity: 1;
+}
+/*player*/
+#player{
+    position: absolute;
+    z-index: 100;
+    background-color: #ff05ea;
+    width: 6vw;
+    height: 18vh;
 }
