@@ -164,6 +164,7 @@ video {
     position: absolute;
     z-index: 100;
     background-color: #ff05ea;
-    width: 6vw;
-    height: 18vh;
+    width: 80px;
+    height: 80px;
+    display: none;
 }

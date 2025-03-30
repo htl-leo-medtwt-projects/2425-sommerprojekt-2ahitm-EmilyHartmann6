@@ -26,3 +26,46 @@ document.addEventListener("keydown", (event) => {
         }
     }
 });
+
+
+
+let KEY_EVENTS = {
+    w: false,
+    a: false,
+    s: false,
+    d: false,
+}
+document.onkeydown = keyListenerDown;
+document.onkeyup = keyListenerUp;
+
+
+function keyListenerDown(e) {
+    if (e.key === "a") { 
+        KEY_EVENTS.leftArrow = true;
+    }
+    if (e.key === "w") { 
+        KEY_EVENTS.upArrow = true;
+    }
+    if (e.key === "d") { 
+        KEY_EVENTS.rightArrow = true;
+    }
+    if (e.key === "s") { 
+        KEY_EVENTS.downArrow = true;
+    }
+   
+}
+function keyListenerUp(e) {
+    if (e.key === "a") { 
+        KEY_EVENTS.leftArrow = false;
+    }
+    if (e.key === "w") { 
+        KEY_EVENTS.upArrow = false;
+    }
+    if (e.key === "d") {
+        KEY_EVENTS.rightArrow = false;
+    }
+    if (e.key === "s") { 
+        KEY_EVENTS.downArrow = false;
+    }
+   
+}

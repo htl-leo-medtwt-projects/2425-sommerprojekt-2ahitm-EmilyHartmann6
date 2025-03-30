@@ -29,6 +29,7 @@ function switchTogameScreen() {
     body2.style.display = "none";
     body3.style.display = "flex";
     video.pause();
+    document.getElementById("player").style.display = "block";
 }
 
 //options
