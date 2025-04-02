@@ -153,18 +153,26 @@ video {
     object-fit: cover;
 }
 /*game*/
-.rooms{
-    width: 60%;
-}
+
 #room1{
     opacity: 1;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 /*player*/
 #player{
     position: absolute;
     z-index: 100;
-    background-color: #ff05ea;
+    background-color: #ff05a3;
     width: 80px;
     height: 80px;
     display: none;
+}
+/*colliders*/
+.collider{
+    background-color: #ff05ea;
+    height: 20vh;
+    width: 20%;
 }

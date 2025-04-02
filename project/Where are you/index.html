@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="keyEvents.js" defer></script>
     <script src="player.js" defer></script>
-    <script	src="collision.js" defer></script>
+    <script src="collision.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 
@@ -21,7 +21,7 @@
         <div class="optionContainer">
             <div class="buttonContainer">
                 <div class="buttons" onclick="switchToflashbackScreen()">Play</div>
-                <div class="buttons"  onclick="options()">Options</div>
+                <div class="buttons" onclick="options()">Options</div>
                 <div class="buttons" onclick="javascript:window.close()">Quit</div>
             </div>
             <div class="optionOutput"></div>
@@ -37,11 +37,13 @@
 
     <div id="gameScreen" class="body">
         <div id="player"></div>
-        <div class="collider"></div>
-        <div class="collider"></div>
-        <div class="collider"></div>
-        <div class="collider"></div>
-        <img class="rooms" id="room1" src="map/bedroom1.png" alt="bedroom">
+        <div id="room1">
+            <div class="collider" id="collider1Top"></div>
+            <div class="collider" id="collider1Right"></div>
+            <div class="collider" id="collider1Bottom"></div>
+            <div class="collider" id="collider1Left"></div>
+            <img class="roomImg"  src="map/bedroom1.png" alt="bedroom">
+        </div>
     </div>
 
     <div id="inGameMenuBody" class="body">
@@ -50,12 +52,12 @@
             <h1 class="questionmark">?</h1>
         </div>
         <div class="optionContainer">
-        <div class="buttonContainer">
-            <div class="buttons" onclick="continueOn()">Continue</div>
-            <div class="buttons"  onclick="options()">Options</div>
-            <div class="buttons" onclick="javascript:window.close()">Quit</div>
-        </div>
-        <div class="optionOutput"></div>
+            <div class="buttonContainer">
+                <div class="buttons" onclick="continueOn()">Continue</div>
+                <div class="buttons" onclick="options()">Options</div>
+                <div class="buttons" onclick="javascript:window.close()">Quit</div>
+            </div>
+            <div class="optionOutput"></div>
         </div>
     </div>
 </body>

@@ -38,34 +38,31 @@ let KEY_EVENTS = {
 document.onkeydown = keyListenerDown;
 document.onkeyup = keyListenerUp;
 
-
 function keyListenerDown(e) {
     if (e.key === "a") { 
-        KEY_EVENTS.leftArrow = true;
+        KEY_EVENTS.a = true;
     }
     if (e.key === "w") { 
-        KEY_EVENTS.upArrow = true;
+        KEY_EVENTS.w = true;
     }
     if (e.key === "d") { 
-        KEY_EVENTS.rightArrow = true;
+        KEY_EVENTS.d = true;
     }
     if (e.key === "s") { 
-        KEY_EVENTS.downArrow = true;
+        KEY_EVENTS.s = true;
     }
-   
 }
 function keyListenerUp(e) {
     if (e.key === "a") { 
-        KEY_EVENTS.leftArrow = false;
+        KEY_EVENTS.a = false;
     }
     if (e.key === "w") { 
-        KEY_EVENTS.upArrow = false;
+        KEY_EVENTS.w = false;
     }
     if (e.key === "d") {
-        KEY_EVENTS.rightArrow = false;
+        KEY_EVENTS.d = false;
     }
     if (e.key === "s") { 
-        KEY_EVENTS.downArrow = false;
+        KEY_EVENTS.s = false;
     }
-   
 }

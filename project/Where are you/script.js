@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
         video.addEventListener("ended", function () {
             body2.style.display = "none";
             body3.style.display = "flex";
+            document.getElementById("player").style.display = "block";
         });
     }
 });
@@ -31,6 +32,7 @@ function switchTogameScreen() {
     video.pause();
     document.getElementById("player").style.display = "block";
 }
+
 
 //options
 function options() {
