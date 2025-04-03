@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
             body2.style.display = "none";
             body3.style.display = "flex";
             document.getElementById("player").style.display = "block";
+            document.getElementById("room1").style.display = "flex";
         });
     }
 });
