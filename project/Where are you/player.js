@@ -44,5 +44,34 @@ setInterval(() => {
     if (KEY_EVENTS.d) dx += speed;
 
     movePlayer(dx, dy, 0);
+    checkKeyPickup();
+    checkDoorEntry();
 }, 16);
 console.log("Player Position:", PLAYER.box.style.left, PLAYER.box.style.top);
+
+//key
+let keyItem = document.getElementById("keyItem");
+let hasKey = false;
+
+
+function checkKeyPickup() {
+    if (keyItem && isColliding(PLAYER.box, keyItem)) {
+        keyItem.style.display = "none";
+        hasKey = true;
+        document.getElementById("messages").innerText = "Now walk through the door";
+    }
+}
+//door
+let door = document.getElementById("door1");
+function checkDoorEntry() {
+    if (isColliding(PLAYER.box, door)) {
+        if (hasKey) {
+            document.getElementById("messages").innerText = "The door opens...";
+            document.getElementById("room1").style.display = "none";
+            document.getElementById("room2").style.display = "flex";
+            
+        } else {
+            document.getElementById("messages").innerText = "It's locked. Maybe there's a key...";
+        }
+    }
+}

@@ -15,6 +15,7 @@ body {
     padding: 0;
     margin: 0;
     overflow: hidden;
+    font-family: regular;
 }
 
 .body {
@@ -177,7 +178,7 @@ video {
 /*colliders*/
     /*room1*/
     .collider{
-        background-color: #ff05eaa0;
+        background-color: #ff05ea00;
         position: absolute;
         z-index: 50;
     }
@@ -229,7 +230,7 @@ video {
 /*doors*/
 #door1{
     position: absolute;
-    background-color: rgba(138, 247, 255, 0.833);
+    background-color: rgba(138, 247, 255, 0.386);
     width: 3%;
     height: 22vh;
     left: 28%;
@@ -237,3 +238,36 @@ video {
     z-index: 60;
 
 }
+/*message*/
+#messages{
+    position: absolute;
+    z-index: 70;
+    color: white;
+    bottom: 2%;
+    font-size: 2em;
+    display: none;
+    animation: fadeIn 1s;
+}
+@keyframes fadeIn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+/*inventory*/
+#inventory{
+    position: absolute;
+    width: 15%;
+    height: 40vh;
+    background-color: #4545455a;
+    right: 2%;
+    top: 3%;
+    display: none;
+}
+/*item*/
+.key{
+    position:absolute;
+     width:7%; 
+     top:30%; 
+     left:40%;
+     display: none;
+}
+

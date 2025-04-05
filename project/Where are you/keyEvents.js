@@ -66,3 +66,26 @@ function keyListenerUp(e) {
         KEY_EVENTS.s = false;
     }
 }
+let pressedKeys = {
+    w: false,
+    a: false,
+    s: false,
+    d: false,
+};
+
+let triggered = false;
+
+function checkAllKeysPressed() {
+    if (pressedKeys.w && pressedKeys.a && pressedKeys.s && pressedKeys.d && !triggered) {
+        triggered = true;
+        document.getElementById("messages").innerText = "Run over a object to collect it";
+        document.getElementById("keyItem").style.display = "block"
+    }
+}
+
+document.addEventListener("keydown", (e) => {
+    if (e.key in pressedKeys) {
+        pressedKeys[e.key] = true;
+        checkAllKeysPressed();
+    }
+});

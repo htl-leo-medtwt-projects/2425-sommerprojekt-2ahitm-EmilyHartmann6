@@ -8,6 +8,8 @@ let body4 = document.getElementById("inGameMenuBody");
 let video = document.getElementById("myVideo");
 let optionOutputs = document.querySelectorAll(".optionOutput");
 let optionButton = document.getElementById("optionButton");
+let message = document.getElementById("messages");
+
 
 //side switching
 function switchToflashbackScreen() {
@@ -19,10 +21,7 @@ function switchToflashbackScreen() {
 document.addEventListener("DOMContentLoaded", function () {
     if (video) {
         video.addEventListener("ended", function () {
-            body2.style.display = "none";
-            body3.style.display = "flex";
-            document.getElementById("player").style.display = "block";
-            document.getElementById("room1").style.display = "flex";
+          switchTogameScreen();
         });
     }
 });
@@ -32,6 +31,9 @@ function switchTogameScreen() {
     body3.style.display = "flex";
     video.pause();
     document.getElementById("player").style.display = "block";
+    document.getElementById("room1").style.display = "flex";
+    document.getElementById("messages").style.display = "block";
+    document.getElementById("inventory").style.display = "block"
 }
 
 
@@ -106,3 +108,4 @@ function continueOn() {
     body4.style.display = "none"; 
     body3.style.opacity = 1;
 }
+/*messages*/
