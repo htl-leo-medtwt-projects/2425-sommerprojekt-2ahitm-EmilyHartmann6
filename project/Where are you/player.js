@@ -44,8 +44,11 @@ setInterval(() => {
     if (KEY_EVENTS.d) dx += speed;
 
     movePlayer(dx, dy, 0);
-    checkKeyPickup();
-    checkDoorEntry();
+    if (KEY_EVENTS.w || KEY_EVENTS.a || KEY_EVENTS.s || KEY_EVENTS.d) {
+        checkKeyPickup();
+        checkDoorEntry();
+    }
+
 }, 16);
 console.log("Player Position:", PLAYER.box.style.left, PLAYER.box.style.top);
 
@@ -62,16 +65,18 @@ function checkKeyPickup() {
     }
 }
 //door
-let door = document.getElementById("door1");
+let door1 = document.getElementById("door1");
 function checkDoorEntry() {
-    if (isColliding(PLAYER.box, door)) {
+    if (isColliding(PLAYER.box, door1)) {
         if (hasKey) {
-            document.getElementById("messages").innerText = "The door opens...";
+            console.log(hasKey)
             document.getElementById("room1").style.display = "none";
             document.getElementById("room2").style.display = "flex";
-            
+            document.getElementById("map2").style.display = "flex";
+            PLAYER.box.style.left = "780px";
+            PLAYER.box.style.top = "360px";
         } else {
-            document.getElementById("messages").innerText = "It's locked. Maybe there's a key...";
+            document.getElementById("messages").innerText = "It is locked Maybe there is a key";
         }
     }
 }

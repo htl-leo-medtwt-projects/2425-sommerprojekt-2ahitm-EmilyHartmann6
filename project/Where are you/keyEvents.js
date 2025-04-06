@@ -89,3 +89,6 @@ document.addEventListener("keydown", (e) => {
         checkAllKeysPressed();
     }
 });
+document.addEventListener('keydown', (e) => {
+    console.log('Key pressed:', e.key, KEY_EVENTS);
+});
