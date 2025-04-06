@@ -6,6 +6,7 @@ let body4 = document.getElementById("inGameMenuBody");
 
 //Variablen
 let video = document.getElementById("myVideo");
+let video1 = document.getElementById("VideoFirstEnding")
 let optionOutputs = document.querySelectorAll(".optionOutput");
 let optionButton = document.getElementById("optionButton");
 let message = document.getElementById("messages");
@@ -34,6 +35,7 @@ function switchTogameScreen() {
     document.getElementById("room1").style.display = "flex";
     document.getElementById("messages").style.display = "block";
     document.getElementById("inventory").style.display = "block"
+    document.getElementById("currentRoom").style.display = "block"
 }
 
 
@@ -108,4 +110,7 @@ function continueOn() {
     body4.style.display = "none"; 
     body3.style.opacity = 1;
 }
-
+function playVideo1(){
+    video1.muted = false;
+    video1.play().catch(error => console.error("Playback error:", error));
+}

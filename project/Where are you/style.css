@@ -16,6 +16,7 @@ body {
     margin: 0;
     overflow: hidden;
     font-family: regular;
+    color: #C2CBD5;
 }
 
 .body {
@@ -49,6 +50,9 @@ body {
     position: absolute;
     margin-top: -56.5%;
    height: 101vh;
+}
+#endingOne{
+    display: none;
 }
 /*text elemnts*/
 .headinContainer {
@@ -163,7 +167,7 @@ video {
     width: 80%;
     display: none;
 }
-/* In style.css */
+
 #room1, #room2 {
     position: absolute;
     width: 100%;
@@ -184,29 +188,29 @@ video {
 /*colliders*/
     /*room1*/
     .collider{
-        background-color: #ff05ea88;
+        background-color: #ff05ea00;
         position: absolute;
         z-index: 50;
     }
     #collider1Top{
         top: 0;
         width: 100%;
-        height: 15vh;
+        height: 16vh;
     }
     #collider1Right{
         right: 0;
-        width: 28%;
+        width: 29%;
         height: 100vh;
     }
     #collider1Left{
         left: 0;
-        width: 28%;
+        width: 29%;
         height: 100vh;
     }
     #collider1Bottom{
         bottom: 0;
         width: 100%;
-        height: 15vh;
+        height: 16vh;
     }
     #desk1{
         bottom: 13%;
@@ -232,23 +236,97 @@ video {
         bottom: 40%;
         right: 28%;
     }
+    #firstEnding{
+        width: 56%;
+        height: 100vh;
+        right: 0;
+        background-color: #0077ffa2;
+        display: none;
+        position: absolute;
+        z-index: 70;
+    }
     /*room2*/
+    #collider2Top{
+        top: 0;
+        width: 100%;
+        height: 17vh;
+    }
+    #collider2Right{
+        right: 0;
+        width: 22%;
+        height: 100vh;
+    }
+    #collider2Left{
+        left: 0;
+        width: 27%;
+        height: 100vh;
+    }
+    #collider2Bottom{
+        bottom: 0;
+        width: 100%;
+        height: 17vh;
+    }
+    #collider2filler1{
+        top: 0;
+        width: 36%;
+        height: 24vh;
+        left: 0;
+    } #collider2filler2{
+        top: 0;
+        width: 36%;
+        height: 41vh;
+        right: 0;
+    }
+    #collider2filler3{
+        bottom: 0;
+        width: 36%;
+        height: 33vh;
+        right: 0;
+    }
+    #desk4{
+        top: 19%;
+        width: 10%;
+        height: 8vh;
+        right: 36%;
+    }
+    #chair1{
+        width: 4%;
+        height: 6vh;
+        top: 20%;
+        left: 38%;
+    }
 /*doors*/
 #door1{
     position: absolute;
-    background-color: rgba(138, 247, 255, 0.386);
+    background-color: rgba(138, 247, 255, 0);
     width: 3%;
     height: 22vh;
     left: 28%;
     top:39%;
     z-index: 60;
-
+}
+#door2{
+    position: absolute;
+    background-color: rgba(138, 247, 255, 0.574);
+    width: 3%;
+    height: 22vh;
+    right: 22%;
+    top:41%;
+    z-index: 60;
+}
+#door3{
+    position: absolute;
+    background-color: rgba(138, 247, 255, 0.574);
+    width: 8%;
+    height: 5vh;
+    left: 27%;
+    top:24%;
+    z-index: 60;
 }
 /*message*/
 #messages{
     position: absolute;
     z-index: 70;
-    color: white;
     bottom: 2%;
     font-size: 2em;
     display: none;
@@ -276,4 +354,11 @@ video {
      left:40%;
      display: none;
 }
-
+/*current room*/
+#currentRoom{
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    font-size: 2em;
+    display: none;
+}

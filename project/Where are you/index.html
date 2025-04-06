@@ -48,19 +48,29 @@
             <div class="collider" id="desk3"></div>
             <div class="collider" id="bed1"></div>
             <div id="door1"></div>
+            <div id="firstEnding"></div>
             <img id="map1"  src="map/bedroom1.png" alt="bedroom">
         </div>
         <div id="room2">
-            <!--<div class="collider" id="collider2Top"></div>
+            <div class="collider" id="collider2Top"></div>
             <div class="collider" id="collider2Right"></div>
             <div class="collider" id="collider2Bottom"></div>
-            <div class="collider" id="collider2Left"></div>-->
+            <div class="collider" id="collider2Left"></div>
+            <div class="collider" id="collider2filler1"></div>
+            <div class="collider" id="collider2filler2"></div>
+            <div class="collider" id="collider2filler3"></div>
+            <div class="collider" id="desk4"></div>
+            <div class="collider" id="chair1"></div>
+            <div id="door2"></div>
+            <div id="door3"></div>
             <img  id="map2" src="map/corridor1.png" alt="corridor">
         </div>
 
-
+        <div id="currentRoom">Bedroom</div>
         <div id="messages">Use WASD to walk</div>
+        <!--items-->
         <img src="img/key.png" id="keyItem" class="key"/>
+
         <div id="inventory">
             <div id="collectedKey"></div>
             <div id="collectedLetter"></div>
@@ -81,6 +91,11 @@
             </div>
             <div class="optionOutput"></div>
         </div>
+    </div>
+    <div class="body" id="endingOne">
+        <video id="VideoFirstEnding" width="100" height="100" autoplay muted playsinline>
+            <source src="cutscenes/firstEnding.mp4" type="video/mp4">
+        </video>
     </div>
 </body>
 

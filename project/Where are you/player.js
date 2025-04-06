@@ -64,8 +64,10 @@ function checkKeyPickup() {
         document.getElementById("messages").innerText = "Now walk through the door";
     }
 }
-//door
+//doors
 let door1 = document.getElementById("door1");
+let door2 = document.getElementById("door2");
+let firstEnding = document.getElementById("firstEnding");
 function checkDoorEntry() {
     if (isColliding(PLAYER.box, door1)) {
         if (hasKey) {
@@ -73,10 +75,30 @@ function checkDoorEntry() {
             document.getElementById("room1").style.display = "none";
             document.getElementById("room2").style.display = "flex";
             document.getElementById("map2").style.display = "flex";
-            PLAYER.box.style.left = "780px";
-            PLAYER.box.style.top = "360px";
+            document.getElementById("messages").innerText = "";
+            document.getElementById("currentRoom").innerText = "Corridor"
+            PLAYER.box.style.left = "1035px";
+            PLAYER.box.style.top = "425px";
+
         } else {
             document.getElementById("messages").innerText = "It is locked Maybe there is a key";
         }
     }
+    if (isColliding(PLAYER.box, door2)) {
+       
+            document.getElementById("room1").style.display = "flex";
+            document.getElementById("room2").style.display = "none";
+            document.getElementById("map2").style.display = "none";
+            document.getElementById("messages").innerText = "You escaped a painful and deadly adventure";
+            document.getElementById("currentRoom").innerText = "Bedroom"
+            document.getElementById("firstEnding").style.display ="block"
+            PLAYER.box.style.left = "525px";
+            PLAYER.box.style.top = "395px";
+    }
+    if (isColliding(PLAYER.box, firstEnding)) {
+       PLAYER.box.style.display = "none"
+       document.getElementById("gameScreen").style.display = "none";
+       document.getElementById("endingOne").style.display = "block";
+       playVideo1();
+}
 }
