@@ -26,6 +26,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+document.addEventListener("DOMContentLoaded", function () {
+    if (video1) {
+        video1.addEventListener("ended", function () {
+           document.getElementById("endingOne").style.display = "none";
+           body1.style.display = "block";
+        });
+    }
+});
 
 function switchTogameScreen() {
     body2.style.display = "none";

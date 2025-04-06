@@ -240,7 +240,7 @@ video {
         width: 56%;
         height: 100vh;
         right: 0;
-        background-color: #0077ffa2;
+        
         display: none;
         position: absolute;
         z-index: 70;
