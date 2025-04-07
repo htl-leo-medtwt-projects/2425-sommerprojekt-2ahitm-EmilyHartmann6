@@ -146,6 +146,7 @@ body {
     font-size: 1em;
     font-family: regular;
     color: #C2CBD5;
+
 }
 
 /*video*/
@@ -156,6 +157,7 @@ video {
     width: 100vw;
     height: 100vh;
     object-fit: cover;
+    z-index: 0;
 }
 /*game*/
 #map1{
@@ -167,8 +169,12 @@ video {
     width: 80%;
     display: none;
 }
-
-#room1, #room2 {
+#map3{
+    position: absolute;
+    width: 60%;
+    display: none;
+}
+#room1, #room2 , #room3 {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -295,6 +301,45 @@ video {
         top: 20%;
         left: 38%;
     }
+    /*room3*/
+    #collider3Top{
+        top: 0;
+        width: 100%;
+        height: 31vh;
+    }
+    #collider3Right{
+        right: 0;
+        width: 32%;
+        height: 100vh;
+    }
+    #collider3Left{
+        left: 0;
+        width: 32%;
+        height: 100vh;
+    }
+    #collider3Bottom{
+        bottom: 0;
+        width: 100%;
+        height: 17vh;
+    }
+    #collider3Filler1{
+        bottom: 0;
+        width: 46%;
+        height: 30vh;
+        left: 0;
+    }
+    #collider3Filler2{
+        bottom: 0;
+        width: 39%;
+        height: 30vh;
+        right: 0;
+    }
+   #desk5{
+    width: 8%;
+    height: 16vh;
+    bottom: 30%;
+    left:32%;
+   }
 /*doors*/
 #door1{
     position: absolute;

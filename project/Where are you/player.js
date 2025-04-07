@@ -68,6 +68,7 @@ function checkKeyPickup() {
 let door1 = document.getElementById("door1");
 let door2 = document.getElementById("door2");
 let firstEnding = document.getElementById("firstEnding");
+let door3 = document.getElementById("door3")
 function checkDoorEntry() {
     if (isColliding(PLAYER.box, door1)) {
         if (hasKey) {
@@ -100,5 +101,15 @@ function checkDoorEntry() {
        document.getElementById("gameScreen").style.display = "none";
        document.getElementById("endingOne").style.display = "block";
        playVideo1();
-}
+    }
+    if (isColliding(PLAYER.box, door3)) {
+        document.getElementById("map2").style.display = "none";
+        document.getElementById("room2").style.display = "none";
+        document.getElementById("room3").style.display = "flex";
+        document.getElementById("map3").style.display = "block";
+        document.getElementById("endingOne").style.display = "none";
+        PLAYER.box.style.left = "770px";
+        PLAYER.box.style.top = "570px";
+     }
+
 }
