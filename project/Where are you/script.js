@@ -33,6 +33,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+document.addEventListener("DOMContentLoaded", function () {
+    if (stanely) {
+        stanely.addEventListener("ended", function () {
+          window.location.href = "./index.html";
+        });
+    }
+});
 
 function switchTogameScreen() {
     body2.style.display = "none";
@@ -84,6 +91,8 @@ function setupVolumeControls() {
             let volume = volumeLevels[level]; 
 
             video.volume = volume;
+            video1.volume = volume;
+            stanely.volume = volume;
 
             bars.forEach((b, index) => {
                 if (index < level) {
@@ -121,3 +130,6 @@ function playVideo1(){
     video1.muted = false;
     video1.play().catch(error => console.error("Playback error:", error));
 }
+
+/*audio*/
+let stanely = new Audio("audio/broomClosetEnding.mp3");

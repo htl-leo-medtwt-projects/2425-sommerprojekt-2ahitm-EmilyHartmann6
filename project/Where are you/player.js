@@ -110,6 +110,8 @@ function checkDoorEntry() {
         document.getElementById("endingOne").style.display = "none";
         PLAYER.box.style.left = "770px";
         PLAYER.box.style.top = "570px";
+        stanely.play();
+        
      }
 
 }
