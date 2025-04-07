@@ -1,62 +1,62 @@
+
 let PLAYER = {
     box: document.getElementById('player'),
-}
-PLAYER.box.style.left = "780px"; 
-PLAYER.box.style.top = "360px";
-let colliders = document.querySelectorAll('.collider');
-function movePlayer(dx, dy, dr) {
-    // Save original position
-    let originalX = parseFloat(PLAYER.box.style.left);
-    let originalY = parseFloat(PLAYER.box.style.top);
+    isActive: false
+};
 
-    // Calculate new position
-    let newX = originalX + dx;
-    let newY = originalY + dy;
+
+PLAYER.box.style.left = "50vw";
+PLAYER.box.style.top = "50vh";
+PLAYER.box.style.width = "5vw";
+PLAYER.box.style.height = "10vh";
+
+let colliders = document.querySelectorAll('.collider');
+let keyItem = document.getElementById("keyItem");
+let hasKey = false;
+
+let door1 = document.getElementById("door1");
+let door2 = document.getElementById("door2");
+let door3 = document.getElementById("door3");
+let door4 = document.getElementById("door4");
+let firstEnding = document.getElementById("firstEnding");
+
+function movePlayer(dx, dy) {
+    if (!PLAYER.isActive) return;
+
+    let currentLeft = parseFloat(PLAYER.box.style.left);
+    let currentTop = parseFloat(PLAYER.box.style.top);
+    
+    let newLeft = currentLeft + dx;
+    let newTop = currentTop + dy;
+
+    // Convert vw/vh to pixels 
+    let playerLeftPx = (newLeft / 100) * window.innerWidth;
+    let playerTopPx = (newTop / 100) * window.innerHeight;
+    let playerRightPx = playerLeftPx + PLAYER.box.clientWidth;
+    let playerBottomPx = playerTopPx + PLAYER.box.clientHeight;
 
     // Check for collisions
     let collisionDetected = false;
     colliders.forEach(collider => {
-        let colliderRect = collider.getBoundingClientRect();
-        let playerRect = PLAYER.box.getBoundingClientRect();
-
-        if (
-            newX < colliderRect.right &&
-            newX + playerRect.width > colliderRect.left &&
-            newY < colliderRect.bottom &&
-            newY + playerRect.height > colliderRect.top
-        ) {
-            collisionDetected = true;
+        if (collider.style.display !== "none") { // Only check visible colliders
+            let colliderRect = collider.getBoundingClientRect();
+            
+            if (playerLeftPx < colliderRect.right &&
+                playerRightPx > colliderRect.left &&
+                playerTopPx < colliderRect.bottom &&
+                playerBottomPx > colliderRect.top) {
+                collisionDetected = true;
+            }
         }
     });
-        if(!collisionDetected){
-        PLAYER.box.style.left = newX + 'px';
-        PLAYER.box.style.top = newY + 'px';
-        }
 
-}
-setInterval(() => {
-    let dx = 0, dy = 0;
-    const speed = 5;
-
-    if (KEY_EVENTS.w) dy -= speed;
-    if (KEY_EVENTS.s) dy += speed;
-    if (KEY_EVENTS.a) dx -= speed;
-    if (KEY_EVENTS.d) dx += speed;
-
-    movePlayer(dx, dy, 0);
-    if (KEY_EVENTS.w || KEY_EVENTS.a || KEY_EVENTS.s || KEY_EVENTS.d) {
-        checkKeyPickup();
-        checkDoorEntry();
+    if (!collisionDetected) {
+        PLAYER.box.style.left = newLeft + 'vw';
+        PLAYER.box.style.top = newTop + 'vh';
     }
+}
 
-}, 16);
-console.log("Player Position:", PLAYER.box.style.left, PLAYER.box.style.top);
-
-//key
-let keyItem = document.getElementById("keyItem");
-let hasKey = false;
-
-
+// Key 
 function checkKeyPickup() {
     if (keyItem && isColliding(PLAYER.box, keyItem)) {
         keyItem.style.display = "none";
@@ -64,54 +64,103 @@ function checkKeyPickup() {
         document.getElementById("messages").innerText = "Now walk through the door";
     }
 }
-//doors
-let door1 = document.getElementById("door1");
-let door2 = document.getElementById("door2");
-let firstEnding = document.getElementById("firstEnding");
-let door3 = document.getElementById("door3")
+
+// Door
 function checkDoorEntry() {
+    if (!PLAYER.isActive) return;
+
     if (isColliding(PLAYER.box, door1)) {
         if (hasKey) {
-            console.log(hasKey)
             document.getElementById("room1").style.display = "none";
             document.getElementById("room2").style.display = "flex";
             document.getElementById("map2").style.display = "flex";
             document.getElementById("messages").innerText = "";
-            document.getElementById("currentRoom").innerText = "Corridor"
-            PLAYER.box.style.left = "1035px";
-            PLAYER.box.style.top = "425px";
-
+            document.getElementById("currentRoom").innerText = "Corridor";
+            PLAYER.box.style.left = "70vw";
+            PLAYER.box.style.top = "50vh";
         } else {
-            document.getElementById("messages").innerText = "It is locked Maybe there is a key";
+            document.getElementById("messages").innerText = "It is locked. Maybe there is a key";
         }
+        return;
     }
+    
     if (isColliding(PLAYER.box, door2)) {
-       
-            document.getElementById("room1").style.display = "flex";
-            document.getElementById("room2").style.display = "none";
-            document.getElementById("map2").style.display = "none";
-            document.getElementById("messages").innerText = "You escaped a painful and deadly adventure";
-            document.getElementById("currentRoom").innerText = "Bedroom"
-            document.getElementById("firstEnding").style.display ="block"
-            PLAYER.box.style.left = "525px";
-            PLAYER.box.style.top = "395px";
+        document.getElementById("room1").style.display = "flex";
+        document.getElementById("room2").style.display = "none";
+        document.getElementById("map2").style.display = "none";
+        document.getElementById("messages").innerText = "You escaped a painful and deadly adventure";
+        document.getElementById("currentRoom").innerText = "Bedroom";
+        document.getElementById("firstEnding").style.display = "block";
+        PLAYER.box.style.left = "35vw";
+        PLAYER.box.style.top = "50vh";
+        return;
     }
+    
     if (isColliding(PLAYER.box, firstEnding)) {
-       PLAYER.box.style.display = "none"
-       document.getElementById("gameScreen").style.display = "none";
-       document.getElementById("endingOne").style.display = "block";
-       playVideo1();
+        PLAYER.box.style.display = "none";
+        document.getElementById("gameScreen").style.display = "none";
+        document.getElementById("endingOne").style.display = "block";
+        playVideo1();
+        return;
     }
+    
     if (isColliding(PLAYER.box, door3)) {
         document.getElementById("map2").style.display = "none";
         document.getElementById("room2").style.display = "none";
         document.getElementById("room3").style.display = "flex";
         document.getElementById("map3").style.display = "block";
         document.getElementById("endingOne").style.display = "none";
-        PLAYER.box.style.left = "770px";
-        PLAYER.box.style.top = "570px";
-        stanely.play();
+        document.getElementById("currentRoom").innerText = "Broom Closet";
+        PLAYER.box.style.left = "50vw";
+        PLAYER.box.style.top = "60vh";
         
-     }
+        
+        colliders = document.querySelectorAll('.collider');
+        
+        stanely.play();
+        return;
+    }
+    if (isColliding(PLAYER.box, door4)) {
+        document.getElementById("map2").style.display = "flex";
+        document.getElementById("room2").style.display = "flex";
+        document.getElementById("room3").style.display = "none";
+        document.getElementById("map3").style.display = "none";
+        document.getElementById("currentRoom").innerText = "Corridor";
+        PLAYER.box.style.left = "35vw";
+        PLAYER.box.style.top = "50vh";
+        stanely.pause();
+        stanely.currentTime = 0;
+        return;
+    }
+}
 
+// Game loop
+function gameLoop() {
+    if (PLAYER.isActive) {
+        let dx = 0, dy = 0;
+        const speed = 0.3;
+
+        if (KEY_EVENTS.w) dy -= speed;
+        if (KEY_EVENTS.s) dy += speed;
+        if (KEY_EVENTS.a) dx -= speed;
+        if (KEY_EVENTS.d) dx += speed;
+
+        if (dx !== 0 || dy !== 0) {
+            movePlayer(dx, dy);
+            checkKeyPickup();
+            checkDoorEntry();
+        }
+    }
+    requestAnimationFrame(gameLoop);
+}
+
+
+requestAnimationFrame(gameLoop);
+
+function setGameActive(state) {
+    PLAYER.isActive = state;
+    if (!state) {
+        // Reset key 
+        KEY_EVENTS = { w: false, a: false, s: false, d: false };
+    }
 }
