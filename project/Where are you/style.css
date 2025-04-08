@@ -246,7 +246,7 @@ video {
         width: 56%;
         height: 100vh;
         right: 0;
-        background-color: #08356889;
+        background-color: #08356800;
         display: none;
         position: absolute;
         z-index: 70;
@@ -400,13 +400,27 @@ video {
     top: 3%;
     display: none;
 }
+#keyInventory{
+    width:20%;
+    height: 7vh;
+}
+#collectedKey{
+    height: 15vh;
+    
+    gap: 2;
+    display: flex;
+}
+#collectedKey p{
+    width: 20%;
+    font-size: 1.5em;
+}
 /*item*/
 .key{
     position:absolute;
-     width:7%; 
-     top:30%; 
-     left:40%;
-     display: none;
+    width:5%; 
+    top:30%; 
+    left:40%;
+    display: none;
 }
 /*current room*/
 #currentRoom{

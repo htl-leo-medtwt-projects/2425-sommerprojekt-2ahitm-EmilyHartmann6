@@ -13,6 +13,8 @@ PLAYER.box.style.height = "10vh";
 let colliders = document.querySelectorAll('.collider');
 let keyItem = document.getElementById("keyItem");
 let hasKey = false;
+let collectedKey = document.getElementById("collectedKey");
+let collectedLetter = document.getElementById("collectedLetter")
 
 let door1 = document.getElementById("door1");
 let door2 = document.getElementById("door2");
@@ -62,6 +64,8 @@ function checkKeyPickup() {
         keyItem.style.display = "none";
         hasKey = true;
         document.getElementById("messages").innerText = "Now walk through the door";
+        collectedKey.innerHTML = `<img src="img/key.png" id="keyInventory"/> 
+        <p>collected</p>`;
     }
 }
 
@@ -78,6 +82,7 @@ function checkDoorEntry() {
             document.getElementById("currentRoom").innerText = "Corridor";
             PLAYER.box.style.left = "70vw";
             PLAYER.box.style.top = "50vh";
+            collectedKey.innerHTML = "";
         } else {
             document.getElementById("messages").innerText = "It is locked. Maybe there is a key";
         }
@@ -88,7 +93,7 @@ function checkDoorEntry() {
         document.getElementById("room1").style.display = "flex";
         document.getElementById("room2").style.display = "none";
         document.getElementById("map2").style.display = "none";
-        document.getElementById("messages").innerText = "You escaped a painful and deadly adventure";
+        document.getElementById("messages").innerText = "You escaped a painful death";
         document.getElementById("currentRoom").innerText = "Bedroom";
         document.getElementById("firstEnding").style.display = "block";
         PLAYER.box.style.left = "35vw";
