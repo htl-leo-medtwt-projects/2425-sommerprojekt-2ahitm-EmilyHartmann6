@@ -49,7 +49,7 @@ function switchTogameScreen() {
 function continueOn() {
     body4.style.display = "none"; 
     body3.style.opacity = 1;
-    setGameActive(true); // Re-enable controls when continuing
+    setGameActive(true); 
 }
 
 // Video control functions
@@ -172,3 +172,12 @@ document.addEventListener("keyup", (event) => {
         skipping = false;
     }
 });
+
+//letter
+function letterContinue(){
+    document.getElementById("letterContainer").style.display = "none";
+    document.getElementById("letterInventory").style.display = "block";
+}
+function letterReturn(){
+    window.location.href = "./index.html";
+}

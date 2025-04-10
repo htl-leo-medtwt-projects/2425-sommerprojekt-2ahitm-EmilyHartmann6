@@ -76,15 +76,37 @@
             <div id="door4"></div>
             <img  id="map3" src="map/broomcloset.png" alt="broomcloset">
         </div>
+        <div id="room4">
+            <div class="collider" id="collider4Top"></div>
+            <div class="collider" id="collider4Right"></div>
+            <div class="collider" id="collider4Bottom"></div>
+            <div class="collider" id="collider4Left"></div>
+            <div class="collider" id="desk6"></div>
+            <div id="door5"></div>
+            <img  id="map3" src="map/corridor2.png" alt="corridor">
+        </div>
 
         <div id="currentRoom">Bedroom</div>
         <div id="messages">Use WASD to walk</div>
         <!--items-->
         <img src="img/key.png" id="keyItem" class="key"/>
+        <img src="img/paperBall.png" id="paperBall"/>
+        <div id="letterContainer">
+            <img src="img/letter.png" id="letter"/>
+            <div id="optionsletter">
+            <p onclick="letterContinue()">continue</p>
+            <p onclick="letterReturn()">return</p>
+            </div>
+        </div>
+        
+        
+        
         <!--inventory-->
         <div id="inventory">
             <div id="collectedKey"></div>
-            <div id="collectedLetter"></div>
+            <div id="collectedLetter">
+                <img src="img/letter.png" id="letterInventory"/>
+            </div>
         </div>
 
     </div>

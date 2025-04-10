@@ -70,6 +70,7 @@ function checkKeyPickup() {
 }
 
 // Door
+let paperBall = document.getElementById("paperBall");
 function checkDoorEntry() {
     if (!PLAYER.isActive) return;
 
@@ -83,8 +84,9 @@ function checkDoorEntry() {
             PLAYER.box.style.left = "70vw";
             PLAYER.box.style.top = "50vh";
             collectedKey.innerHTML = "";
+            paperBall.style.display = "block";
         } else {
-            document.getElementById("messages").innerText = "It is locked. Maybe there is a key";
+            document.getElementById("messages").innerText = "It is locked Maybe there is a key";
         }
         return;
     }
@@ -131,10 +133,15 @@ function checkDoorEntry() {
         document.getElementById("room3").style.display = "none";
         document.getElementById("map3").style.display = "none";
         document.getElementById("currentRoom").innerText = "Corridor";
-        PLAYER.box.style.left = "35vw";
-        PLAYER.box.style.top = "50vh";
+        PLAYER.box.style.left = "28.7vw";
+        PLAYER.box.style.top = "34.1vh";
         stanely.pause();
         stanely.currentTime = 0;
+        return;
+    }
+    if (isColliding(PLAYER.box, paperBall)) {
+       document.getElementById("letterContainer").style.display = "flex";
+       paperBall.style.display = "none";
         return;
     }
 }
