@@ -174,7 +174,12 @@ video {
     width: 35%;
     display: none;
 }
-#room1, #room2 , #room3, room4 {
+#map4{
+    position: absolute;
+    width: 50%;
+    display: none;
+}
+#room1, #room2 , #room3, #room4 {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -194,7 +199,7 @@ video {
 /*colliders*/
     /*room1*/
     .collider{
-        background-color: #9000ff00;
+        background-color: #9d1cffb5;
         position: absolute;
         z-index: 50;
     }
@@ -340,6 +345,34 @@ video {
     bottom: 37%;
     left:37%;
    }
+   #code5{
+    width: 2%;
+    height: 8vh;
+    bottom: 39%;
+    left:39%;
+    z-index: 100;
+   }
+     /*room4*/
+     #collider4Top{
+        top: 0;
+        width: 100%;
+        height: 20vh;
+    }
+    #collider4Right{
+        right: 0;
+        width: 43%;
+        height: 100vh;
+    }
+    #collider4Left{
+        left: 0;
+        width: 33%;
+        height: 100vh;
+    }
+    #collider4Bottom{
+        bottom: 0;
+        width: 100%;
+        height: 20vh;
+    }
 /*doors*/
 #door1{
     position: absolute;
@@ -370,11 +403,20 @@ video {
 }
 #door4{
     position: absolute;
-    background-color: rgba(138, 247, 255, 0);
+    background-color: rgba(138, 255, 234, 0);
     width: 8%;
     height: 5vh;
     left: 48%;
     bottom:24%;
+    z-index: 60;
+}
+#door5{
+    position: absolute;
+    background-color: rgba(138, 247, 255, 0);
+    width: 11%;
+    height: 5vh;
+    left:42%;
+    bottom:16%;
     z-index: 60;
 }
 /*message*/

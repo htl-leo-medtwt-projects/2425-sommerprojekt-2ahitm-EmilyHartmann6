@@ -144,6 +144,16 @@ function checkDoorEntry() {
        paperBall.style.display = "none";
         return;
     }
+    if (isColliding(PLAYER.box, door5)) {
+        document.getElementById("map4").style.display = "flex";
+        document.getElementById("room4").style.display = "flex";
+        document.getElementById("room2").style.display = "none";
+        document.getElementById("map2").style.display = "none";
+        document.getElementById("currentRoom").innerText = "Corridor";
+        PLAYER.box.style.left = "47.8.vw";
+        PLAYER.box.style.top = "20.3vh";
+        return;
+    }
 }
 
 // Game loop
