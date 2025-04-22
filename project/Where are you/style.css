@@ -352,8 +352,8 @@ video {
     left:39%;
     z-index: 100;
    }
-     /*room4*/
-     #collider4Top{
+    /*room4*/
+    #collider4Top{
         top: 0;
         width: 100%;
         height: 20vh;
@@ -372,6 +372,18 @@ video {
         bottom: 0;
         width: 100%;
         height: 20vh;
+    }
+    #collider4Filler1{
+        bottom: 0;
+        width: 43%;
+        height: 38vh;
+        left: 0;
+    }
+    #collider4Filler2{
+        top: 0;
+        width: 38%;
+        height: 46vh;
+        left: 0;
     }
 /*doors*/
 #door1{
@@ -416,6 +428,24 @@ video {
     width: 11%;
     height: 5vh;
     left:42%;
+    bottom:16%;
+    z-index: 60;
+}
+#door6{
+    position: absolute;
+    background-color: rgba(138, 247, 255, 0.879);
+    width: 11%;
+    height: 5vh;
+    left:45%;
+    top:16%;
+    z-index: 60;
+}
+#door7{
+    position: absolute;
+    background-color: rgb(138, 247, 255);
+    width: 11%;
+    height: 5vh;
+    left:44%;
     bottom:16%;
     z-index: 60;
 }

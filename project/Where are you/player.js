@@ -20,6 +20,9 @@ let door1 = document.getElementById("door1");
 let door2 = document.getElementById("door2");
 let door3 = document.getElementById("door3");
 let door4 = document.getElementById("door4");
+let door5 = document.getElementById("door5");
+let door6 = document.getElementById("door6");
+let door7 = document.getElementById("door7");
 let firstEnding = document.getElementById("firstEnding");
 
 function movePlayer(dx, dy) {
@@ -151,7 +154,27 @@ function checkDoorEntry() {
         document.getElementById("map2").style.display = "none";
         document.getElementById("currentRoom").innerText = "Corridor";
         PLAYER.box.style.left = "47.8.vw";
-        PLAYER.box.style.top = "20.3vh";
+        PLAYER.box.style.top = "23.3vh";
+        return;
+    }
+    if (isColliding(PLAYER.box, door6)) {
+        document.getElementById("map2").style.display = "flex";
+        document.getElementById("room2").style.display = "flex";
+        document.getElementById("room4").style.display = "none";
+        document.getElementById("map4").style.display = "none";
+        document.getElementById("currentRoom").innerText = "Corridor";
+        PLAYER.box.style.left = "47.8.vw";
+        PLAYER.box.style.top = "63.8vh";
+        return;
+    }
+    if (isColliding(PLAYER.box, door7)) {
+        document.getElementById("map5").style.display = "flex";
+        document.getElementById("room5").style.display = "flex";
+        document.getElementById("room4").style.display = "none";
+        document.getElementById("map4").style.display = "none";
+        document.getElementById("currentRoom").innerText = "Corridor";
+        PLAYER.box.style.left = "47.8.vw";
+        PLAYER.box.style.top = "63.8vh";
         return;
     }
 }
