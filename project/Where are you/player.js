@@ -23,6 +23,7 @@ let door4 = document.getElementById("door4");
 let door5 = document.getElementById("door5");
 let door6 = document.getElementById("door6");
 let door7 = document.getElementById("door7");
+let door8 = document.getElementById("door8");
 let firstEnding = document.getElementById("firstEnding");
 
 function movePlayer(dx, dy) {
@@ -174,7 +175,17 @@ function checkDoorEntry() {
         document.getElementById("map4").style.display = "none";
         document.getElementById("currentRoom").innerText = "Corridor";
         PLAYER.box.style.left = "47.8.vw";
-        PLAYER.box.style.top = "63.8vh";
+        PLAYER.box.style.top = "26.8vh";
+        return;
+    }
+    if (isColliding(PLAYER.box, door8)) {
+        document.getElementById("map4").style.display = "flex";
+        document.getElementById("room4").style.display = "flex";
+        document.getElementById("room5").style.display = "none";
+        document.getElementById("map5").style.display = "none";
+        document.getElementById("currentRoom").innerText = "Corridor";
+        PLAYER.box.style.left = "46.3.vw";
+        PLAYER.box.style.top = "66vh";
         return;
     }
 }
