@@ -97,9 +97,22 @@
             <div class="collider" id="collider5Left"></div>
             <div class="collider" id="collider5Filler1"></div>
             <div class="collider" id="collider5Filler2"></div>
+            <div class="collider" id="desk7"></div>
+            <div class="collider" id="chair2"></div>
             <div id="door8"></div>
             <div id="door9"></div>
+            <div id="door10"></div>
+
             <img  id="map5" src="map/corridor3.png" alt="corridor">
+        </div>
+        <div id="room6">
+            <div class="collider" id="collider6Top"></div>
+            <div class="collider" id="collider6Right"></div>
+            <div class="collider" id="collider6Bottom"></div>
+            <div class="collider" id="collider6Left"></div>
+            <div class="collider" id="collider6Filler1"></div>
+            <div class="collider" id="collider6Filler2"></div>
+            <img  id="map6" src="map/livingRoom.png">
         </div>
 
         <div id="currentRoom">Bedroom</div>
@@ -114,7 +127,18 @@
             <p onclick="letterReturn()">return</p>
             </div>
         </div>
-        
+        <!--code-->
+        <div id="codeInputContainer">
+            <div id="codeInputBox">
+                <h2>ENTER THE CODE</h2>
+                <input type="text" id="codeInput" maxlength="3">
+                <div id="codeInputButtons">
+                    <button id="submitCode">TRY</button>
+                    <button id="cancelCode">CANCEL</button>
+                </div>
+                <p id="codeFeedback"></p>
+            </div>
+        </div>
         
         
         <!--inventory-->

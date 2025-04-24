@@ -15,6 +15,8 @@ let keyItem = document.getElementById("keyItem");
 let hasKey = false;
 let collectedKey = document.getElementById("collectedKey");
 let collectedLetter = document.getElementById("collectedLetter")
+const correctCode = "135"; 
+let currentDoor = null; 
 
 let door1 = document.getElementById("door1");
 let door2 = document.getElementById("door2");
@@ -24,6 +26,7 @@ let door5 = document.getElementById("door5");
 let door6 = document.getElementById("door6");
 let door7 = document.getElementById("door7");
 let door8 = document.getElementById("door8");
+let door9 = document.getElementById("door9");
 let firstEnding = document.getElementById("firstEnding");
 
 function movePlayer(dx, dy) {
@@ -186,6 +189,23 @@ function checkDoorEntry() {
         document.getElementById("currentRoom").innerText = "Corridor";
         PLAYER.box.style.left = "46.3.vw";
         PLAYER.box.style.top = "66vh";
+        return;
+    }
+    if (isColliding(PLAYER.box, door9)) {
+        currentDoor = door9;
+        document.getElementById("codeInputContainer").style.display = "flex";
+        document.getElementById("codeInput").focus();
+        setGameActive(false);
+        return;
+    }
+    if (isColliding(PLAYER.box, door10)) {
+        document.getElementById("map6").style.display = "flex";
+        document.getElementById("room6").style.display = "flex";
+        document.getElementById("room5").style.display = "none";
+        document.getElementById("map5").style.display = "none";
+        document.getElementById("currentRoom").innerText = "Living Room";
+        PLAYER.box.style.left = "44.8vw";
+        PLAYER.box.style.top = "27.6vh";
         return;
     }
 }

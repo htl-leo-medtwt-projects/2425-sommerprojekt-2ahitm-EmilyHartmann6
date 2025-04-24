@@ -184,7 +184,12 @@ video {
     width: 50%;
     display: none; 
 }
-#room1, #room2 , #room3, #room4,#room5 {
+#map6{
+    position: absolute;
+    width: 60%;
+    display: none;  
+}
+#room1, #room2 , #room3, #room4,#room5,#room6 {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -204,7 +209,7 @@ video {
 /*colliders*/
     /*room1*/
     .collider{
-        background-color: #9d1cffb5;
+        background-color: #9d1cff00;
         position: absolute;
         z-index: 50;
     }
@@ -423,6 +428,41 @@ video {
         height: 52vh;
         right: 0;
     }
+    #desk7{
+        top: 16vh;
+        width: 15%;
+        height: 11vh;
+        left: 28vw;
+        background-color: #05ff0900;
+    }
+    #chair2{
+        width: 4%;
+        height: 7vh;
+        right:35vw;
+        bottom:42vh;
+        background-color: #05ff0900;
+    }
+    /*room6*/
+    #collider6Top{
+        top: 0;
+        width: 100%;
+        height: 19vh;
+    }
+    #collider6Right{
+        right: 0;
+        width: 33%;
+        height: 100vh;
+    }
+    #collider6Left{
+        left: 0;
+        width: 33%;
+        height: 100vh;
+    }
+    #collider6Bottom{
+        bottom: 0;
+        width: 100%;
+        height: 19vh;
+    }
 /*doors*/
 #door1{
     position: absolute;
@@ -503,6 +543,15 @@ video {
     height: 18vh;
     left:32%;
     top:30%;
+    z-index: 60;
+}
+#door10{
+    position: absolute;
+    background-color: rgb(138, 247, 255);
+    width: 6%;
+    height: 4vh;
+    right:40%;
+    bottom:20%;
     z-index: 60;
 }
 /*message*/
@@ -608,4 +657,84 @@ video {
     width: 5%;
     opacity: 0.7;
     display: none;
+}
+/* Code Input Styling */
+#codeInputContainer {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+#codeInputBox {
+    background: #222;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid #702020;
+    width: 300px;
+}
+
+#codeInputBox h2 {
+    color: #C2CBD5;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#codeInput {
+    font-size: 3em;
+    width: 200px;
+    text-align: center;
+    background: #111;
+    color: #C2CBD5;
+    border: 1px solid #702020;
+    padding: 10px;
+}
+
+#codeInputButtons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#codeInputButtons button {
+    background: #702020;
+    color: #C2CBD5;
+    border: none;
+    padding: 10px 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+#codeInputButtons #cancelCode {
+    background: #333;
+}
+
+#codeFeedback {
+    color: #702020;
+    font-size: 1.5em;
+    margin-top: 20px;
+    height: 30px;
+}
+
+/* Code Clue Styling */
+#codeClue {
+    position: absolute;
+    color: #C2CBD5;
+    font-size: 1.2em;
+    left: 30%;
+    top: 30%;
+    width: 40%;
+    text-align: center;
+    display: none;
+    background: rgba(0,0,0,0.7);
+    padding: 20px;
+    border-radius: 10px;
 }

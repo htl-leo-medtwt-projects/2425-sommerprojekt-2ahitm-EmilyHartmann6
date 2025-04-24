@@ -144,6 +144,15 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Initialize volume controls
     setupVolumeControls();
+
+
+    document.getElementById("submitCode").addEventListener("click", checkCode);
+    document.getElementById("cancelCode").addEventListener("click", closeCodeInput);
+    document.getElementById("codeInput").addEventListener("keypress", function(e) {
+        if (e.key === "Enter") {
+            checkCode();
+        }
+    });
 });
 
 // Key event listeners
@@ -180,4 +189,38 @@ function letterContinue(){
 }
 function letterReturn(){
     window.location.href = "./index.html";
+}
+function checkCode() {
+    const input = document.getElementById("codeInput").value;
+    if (input === correctCode) {
+        document.getElementById("codeFeedback").innerText = "";
+        document.getElementById("codeInputContainer").style.display = "none";
+        proceedThroughDoor(currentDoor);
+    } else {
+        document.getElementById("codeFeedback").innerText = "WRONG CODE";
+        document.getElementById("codeInput").value = "";
+        setTimeout(() => {
+            document.getElementById("codeFeedback").innerText = "";
+        }, 1500);
+    }
+}
+
+function closeCodeInput() {
+    document.getElementById("codeInputContainer").style.display = "none";
+    document.getElementById("codeFeedback").innerText = "";
+    document.getElementById("codeInput").value = "";
+    setGameActive(true);
+}
+
+function proceedThroughDoor(door) {
+    if (door === door9) {
+        document.getElementById("map5").style.display = "none";
+        document.getElementById("room5").style.display = "none";
+        document.getElementById("room4").style.display = "flex";
+        document.getElementById("map4").style.display = "flex";
+        document.getElementById("currentRoom").innerText = "Corridor";
+        PLAYER.box.style.left = "46.3vw";
+        PLAYER.box.style.top = "66vh";
+    }
+    setGameActive(true);
 }
