@@ -21,14 +21,14 @@ let skipping = false;
 function switchToflashbackScreen() {
     body1.style.display = "none";
     body2.style.display = "block";
-    setGameActive(false); // Disable player controls
+    setGameActive(false); 
     playVideo();
 }
 
 function switchTogameScreen() {
     body2.style.display = "none";
     body3.style.display = "flex";
-    setGameActive(true); // Enable player controls
+    setGameActive(true); 
     video.pause();
     
     // Initialize game elements
@@ -122,74 +122,29 @@ function setupVolumeControls() {
     });
 }
 
-// Event listeners for video endings
-document.addEventListener("DOMContentLoaded", function() {
-    if (video) {
-        video.addEventListener("ended", function() {
-            switchTogameScreen();
-        });
-    }
-    
-    if (video1) {
-        video1.addEventListener("ended", function() {
-            window.location.href = "./index.html";
-        });
-    }
-    
-    if (stanely) {
-        stanely.addEventListener("ended", function() {
-            window.location.href = "./index.html";
-        });
-    }
-    
-    // Initialize volume controls
-    setupVolumeControls();
+// Letter functions
+function optionLetter() {
+    document.getElementById("codeLetterModal").style.display = "flex";
+    setGameActive(false);
+}
 
+function closeCodeLetterModal() {
+    document.getElementById("codeLetterModal").style.display = "none";
+    document.getElementById("collectedCodeLetter").style.display = "block";
+    document.getElementById("codeLetter").style.display = "none";
+    setGameActive(true);
+}
 
-    document.getElementById("submitCode").addEventListener("click", checkCode);
-    document.getElementById("cancelCode").addEventListener("click", closeCodeInput);
-    document.getElementById("codeInput").addEventListener("keypress", function(e) {
-        if (e.key === "Enter") {
-            checkCode();
-        }
-    });
-});
-
-// Key event listeners
-document.addEventListener("keydown", (event) => {
-    if (event.key === "e" && !skipping) {
-        skipping = true;
-        skipForward();
-    }
-    
-    if (event.key === "Escape") {
-        let menuScreen = document.getElementById("inGameMenuBody");
-        if (menuScreen.style.display === "block") {
-            menuScreen.style.display = "none";
-            body3.style.opacity = 1;
-            setGameActive(true);
-        } else if (body3.style.display === "flex") {
-            menuScreen.style.display = "block";
-            body3.style.opacity = 0.8;
-            setGameActive(false);
-        }
-    }
-});
-
-document.addEventListener("keyup", (event) => {
-    if (event.key === "e") {
-        skipping = false;
-    }
-});
-
-//letter
 function letterContinue(){
     document.getElementById("letterContainer").style.display = "none";
     document.getElementById("letterInventory").style.display = "block";
 }
+
 function letterReturn(){
     window.location.href = "./index.html";
 }
+
+//code
 function checkCode() {
     const input = document.getElementById("codeInput").value;
     if (input === correctCode) {
@@ -224,3 +179,68 @@ function proceedThroughDoor(door) {
     }
     setGameActive(true);
 }
+
+// Event listeners for video endings
+document.addEventListener("DOMContentLoaded", function() {
+    if (video) {
+        video.addEventListener("ended", function() {
+            switchTogameScreen();
+        });
+    }
+    
+    if (video1) {
+        video1.addEventListener("ended", function() {
+            window.location.href = "./index.html";
+        });
+    }
+    
+    if (stanely) {
+        stanely.addEventListener("ended", function() {
+            window.location.href = "./index.html";
+        });
+    }
+    
+    // Initialize volume controls
+    setupVolumeControls();
+
+    // Code input events
+    document.getElementById("submitCode").addEventListener("click", checkCode);
+    document.getElementById("cancelCode").addEventListener("click", closeCodeInput);
+    document.getElementById("codeInput").addEventListener("keypress", function(e) {
+        if (e.key === "Enter") {
+            checkCode();
+        }
+    });
+
+    function returnoptionLetter() {
+        document.getElementById("codeLetterModal").style.display = "none";
+        setGameActive(true);
+    }
+});
+
+// Key event listeners
+document.addEventListener("keydown", (event) => {
+    if (event.key === "e" && !skipping) {
+        skipping = true;
+        skipForward();
+    }
+    
+    if (event.key === "Escape") {
+        let menuScreen = document.getElementById("inGameMenuBody");
+        if (menuScreen.style.display === "block") {
+            menuScreen.style.display = "none";
+            body3.style.opacity = 1;
+            setGameActive(true);
+        } else if (body3.style.display === "flex") {
+            menuScreen.style.display = "block";
+            body3.style.opacity = 0.8;
+            setGameActive(false);
+        }
+    }
+});
+
+document.addEventListener("keyup", (event) => {
+    if (event.key === "e") {
+        skipping = false;
+    }
+});

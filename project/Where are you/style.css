@@ -25,8 +25,6 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
-
-
 }
 
 #startScreen {
@@ -44,17 +42,20 @@ body {
     justify-content: center;
     align-items: center;
 }
-#inGameMenuBody{
+
+#inGameMenuBody {
     display: none;
     background-color: rgba(0, 0, 0, 0.815);
     position: absolute;
     margin-top: -56.5%;
-   height: 101vh;
+    height: 101vh;
 }
-#endingOne{
+
+#endingOne {
     display: none;
 }
-/*text elemnts*/
+
+/*text elements*/
 .headinContainer {
     display: flex;
     justify-content: left;
@@ -105,6 +106,7 @@ body {
     margin: 1%;
     transition: 0.4s;
     width: 20%;
+    cursor: pointer;
 }
 
 .buttons:hover {
@@ -146,7 +148,6 @@ body {
     font-size: 1em;
     font-family: regular;
     color: #C2CBD5;
-
 }
 
 /*video*/
@@ -159,37 +160,44 @@ video {
     object-fit: cover;
     z-index: 0;
 }
+
 /*game*/
-#map1{
+#map1 {
     position: absolute;
     width: 60%;
 }
-#map2{
+
+#map2 {
     position: absolute;
     width: 80%;
     display: none;
 }
-#map3{
+
+#map3 {
     position: absolute;
     width: 35%;
     display: none;
 }
-#map4{
+
+#map4 {
     position: absolute;
     width: 50%;
     display: none;
 }
-#map5{
+
+#map5 {
     position: absolute;
     width: 50%;
     display: none; 
 }
-#map6{
+
+#map6 {
     position: absolute;
     width: 60%;
     display: none;  
 }
-#room1, #room2 , #room3, #room4,#room5,#room6 {
+
+#room1, #room2, #room3, #room4, #room5, #room6 {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -197,8 +205,9 @@ video {
     align-items: center;
     display: none;
 }
+
 /*player*/
-#player{
+#player {
     position: absolute;
     z-index: 100;
     background-color: #ff05a3;
@@ -206,265 +215,330 @@ video {
     height: 10vh;
     display: none;
 }
+
 /*colliders*/
-    /*room1*/
-    .collider{
-        background-color: #9d1cff00;
-        position: absolute;
-        z-index: 50;
-    }
-    #collider1Top{
-        top: 0;
-        width: 100%;
-        height: 16vh;
-    }
-    #collider1Right{
-        right: 0;
-        width: 29%;
-        height: 100vh;
-    }
-    #collider1Left{
-        left: 0;
-        width: 29%;
-        height: 100vh;
-    }
-    #collider1Bottom{
-        bottom: 0;
-        width: 100%;
-        height: 16vh;
-    }
-    #desk1{
-        bottom: 13%;
-        left: 28%;
-        width: 11%;
-        height: 25vh;
-    }
-    #desk2{
-        width: 7%;
-        height: 14vh; 
-        bottom: 58%;
-        right: 28%;
-    }
-    #desk3{
-        width: 7%;
-        height: 14vh;
-        bottom: 26%;
-        right: 28%;
-    }
-    #bed1{
-        width: 15%;
-        height: 20vh;
-        bottom: 40%;
-        right: 28%;
-    }
-    #firstEnding{
-        width: 56%;
-        height: 100vh;
-        right: 0;
-        background-color: #08356800;
-        display: none;
-        position: absolute;
-        z-index: 70;
-    }
-    /*room2*/
-    #collider2Top{
-        top: 0;
-        width: 100%;
-        height: 17vh;
-    }
-    #collider2Right{
-        right: 0;
-        width: 22%;
-        height: 100vh;
-    }
-    #collider2Left{
-        left: 0;
-        width: 27%;
-        height: 100vh;
-    }
-    #collider2Bottom{
-        bottom: 0;
-        width: 100%;
-        height: 17vh;
-    }
-    #collider2filler1{
-        top: 0;
-        width: 36%;
-        height: 24vh;
-        left: 0;
-    } #collider2filler2{
-        top: 0;
-        width: 36%;
-        height: 41vh;
-        right: 0;
-    }
-    #collider2filler3{
-        bottom: 0;
-        width: 36%;
-        height: 33vh;
-        right: 0;
-    }
-    #desk4{
-        top: 19%;
-        width: 10%;
-        height: 8vh;
-        right: 36%;
-    }
-    #chair1{
-        width: 4%;
-        height: 6vh;
-        top: 20%;
-        left: 38%;
-    }
-    /*room3*/
-    #collider3Top{
-        top: 0;
-        width: 100%;
-        height: 38vh;
-    }
-    #collider3Right{
-        right: 0;
-        width: 38%;
-        height: 100vh;
-    }
-    #collider3Left{
-        left: 0;
-        width: 37%;
-        height: 100vh;
-    }
-    #collider3Bottom{
-        bottom: 0;
-        width: 100%;
-        height: 28vh;
-    }
-    #collider3Filler1{
-        bottom: 0;
-        width: 47%;
-        height: 38vh;
-        left: 0;
-    }
-    #collider3Filler2{
-        bottom: 0;
-        width: 43%;
-        height: 38vh;
-        right: 0;
-    }
-   #desk5{
+.collider {
+    background-color: #9d1cff00;
+    position: absolute;
+    z-index: 50;
+}
+
+/*room1 colliders*/
+#collider1Top {
+    top: 0;
+    width: 100%;
+    height: 16vh;
+}
+
+#collider1Right {
+    right: 0;
+    width: 29%;
+    height: 100vh;
+}
+
+#collider1Left {
+    left: 0;
+    width: 29%;
+    height: 100vh;
+}
+
+#collider1Bottom {
+    bottom: 0;
+    width: 100%;
+    height: 16vh;
+}
+
+#desk1 {
+    bottom: 13%;
+    left: 28%;
+    width: 11%;
+    height: 25vh;
+}
+
+#desk2 {
+    width: 7%;
+    height: 14vh; 
+    bottom: 58%;
+    right: 28%;
+}
+
+#desk3 {
+    width: 7%;
+    height: 14vh;
+    bottom: 26%;
+    right: 28%;
+}
+
+#bed1 {
+    width: 15%;
+    height: 20vh;
+    bottom: 40%;
+    right: 28%;
+}
+
+#firstEnding {
+    width: 56%;
+    height: 100vh;
+    right: 0;
+    background-color: #08356800;
+    display: none;
+    position: absolute;
+    z-index: 70;
+}
+
+/*room2 colliders*/
+#collider2Top {
+    top: 0;
+    width: 100%;
+    height: 17vh;
+}
+
+#collider2Right {
+    right: 0;
+    width: 22%;
+    height: 100vh;
+}
+
+#collider2Left {
+    left: 0;
+    width: 27%;
+    height: 100vh;
+}
+
+#collider2Bottom {
+    bottom: 0;
+    width: 100%;
+    height: 17vh;
+}
+
+#collider2filler1 {
+    top: 0;
+    width: 36%;
+    height: 24vh;
+    left: 0;
+}
+
+#collider2filler2 {
+    top: 0;
+    width: 36%;
+    height: 41vh;
+    right: 0;
+}
+
+#collider2filler3 {
+    bottom: 0;
+    width: 36%;
+    height: 33vh;
+    right: 0;
+}
+
+#desk4 {
+    top: 19%;
+    width: 10%;
+    height: 8vh;
+    right: 36%;
+}
+
+#chair1 {
+    width: 4%;
+    height: 6vh;
+    top: 20%;
+    left: 38%;
+}
+
+/*room3 colliders*/
+#collider3Top {
+    top: 0;
+    width: 100%;
+    height: 38vh;
+}
+
+#collider3Right {
+    right: 0;
+    width: 38%;
+    height: 100vh;
+}
+
+#collider3Left {
+    left: 0;
+    width: 37%;
+    height: 100vh;
+}
+
+#collider3Bottom {
+    bottom: 0;
+    width: 100%;
+    height: 28vh;
+}
+
+#collider3Filler1 {
+    bottom: 0;
+    width: 47%;
+    height: 38vh;
+    left: 0;
+}
+
+#collider3Filler2 {
+    bottom: 0;
+    width: 43%;
+    height: 38vh;
+    right: 0;
+}
+
+#desk5 {
     width: 6%;
     height: 12vh;
     bottom: 37%;
     left:37%;
-   }
-   #code5{
+}
+
+#code5 {
     width: 2%;
     height: 8vh;
     bottom: 39%;
     left:39%;
     z-index: 100;
-   }
-    /*room4*/
-    #collider4Top{
-        top: 0;
-        width: 100%;
-        height: 20vh;
-    }
-    #collider4Right{
-        right: 0;
-        width: 43%;
-        height: 100vh;
-    }
-    #collider4Left{
-        left: 0;
-        width: 33%;
-        height: 100vh;
-    }
-    #collider4Bottom{
-        bottom: 0;
-        width: 100%;
-        height: 20vh;
-    }
-    #collider4Filler1{
-        bottom: 0;
-        width: 43%;
-        height: 38vh;
-        left: 0;
-    }
-    #collider4Filler2{
-        top: 0;
-        width: 38%;
-        height: 46vh;
-        left: 0;
-    }
-    /*room5*/
-    #collider5Top{
-        top: 0;
-        width: 100%;
-        height: 17vh;
-    }
-    #collider5Right{
-        right: 0;
-        width: 33%;
-        height: 100vh;
-    }
-    #collider5Left{
-        left: 0;
-        width: 33%;
-        height: 100vh;
-    }
-    #collider5Bottom{
-        bottom: 0;
-        width: 100%;
-        height: 23vh;
-    }
-    #collider5Filler1{
-        bottom: 0;
-        width: 48%;
-        height: 40vh;
-        left: 0;
-    }
-    #collider5Filler2{
-        top: 0;
-        width: 38%;
-        height: 52vh;
-        right: 0;
-    }
-    #desk7{
-        top: 16vh;
-        width: 15%;
-        height: 11vh;
-        left: 28vw;
-        background-color: #05ff0900;
-    }
-    #chair2{
-        width: 4%;
-        height: 7vh;
-        right:35vw;
-        bottom:42vh;
-        background-color: #05ff0900;
-    }
-    /*room6*/
-    #collider6Top{
-        top: 0;
-        width: 100%;
-        height: 19vh;
-    }
-    #collider6Right{
-        right: 0;
-        width: 33%;
-        height: 100vh;
-    }
-    #collider6Left{
-        left: 0;
-        width: 33%;
-        height: 100vh;
-    }
-    #collider6Bottom{
-        bottom: 0;
-        width: 100%;
-        height: 19vh;
-    }
+}
+
+/*room4 colliders*/
+#collider4Top {
+    top: 0;
+    width: 100%;
+    height: 20vh;
+}
+
+#collider4Right {
+    right: 0;
+    width: 43%;
+    height: 100vh;
+}
+
+#collider4Left {
+    left: 0;
+    width: 33%;
+    height: 100vh;
+}
+
+#collider4Bottom {
+    bottom: 0;
+    width: 100%;
+    height: 20vh;
+}
+
+#collider4Filler1 {
+    bottom: 0;
+    width: 43%;
+    height: 38vh;
+    left: 0;
+}
+
+#collider4Filler2 {
+    top: 0;
+    width: 38%;
+    height: 46vh;
+    left: 0;
+}
+
+/*code numbers*/
+#code1 {
+    position: absolute;
+    bottom: 38vh;
+    width: 10%;
+    height: 15vh;
+    right: 42vw;
+    z-index: 50;
+}
+
+#code3 {
+    bottom: 42vh;
+    width: 7%;
+    height: 10vh;
+    left: 33vw;
+    z-index: 50;
+}
+
+/*room5 colliders*/
+#collider5Top {
+    top: 0;
+    width: 100%;
+    height: 17vh;
+}
+
+#collider5Right {
+    right: 0;
+    width: 33%;
+    height: 100vh;
+}
+
+#collider5Left {
+    left: 0;
+    width: 33%;
+    height: 100vh;
+}
+
+#collider5Bottom {
+    bottom: 0;
+    width: 100%;
+    height: 23vh;
+}
+
+#collider5Filler1 {
+    bottom: 0;
+    width: 48%;
+    height: 40vh;
+    left: 0;
+}
+
+#collider5Filler2 {
+    top: 0;
+    width: 38%;
+    height: 52vh;
+    right: 0;
+}
+
+#desk7 {
+    top: 16vh;
+    width: 15%;
+    height: 11vh;
+    left: 28vw;
+    background-color: #05ff0900;
+}
+
+#chair2 {
+    width: 4%;
+    height: 7vh;
+    right:35vw;
+    bottom:42vh;
+    background-color: #05ff0900;
+}
+
+/*room6 colliders*/
+#collider6Top {
+    top: 0;
+    width: 100%;
+    height: 19vh;
+}
+
+#collider6Right {
+    right: 0;
+    width: 33%;
+    height: 100vh;
+}
+
+#collider6Left {
+    left: 0;
+    width: 33%;
+    height: 100vh;
+}
+
+#collider6Bottom {
+    bottom: 0;
+    width: 100%;
+    height: 19vh;
+}
+
 /*doors*/
-#door1{
+#door1 {
     position: absolute;
     background-color: rgba(138, 247, 255, 0);
     width: 3%;
@@ -473,7 +547,8 @@ video {
     top:39%;
     z-index: 60;
 }
-#door2{
+
+#door2 {
     position: absolute;
     background-color: rgba(138, 247, 255, 0);
     width: 3%;
@@ -482,7 +557,8 @@ video {
     top:41%;
     z-index: 60;
 }
-#door3{
+
+#door3 {
     position: absolute;
     background-color: rgba(138, 247, 255, 0);
     width: 8%;
@@ -491,7 +567,8 @@ video {
     top:24%;
     z-index: 60;
 }
-#door4{
+
+#door4 {
     position: absolute;
     background-color: rgba(138, 255, 234, 0);
     width: 8%;
@@ -500,7 +577,8 @@ video {
     bottom:24%;
     z-index: 60;
 }
-#door5{
+
+#door5 {
     position: absolute;
     background-color: rgba(138, 247, 255, 0);
     width: 11%;
@@ -509,7 +587,8 @@ video {
     bottom:16%;
     z-index: 60;
 }
-#door6{
+
+#door6 {
     position: absolute;
     background-color: rgba(138, 247, 255, 0);
     width: 11%;
@@ -518,7 +597,8 @@ video {
     top:16%;
     z-index: 60;
 }
-#door7{
+
+#door7 {
     position: absolute;
     background-color: rgba(138, 247, 255, 0);
     width: 11%;
@@ -527,7 +607,8 @@ video {
     bottom:16%;
     z-index: 60;
 }
-#door8{
+
+#door8 {
     position: absolute;
     background-color: rgb(138, 247, 255);
     width: 11%;
@@ -536,7 +617,8 @@ video {
     top:16%;
     z-index: 60;
 }
-#door9{
+
+#door9 {
     position: absolute;
     background-color: rgb(138, 247, 255);
     width: 2%;
@@ -545,7 +627,8 @@ video {
     top:30%;
     z-index: 60;
 }
-#door10{
+
+#door10 {
     position: absolute;
     background-color: rgb(138, 247, 255);
     width: 6%;
@@ -554,8 +637,9 @@ video {
     bottom:20%;
     z-index: 60;
 }
+
 /*message*/
-#messages{
+#messages {
     position: absolute;
     z-index: 70;
     bottom: 2%;
@@ -563,43 +647,63 @@ video {
     display: none;
     animation: fadeIn 1s;
 }
+
 @keyframes fadeIn {
-    from{opacity: 0;}
-    to{opacity: 1;}
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
+
 /*inventory*/
-#inventory{
+#inventory {
     position: absolute;
     width: 15%;
     height: auto;
-    background-color: #4545455a;
+    background-color: #45454500;
     right: 2%;
     top: 3%;
     display: none;
 }
-#keyInventory{
+
+#keyInventory {
     height: 7vh;
+    background-color: #4545458a;
 }
-#collectedKey{
+
+#collectedKey {
     height: 15vh;
-    
     gap: 2;
     display: flex;
 }
-#collectedKey p{
+
+#collectedKey p {
     width: 20%;
     font-size: 1.5em;
 }
-#collectedLetter{
+
+#collectedLetter {
     height: 40vh;
 }
-#letterInventory{
+
+#letterInventory {
     width: 100%;
     height: auto;
     display: none;
+    background-color: #4545458a;
 }
+
+#collectedCodeLetter {
+    width: 100%;
+    height: 40vh;
+    background-color: #4545458a;
+    display: none;
+}
+
+#collectedCodeLetter img {
+    width: 100%;
+}
+
 /*current room*/
-#currentRoom{
+#currentRoom {
     position: absolute;
     top: 2%;
     left: 2%;
@@ -607,22 +711,23 @@ video {
     display: none;
 }
 
-/*item*/
-.key{
-    position:absolute;
-    width:5%; 
-    top:30%; 
-    left:40%;
+/*items*/
+.key {
+    position: absolute;
+    width: 5%; 
+    top: 30%; 
+    left: 40%;
     display: none;
 }
 
-#letter{
+#letter {
     width: 50%;
     height: auto;
     z-index: 100;
 }
-#optionsletter{
-    display:flex;
+
+#optionsletter {
+    display: flex;
     font-size: 2.7em;
     justify-content: center;
     gap: 25%;
@@ -632,69 +737,91 @@ video {
     z-index: 101;
     transition: 0.3s;
 }
-#optionsletter p:hover{
-    color:#702020;
+
+#optionsletter p:hover {
+    color: #702020;
+    cursor: pointer;
 }
-#letterContainer{
+
+#letterContainer {
     position: absolute;
     left: 0;
-    top:0;
+    top: 0;
     width: 100vw;
     height: 100vh;
     background-color: #322f2f59;
     flex-direction: column;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 100;
-    display: none;
 }
-#paperBall{
+
+#paperBall {
     position: absolute;
     z-index: 102;
-    top:57vh;
+    top: 57vh;
     left: 50wh;
     width: 5%;
     opacity: 0.7;
     display: none;
 }
-/* Code Input Styling */
-#codeInputContainer {
+
+#codeLetter {
+    position: absolute;
+    z-index: 100;
+    top: 17.5vh;
+    left: 35vw;
+    width: 5%;
     display: none;
+    transition: 0.5s;
+}
+
+#codeLetter:hover {
+    scale: 104%;
+    cursor: pointer;
+}
+
+/* Code Input Container - Updated */
+#codeInputContainer {
     position: fixed;
-    z-index: 1000;
-    top: 0;
     left: 0;
+    top: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0,0,0,0.9);
+    background-color: #322f2f59;
+    display: none;
     justify-content: center;
     align-items: center;
+    z-index: 1000;
+    flex-direction: column;
 }
 
 #codeInputBox {
-    background: #222;
+    background-color: #454545;
     padding: 30px;
-    border-radius: 15px;
+    border-radius: 10px;
     text-align: center;
-    border: 2px solid #702020;
     width: 300px;
+    border: 2px solid #702020;
 }
 
 #codeInputBox h2 {
     color: #C2CBD5;
     font-size: 2em;
     margin-bottom: 20px;
+    font-family: regular;
 }
 
 #codeInput {
-    font-size: 3em;
+    font-size: 2em;
     width: 200px;
     text-align: center;
     background: #111;
     color: #C2CBD5;
     border: 1px solid #702020;
     padding: 10px;
+    font-family: regular;
 }
 
 #codeInputButtons {
@@ -711,10 +838,20 @@ video {
     padding: 10px 25px;
     font-size: 1.2em;
     cursor: pointer;
+    font-family: regular;
+    transition: 0.3s;
+}
+
+#codeInputButtons button:hover {
+    background: #8a2828;
 }
 
 #codeInputButtons #cancelCode {
     background: #333;
+}
+
+#codeInputButtons #cancelCode:hover {
+    background: #444;
 }
 
 #codeFeedback {
@@ -722,19 +859,74 @@ video {
     font-size: 1.5em;
     margin-top: 20px;
     height: 30px;
+    font-family: regular;
 }
 
-/* Code Clue Styling */
-#codeClue {
-    position: absolute;
-    color: #C2CBD5;
-    font-size: 1.2em;
-    left: 30%;
-    top: 30%;
-    width: 40%;
-    text-align: center;
+/* Code Letter Modal - Updated to match letterContainer */
+#codeLetterModal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #322f2f59;
     display: none;
-    background: rgba(0,0,0,0.7);
-    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    flex-direction: column;
+}
+
+#codeLetterModalContent {
+    position: relative;
+    background-color: #454545;
+    padding: 40px;
     border-radius: 10px;
+    max-width: 80%;
+    max-height: 80%;
+    border: 2px solid #702020;
+}
+
+#codeLetterModalImg {
+    max-width: 100%;
+    max-height: 70vh;
+    display: block;
+}
+
+#closeCodeLetterModal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #C2CBD5;
+    font-size: 2em;
+    cursor: pointer;
+    padding: 5px 15px;
+    font-family: creepy;
+    transition: 0.3s;
+}
+
+#closeCodeLetterModal:hover {
+    color: #702020;
+    transform: scale(1.1);
+}
+
+#codeLetterOptions {
+    display: flex;
+    font-size: 2em;
+    justify-content: center;
+    gap: 25%;
+    margin-top: 20px;
+    font-family: creepy;
+    z-index: 101;
+}
+
+#codeLetterOptions p {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#codeLetterOptions p:hover {
+    color: #702020;
 }

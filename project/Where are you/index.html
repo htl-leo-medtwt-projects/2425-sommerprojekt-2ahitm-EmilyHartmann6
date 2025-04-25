@@ -86,6 +86,8 @@
             <div class="collider" id="collider4Filler1"></div>
             <div class="collider" id="collider4Filler2"></div>
             <div class="collider" id="desk6"></div>
+            <img class="collider" id="code3" src="img/code3.png" alt="3">
+            <img id="code1" src="img/code1.png" alt="1">
             <div id="door6"></div>
             <div id="door7"></div>
             <img  id="map4" src="map/corridor2.png" alt="corridor">
@@ -127,6 +129,7 @@
             <p onclick="letterReturn()">return</p>
             </div>
         </div>
+        <img src="img/codeLetter.png" id="codeLetter" onclick="optionLetter()"/>
         <!--code-->
         <div id="codeInputContainer">
             <div id="codeInputBox">
@@ -140,13 +143,13 @@
             </div>
         </div>
         
-        
         <!--inventory-->
         <div id="inventory">
             <div id="collectedKey"></div>
             <div id="collectedLetter">
                 <img src="img/letter.png" id="letterInventory"/>
             </div>
+            <div id="collectedCodeLetter"><img src="img/codeLetter.png"></div>
         </div>
 
     </div>
@@ -170,6 +173,18 @@
             <source src="cutscenes/firstEnding.mp4" type="video/mp4">
         </video>
        
+    </div>
+
+  <!-- Code Letter Modal -->
+    <div id="codeLetterModal">
+        <div id="codeLetterModalContent">
+            <button id="closeCodeLetterModal">×</button>
+            <img id="codeLetterModalImg" src="img/codeLetter.png" alt="Code Letter">
+            <div id="codeLetterOptions">
+                <p onclick="closeCodeLetterModal()">Keep</p>
+                <p onclick="returnoptionLetter()">Return</p>
+            </div>
+        </div>
     </div>
 </body>
 

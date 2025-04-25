@@ -179,6 +179,7 @@ function checkDoorEntry() {
         document.getElementById("currentRoom").innerText = "Corridor";
         PLAYER.box.style.left = "47.8.vw";
         PLAYER.box.style.top = "26.8vh";
+        document.getElementById("codeLetter").style.display = "block";
         return;
     }
     if (isColliding(PLAYER.box, door8)) {
@@ -187,6 +188,7 @@ function checkDoorEntry() {
         document.getElementById("room5").style.display = "none";
         document.getElementById("map5").style.display = "none";
         document.getElementById("currentRoom").innerText = "Corridor";
+        
         PLAYER.box.style.left = "46.3.vw";
         PLAYER.box.style.top = "66vh";
         return;
