@@ -16,6 +16,9 @@ let collectedLetter = document.getElementById("collectedLetter");
 const correctCode = "135"; 
 let currentDoor = null; 
 let codeLetterCollected = false;
+let entity = document.getElementById("entity");
+let freezeTrigger = document.getElementById("freezeTrigger");
+let sequenceTriggered = false;
 
 let door1 = document.getElementById("door1");
 let door2 = document.getElementById("door2");
@@ -216,17 +219,18 @@ function checkDoorEntry() {
         return;
     }
     
-    if (isColliding(PLAYER.box, door10)) {
-        document.getElementById("map6").style.display = "flex";
-        document.getElementById("room6").style.display = "flex";
-        document.getElementById("room5").style.display = "none";
-        document.getElementById("map5").style.display = "none";
-        document.getElementById("currentRoom").innerText = "Living Room";
-        document.getElementById("codeLetter").style.display = "none"; 
-        PLAYER.box.style.left = "44.8vw";
-        PLAYER.box.style.top = "20.6vh";
-        return;
-    }
+   // Add this case to your existing door checks
+if (isColliding(PLAYER.box, door10)) {
+    document.getElementById("map5").style.display = "none";
+    document.getElementById("room5").style.display = "none";
+    document.getElementById("room6").style.display = "flex";
+    document.getElementById("map6").style.display = "flex";
+    document.getElementById("currentRoom").innerText = "Living Room";
+    PLAYER.box.style.left = "44.8vw";
+    PLAYER.box.style.top = "20.6vh";
+    sequenceTriggered = false; // Reset trigger when entering room
+    return;
+}
     if (isColliding(PLAYER.box, door11)) {
         document.getElementById("room7").style.display = "none";
         document.getElementById("map7").style.display = "none";
@@ -287,6 +291,7 @@ function gameLoop() {
             checkKeyPickup();
             checkDoorEntry();
         }
+        
     }
     requestAnimationFrame(gameLoop);
 }

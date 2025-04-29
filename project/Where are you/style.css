@@ -208,7 +208,7 @@ video {
 }
 #map9{
     position: absolute;
-    width: 60%;
+    width: 50%;
     display: none;  
 }
 #map10{
@@ -763,6 +763,34 @@ video {
     top:40vh;
     z-index: 60;
 }
+#door12{
+    position: absolute;
+    background-color: rgb(138, 247, 255);
+    width: 6%;
+    height: 3vh;
+    left:44%;
+    top:19vh;
+    z-index: 60;
+}
+#door13{
+    position: absolute;
+    background-color: rgb(138, 247, 255);
+    width: 6%;
+    height: 3vh;
+    left:44%;
+    bottom:30vh;
+    z-index: 60;
+}
+#door14{
+    position: absolute;
+    background-color: rgb(138, 247, 255);
+    width: 2%;
+    height: 9vh;
+    right:35%;
+    top:40vh;
+    z-index: 60;
+}
+
 /*message*/
 #messages {
     position: absolute;
