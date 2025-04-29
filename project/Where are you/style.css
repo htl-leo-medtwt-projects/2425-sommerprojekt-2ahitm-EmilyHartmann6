@@ -233,6 +233,8 @@ video {
     width: 5vw;
     height: 10vh;
     display: none;
+    background-image: url(img/player.png);
+    background-size: cover;
 }
 
 /*colliders*/
@@ -1084,4 +1086,38 @@ video {
 
 #codeLetterOptions p:hover {
     color: #702020;
+}
+
+#triggerCollider {
+    width: 100%;
+    height: 10vh;
+    top: 45vh;
+    background-color: rgba(255, 0, 0, 0.3); 
+    z-index: 60;
+}
+
+#enteringEntity {
+    position: absolute;
+    width: 10%;
+    height: 20vh;
+    background-color: lime;
+    z-index: 90;
+    display: none;
+    left: -20%;
+    top: 0;
+}
+@keyframes enterRoom {
+    0% {
+        left: -20%;
+        top: 0;
+    }
+    100% {
+        left: 45vw;
+        top: 22vh;
+    }
+}
+
+.enter-animation {
+    display: block;
+    animation: enterRoom 2s forwards;
 }

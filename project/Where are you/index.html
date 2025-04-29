@@ -37,7 +37,7 @@
 
     <div id="gameScreen" class="body">
         <div id="player"></div>
-        
+
         <div id="room1">
             <div class="collider" id="collider1Top"></div>
             <div class="collider" id="collider1Right"></div>
@@ -49,7 +49,7 @@
             <div class="collider" id="bed1"></div>
             <div id="door1"></div>
             <div id="firstEnding"></div>
-            <img id="map1"  src="map/bedroom1.png" alt="bedroom">
+            <img id="map1" src="map/bedroom1.png" alt="bedroom">
         </div>
         <div id="room2">
             <div class="collider" id="collider2Top"></div>
@@ -64,7 +64,7 @@
             <div id="door2"></div>
             <div id="door3"></div>
             <div id="door5"></div>
-            <img  id="map2" src="map/corridor1.png" alt="corridor">
+            <img id="map2" src="map/corridor1.png" alt="corridor">
         </div>
         <div id="room3">
             <div class="collider" id="collider3Top"></div>
@@ -76,7 +76,7 @@
             <div class="collider" id="desk5"></div>
             <img class="collider" id="code5" src="img/code5.png" alt="5">
             <div id="door4"></div>
-            <img  id="map3" src="map/broomcloset.png" alt="broomcloset">
+            <img id="map3" src="map/broomcloset.png" alt="broomcloset">
         </div>
         <div id="room4">
             <div class="collider" id="collider4Top"></div>
@@ -90,7 +90,7 @@
             <img id="code1" src="img/code1.png" alt="1">
             <div id="door6"></div>
             <div id="door7"></div>
-            <img  id="map4" src="map/corridor2.png" alt="corridor">
+            <img id="map4" src="map/corridor2.png" alt="corridor">
         </div>
         <div id="room5">
             <div class="collider" id="collider5Top"></div>
@@ -105,30 +105,32 @@
             <div id="door9"></div>
             <div id="door10"></div>
 
-            <img  id="map5" src="map/corridor3.png" alt="corridor">
+            <img id="map5" src="map/corridor3.png" alt="corridor">
         </div>
         <div id="room6">
             <div class="collider" id="collider6Top"></div>
             <div class="collider" id="collider6Right"></div>
             <div class="collider" id="collider6Bottom"></div>
             <div class="collider" id="collider6Left"></div>
-            <div class="collider" id="collider6Filler1"></div>
-            <div class="collider" id="collider6Filler2"></div>
-            <img  id="map6" src="map/livingRoom.png">
+            <div class="collider" id="collider6filler1"></div>
+            <div class="collider" id="collider6filler2"></div>
+            <div class="collider" id="triggerCollider"></div>
+            <div id="enteringEntity"></div>
+            <img id="map6" src="map/livingRoom.png">
         </div>
-      <div id="room7">
-    <div class="collider" id="collider7Top"></div>
-    <div class="collider" id="collider7Right"></div>
-    <div class="collider" id="collider7Bottom"></div>
-    <div class="collider" id="collider7Left"></div>
-    <div class="collider" id="collider7Filler1"></div>
-    <div class="collider" id="collider7Filler2"></div>
-    <img id="map7" src="map/corridor5.png">
-    <div id="door11"></div>
-    <div id="door12"></div>
-    <div id="door13"></div>
-    <div id="door14"></div>
-</div>
+        <div id="room7">
+            <div class="collider" id="collider7Top"></div>
+            <div class="collider" id="collider7Right"></div>
+            <div class="collider" id="collider7Bottom"></div>
+            <div class="collider" id="collider7Left"></div>
+            <div class="collider" id="collider7Filler1"></div>
+            <div class="collider" id="collider7Filler2"></div>
+            <img id="map7" src="map/corridor5.png">
+            <div id="door11"></div>
+            <div id="door12"></div>
+            <div id="door13"></div>
+            <div id="door14"></div>
+        </div>
         <div id="room8">
             <div class="collider" id="collider8Top"></div>
             <div class="collider" id="collider8Right"></div>
@@ -136,7 +138,7 @@
             <div class="collider" id="collider8Left"></div>
             <img id="map8" src="map/badEnding.png">
         </div>
-        
+
         <div id="room9">
             <div class="collider" id="collider9Top"></div>
             <div class="collider" id="collider9Right"></div>
@@ -144,7 +146,7 @@
             <div class="collider" id="collider9Left"></div>
             <img id="map9" src="map/goodEnding.png">
         </div>
-        
+
         <div id="room10">
             <div class="collider" id="collider10Top"></div>
             <div class="collider" id="collider10Right"></div>
@@ -156,16 +158,16 @@
         <div id="currentRoom">Bedroom</div>
         <div id="messages">Use WASD to walk</div>
         <!--items-->
-        <img src="img/key.png" id="keyItem" class="key"/>
-        <img src="img/paperBall.png" id="paperBall"/>
+        <img src="img/key.png" id="keyItem" class="key" />
+        <img src="img/paperBall.png" id="paperBall" />
         <div id="letterContainer">
-            <img src="img/letter.png" id="letter"/>
+            <img src="img/letter.png" id="letter" />
             <div id="optionsletter">
-            <p onclick="letterContinue()">continue</p>
-            <p onclick="letterReturn()">return</p>
+                <p onclick="letterContinue()">continue</p>
+                <p onclick="letterReturn()">return</p>
             </div>
         </div>
-        <img src="img/codeLetter.png" id="codeLetter" onclick="optionLetter()"/>
+        <img src="img/codeLetter.png" id="codeLetter" onclick="optionLetter()" />
         <!--code-->
         <div id="codeInputContainer">
             <div id="codeInputBox">
@@ -178,12 +180,12 @@
                 <p id="codeFeedback"></p>
             </div>
         </div>
-        
+
         <!--inventory-->
         <div id="inventory">
             <div id="collectedKey"></div>
             <div id="collectedLetter">
-                <img src="img/letter.png" id="letterInventory"/>
+                <img src="img/letter.png" id="letterInventory" />
             </div>
             <div id="collectedCodeLetter"><img src="img/codeLetter.png"></div>
         </div>
@@ -208,16 +210,16 @@
         <video id="VideoFirstEnding" width="100" height="100" autoplay muted playsinline>
             <source src="cutscenes/firstEnding.mp4" type="video/mp4">
         </video>
-       
+
     </div>
 
-  <!-- Code Letter Modal -->
+    <!-- Code Letter Modal -->
     <div id="codeLetterModal">
         <div id="codeLetterModalContent">
             <img id="codeLetterModalImg" src="img/codeLetter.png" alt="Code Letter">
             <div id="codeLetterOptions">
                 <p onclick="closeCodeLetterModal()">Keep</p>
-                
+
             </div>
         </div>
     </div>
