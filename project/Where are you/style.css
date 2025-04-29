@@ -196,8 +196,27 @@ video {
     width: 60%;
     display: none;  
 }
-
-#room1, #room2, #room3, #room4, #room5, #room6 {
+#map7{
+    position: absolute;
+    width: 65%;
+    display: none;  
+}
+#map8{
+    position: absolute;
+    width: 55%;
+    display: none;  
+}
+#map9{
+    position: absolute;
+    width: 60%;
+    display: none;  
+}
+#map10{
+    position: absolute;
+    width: 60%;
+    display: none;  
+}
+#room1, #room2, #room3, #room4, #room5, #room6, #room7, #room8, #room9, #room10 {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -218,7 +237,7 @@ video {
 
 /*colliders*/
 .collider {
-    background-color: #9d1cff00;
+    background-color: #6d48ff88;
     position: absolute;
     z-index: 50;
 }
@@ -536,6 +555,104 @@ video {
     width: 100%;
     height: 19vh;
 }
+/*room7 colliders*/
+#collider7Top {
+    top: 0;
+    width: 100%;
+    height: 21vh;
+}
+
+#collider7Right {
+    right: 0;
+    width: 35%;
+    height: 100vh;
+}
+
+#collider7Left {
+    left: 0;
+    width: 30.5%;
+    height: 100vh;
+}
+
+#collider7Bottom {
+    bottom: 0;
+    width: 100%;
+    height: 32vh;
+}
+/* room8 colliders */
+#collider8Top {
+    top: 0;
+    width: 100%;
+    height: 20vh;
+}
+
+#collider8Right {
+    right: 0;
+    width: 39%;
+    height: 100vh;
+}
+
+#collider8Left {
+    left: 0;
+    width: 34%;
+    height: 100vh;
+}
+
+#collider8Bottom {
+    bottom: 0;
+    width: 100%;
+    height: 30vh;
+}
+
+/* room9 colliders */
+#collider9Top {
+    top: 0;
+    width: 100%;
+    height: 19vh;
+}
+
+#collider9Right {
+    right: 0;
+    width: 33%;
+    height: 100vh;
+}
+
+#collider9Left {
+    left: 0;
+    width: 33%;
+    height: 100vh;
+}
+
+#collider9Bottom {
+    bottom: 0;
+    width: 100%;
+    height: 19vh;
+}
+
+/* room10 colliders */
+#collider10Top {
+    top: 0;
+    width: 100%;
+    height: 19vh;
+}
+
+#collider10Right {
+    right: 0;
+    width: 33%;
+    height: 100vh;
+}
+
+#collider10Left {
+    left: 0;
+    width: 33%;
+    height: 100vh;
+}
+
+#collider10Bottom {
+    bottom: 0;
+    width: 100%;
+    height: 19vh;
+}
 
 /*doors*/
 #door1 {
@@ -610,7 +727,7 @@ video {
 
 #door8 {
     position: absolute;
-    background-color: rgb(138, 247, 255);
+    background-color: rgba(138, 247, 255, 0);
     width: 11%;
     height: 5vh;
     left:44%;
@@ -620,7 +737,7 @@ video {
 
 #door9 {
     position: absolute;
-    background-color: rgb(138, 247, 255);
+    background-color: rgba(138, 247, 255, 0);
     width: 2%;
     height: 18vh;
     left:32%;
@@ -630,14 +747,22 @@ video {
 
 #door10 {
     position: absolute;
-    background-color: rgb(138, 247, 255);
+    background-color: rgba(138, 247, 255, 0);
     width: 6%;
     height: 4vh;
     right:40%;
     bottom:20%;
     z-index: 60;
 }
-
+#door11{
+    position: absolute;
+    background-color: rgb(138, 247, 255);
+    width: 2%;
+    height: 9vh;
+    left:30%;
+    top:40vh;
+    z-index: 60;
+}
 /*message*/
 #messages {
     position: absolute;
@@ -812,7 +937,7 @@ video {
     color: #C2CBD5;
     font-size: 2em;
     margin-bottom: 20px;
-    font-family: regular;
+    
 }
 
 #codeInput {
@@ -823,7 +948,7 @@ video {
     color: #C2CBD5;
     border: 1px solid #7020207a;
     padding: 10px;
-    font-family: regular;
+    font-family: "Times New Roman", Times, serif; 
 }
 
 #codeInputButtons {

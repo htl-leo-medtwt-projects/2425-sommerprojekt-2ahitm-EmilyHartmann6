@@ -31,14 +31,12 @@ function switchTogameScreen() {
     setGameActive(true); 
     video.pause();
     
-    // Initialize game elements
     document.getElementById("player").style.display = "block";
     document.getElementById("room1").style.display = "flex";
     document.getElementById("messages").style.display = "block";
     document.getElementById("inventory").style.display = "block";
     document.getElementById("currentRoom").style.display = "block";
     
-    // Reset to room 1 if coming from ending
     document.getElementById("room2").style.display = "none";
     document.getElementById("room3").style.display = "none";
     document.getElementById("map2").style.display = "none";
@@ -52,7 +50,6 @@ function continueOn() {
     setGameActive(true); 
 }
 
-// Video control functions
 function playVideo() {
     video.muted = false;
     video.play().catch(error => console.error("Playback error:", error));
@@ -70,7 +67,6 @@ function skipForward() {
     }
 }
 
-// Options menu functions
 function options() {
     optionOutputs.forEach(optionOutput => {
         optionOutput.innerHTML = `
@@ -108,7 +104,7 @@ function setupVolumeControls() {
             let volume = volumeLevels[level];
 
             video.volume = volume;
-            video1.volume = volume ;
+            video1.volume = volume;
             stanely.volume = volume;
 
             bars.forEach((b, index) => {
@@ -122,13 +118,15 @@ function setupVolumeControls() {
     });
 }
 
-// Letter functions
 function optionLetter() {
-    document.getElementById("codeLetterModal").style.display = "flex";
-    setGameActive(false);
+    if (document.getElementById("collectedCodeLetter").style.display !== "block") {
+        document.getElementById("codeLetterModal").style.display = "flex";
+        setGameActive(false);
+    }
 }
 
 function closeCodeLetterModal() {
+    codeLetterCollected = true;
     document.getElementById("codeLetterModal").style.display = "none";
     document.getElementById("collectedCodeLetter").style.display = "block";
     document.getElementById("codeLetter").style.display = "none";
@@ -144,7 +142,6 @@ function letterReturn(){
     window.location.href = "./index.html";
 }
 
-//code
 function checkCode() {
     const input = document.getElementById("codeInput").value;
     if (input === correctCode) {
@@ -171,16 +168,16 @@ function proceedThroughDoor(door) {
     if (door === door9) {
         document.getElementById("map5").style.display = "none";
         document.getElementById("room5").style.display = "none";
-        document.getElementById("room4").style.display = "flex";
-        document.getElementById("map4").style.display = "flex";
+        document.getElementById("room7").style.display = "flex";
+        document.getElementById("map7").style.display = "flex";
         document.getElementById("currentRoom").innerText = "Corridor";
-        PLAYER.box.style.left = "46.3vw";
-        PLAYER.box.style.top = "66vh";
+        document.getElementById("codeLetter").style.display = "none"; 
+        PLAYER.box.style.left = "55.5vw";
+        PLAYER.box.style.top = "37.6vh";
     }
     setGameActive(true);
 }
 
-// Event listeners for video endings
 document.addEventListener("DOMContentLoaded", function() {
     if (video) {
         video.addEventListener("ended", function() {
@@ -200,10 +197,8 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
     
-    // Initialize volume controls
     setupVolumeControls();
 
-    // Code input events
     document.getElementById("submitCode").addEventListener("click", checkCode);
     document.getElementById("cancelCode").addEventListener("click", closeCodeInput);
     document.getElementById("codeInput").addEventListener("keypress", function(e) {
@@ -211,14 +206,8 @@ document.addEventListener("DOMContentLoaded", function() {
             checkCode();
         }
     });
-
-    function returnoptionLetter() {
-        document.getElementById("codeLetterModal").style.display = "none";
-        setGameActive(true);
-    }
 });
 
-// Key event listeners
 document.addEventListener("keydown", (event) => {
     if (event.key === "e" && !skipping) {
         skipping = true;
