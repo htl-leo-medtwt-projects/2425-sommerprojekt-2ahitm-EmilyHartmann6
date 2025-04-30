@@ -316,20 +316,32 @@ function checkDoorEntry() {
         PLAYER.box.style.top = "37.6vh";
         return;
     }
-
     if (isColliding(PLAYER.box, document.getElementById("triggerCollider")) && !entityEntered) {
         entityEntered = true;
         setGameActive(false);
-        document.getElementById("enteringEntity").style.display = "block";
-        document.getElementById("enteringEntity").classList.add("enter-animation");
+        let entity = document.getElementById("enteringEntity");
+        entity.style.display = "block";
+        entity.style.top = "20vh";
+        entity.style.right = "40vw";
+        entity.classList.add("enter-animation");
         document.getElementById("messages").innerText = "Oh no! Something's coming in!";
+        
+        entity.addEventListener('animationend', () => {
+            
+            const endingMessage = document.getElementById("ending-message");
+            endingMessage.classList.add("show");
+            
+            setTimeout(() => {
+                window.location.href = "./index.html";
+            }, 3000);
+        });
     }
 }
 
 function gameLoop() {
     if (PLAYER.isActive) {
         let dx = 0, dy = 0;
-        const speed = 0.3;
+        const speed = 0.2;
 
         if (KEY_EVENTS.w) dy -= speed;
         if (KEY_EVENTS.s) dy += speed;
