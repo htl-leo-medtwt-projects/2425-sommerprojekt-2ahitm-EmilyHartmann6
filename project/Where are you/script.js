@@ -28,6 +28,7 @@ function switchToflashbackScreen() {
 function switchTogameScreen() {
     body2.style.display = "none";
     body3.style.display = "flex";
+    document.getElementById("player").style.display = "block";
     setGameActive(true); 
     video.pause();
     

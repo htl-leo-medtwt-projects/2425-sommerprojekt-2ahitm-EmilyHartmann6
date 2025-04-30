@@ -225,17 +225,7 @@ video {
     display: none;
 }
 
-/*player*/
-#player {
-    position: absolute;
-    z-index: 100;
-    background-color: #ff05a3;
-    width: 5vw;
-    height: 10vh;
-    display: none;
-    background-image: url(img/player.png);
-    background-size: cover;
-}
+
 
 /*colliders*/
 .collider {
@@ -1101,6 +1091,7 @@ video {
     width: 10%;
     height: 20vh;
     background-color: lime;
+    background-image: url(img/entity.png);
     z-index: 90;
     display: none;
     left: -20%;
@@ -1120,4 +1111,38 @@ video {
 .enter-animation {
     display: block;
     animation: enterRoom 2s forwards;
+}
+/* Player*/
+#player {
+    position: absolute;
+    z-index: 100;
+    width: 5vw;
+    height: 14vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform-origin: center;
+    transition: transform 0.15s ease, background-image 0.15s ease;
+    will-change: transform; 
+    display: none;
+}
+
+.player-front {
+    background-image: url(img/playerback.png);
+    transform: scaleX(1) rotate(180deg);
+}
+
+.player-back {
+    background-image: url(img/playerback.png);
+    transform: scaleX(1);
+}
+
+.player-left {
+    background-image: url(img/playerside.png);
+    transform: scaleX(-1);
+}
+
+.player-right {
+    background-image: url(img/playerside.png);
+    transform: scaleX(1);
 }

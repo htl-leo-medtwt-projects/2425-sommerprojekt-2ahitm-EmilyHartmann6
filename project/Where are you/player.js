@@ -1,12 +1,12 @@
 let PLAYER = {
     box: document.getElementById('player'),
-    isActive: false
+    isActive: false,
+    direction: 'right'
 };
 
 PLAYER.box.style.left = "50vw";
 PLAYER.box.style.top = "50vh";
-PLAYER.box.style.width = "5vw";
-PLAYER.box.style.height = "10vh";
+PLAYER.box.className = "player player-right";
 
 let colliders = document.querySelectorAll('.collider');
 let keyItem = document.getElementById("keyItem");
@@ -18,6 +18,7 @@ let currentDoor = null;
 let codeLetterCollected = false;
 let entityEntered = false;
 
+// Door references
 let door1 = document.getElementById("door1");
 let door2 = document.getElementById("door2");
 let door3 = document.getElementById("door3");
@@ -37,35 +38,81 @@ let firstEnding = document.getElementById("firstEnding");
 function movePlayer(dx, dy) {
     if (!PLAYER.isActive) return;
 
+    
+    if (dx !== 0 || dy !== 0) {
+       
+        if (Math.abs(dx) > Math.abs(dy)) {
+            if (dx > 0) {
+                // Moving right
+                if (PLAYER.direction !== 'right') {
+                    PLAYER.direction = 'right';
+                    PLAYER.box.style.backgroundImage = "url('img/playerside.png')";
+                    PLAYER.box.style.transform = "scaleX(1)";
+                }
+            } else {
+                // Moving left
+                if (PLAYER.direction !== 'left') {
+                    PLAYER.direction = 'left';
+                    PLAYER.box.style.backgroundImage = "url('img/playerside.png')";
+                    PLAYER.box.style.transform = "scaleX(-1)";
+                }
+            }
+        } else {
+            if (dy > 0) {
+                // Moving down (front)
+                if (PLAYER.direction !== 'front') {
+                    PLAYER.direction = 'front';
+                    PLAYER.box.style.backgroundImage = "url('img/playerback.png')";
+                    PLAYER.box.style.transform = "scaleX(1) rotate(180deg)";
+                }
+            } else {
+                // Moving up (back)
+                if (PLAYER.direction !== 'back') {
+                    PLAYER.direction = 'back';
+                    PLAYER.box.style.backgroundImage = "url('img/playerback.png')";
+                    PLAYER.box.style.transform = "scaleX(1)";
+                }
+            }
+        }
+    }
+
+    // Calculate new position
     let currentLeft = parseFloat(PLAYER.box.style.left);
     let currentTop = parseFloat(PLAYER.box.style.top);
-    
     let newLeft = currentLeft + dx;
     let newTop = currentTop + dy;
 
-    let playerLeftPx = (newLeft / 100) * window.innerWidth;
-    let playerTopPx = (newTop / 100) * window.innerHeight;
-    let playerRightPx = playerLeftPx + PLAYER.box.clientWidth;
-    let playerBottomPx = playerTopPx + PLAYER.box.clientHeight;
+    
+    let playerRect = PLAYER.box.getBoundingClientRect();
+    let newPlayerRect = {
+        left: (newLeft / 100) * window.innerWidth,
+        right: (newLeft / 100) * window.innerWidth + playerRect.width,
+        top: (newTop / 100) * window.innerHeight,
+        bottom: (newTop / 100) * window.innerHeight + playerRect.height
+    };
+
 
     let collisionDetected = false;
     colliders.forEach(collider => {
-        if (collider.style.display !== "none") {
+        if (window.getComputedStyle(collider).display !== "none") {
             let colliderRect = collider.getBoundingClientRect();
             
-            if (playerLeftPx < colliderRect.right &&
-                playerRightPx > colliderRect.left &&
-                playerTopPx < colliderRect.bottom &&
-                playerBottomPx > colliderRect.top) {
+            if (newPlayerRect.left < colliderRect.right &&
+                newPlayerRect.right > colliderRect.left &&
+                newPlayerRect.top < colliderRect.bottom &&
+                newPlayerRect.bottom > colliderRect.top) {
                 collisionDetected = true;
             }
         }
     });
 
+   
     if (!collisionDetected) {
         PLAYER.box.style.left = newLeft + 'vw';
         PLAYER.box.style.top = newTop + 'vh';
     }
+
+    return { dx, dy };
 }
 
 function checkKeyPickup() {
@@ -132,7 +179,7 @@ function checkDoorEntry() {
         document.getElementById("endingOne").style.display = "none";
         document.getElementById("currentRoom").innerText = "Broom Closet";
         PLAYER.box.style.left = "50vw";
-        PLAYER.box.style.top = "60vh";
+        PLAYER.box.style.top = "55vh";
         colliders = document.querySelectorAll('.collider');
         stanely.play();
         return;
@@ -290,7 +337,7 @@ function gameLoop() {
         if (KEY_EVENTS.d) dx += speed;
 
         if (dx !== 0 || dy !== 0) {
-            movePlayer(dx, dy);
+            movePlayer(dx, dy);  
             checkKeyPickup();
             checkDoorEntry();
         }
