@@ -274,13 +274,31 @@ function checkDoorEntry() {
     }
 
     if (isColliding(PLAYER.box, door11)) {
+        setGameActive(false);
+        PLAYER.box.style.display = "none";
         document.getElementById("room7").style.display = "none";
         document.getElementById("map7").style.display = "none";
         document.getElementById("room8").style.display = "flex";
         document.getElementById("map8").style.display = "block";
         document.getElementById("currentRoom").innerText = "Empty Room";
-        PLAYER.box.style.left = "50vw";
-        PLAYER.box.style.top = "50vh";
+        setTimeout(() => {
+            const room8Video = document.getElementById("room8Video");
+            room8Video.style.display = "block";
+            room8Video.style.position = "fixed";
+            room8Video.style.top = "0";
+            room8Video.style.left = "0";
+            room8Video.style.width = "100vw";
+            room8Video.style.height = "100vh";
+            room8Video.style.zIndex = "1000";
+            
+            // This will be your video source - add it later
+            // room8Video.src = "path/to/your/video.mp4";
+            
+            room8Video.play().catch(e => console.error("Video play error:", e));
+            room8Video.onended = function() {
+                window.location.href = "./index.html";
+            };
+        }, 2000);
         return;
     }
     
@@ -324,7 +342,8 @@ function checkDoorEntry() {
         entity.style.top = "20vh";
         entity.style.right = "40vw";
         entity.classList.add("enter-animation");
-        document.getElementById("messages").innerText = "Oh no! Something's coming in!";
+        document.getElementById("messages").innerText = "Is that...";
+        
         
         entity.addEventListener('animationend', () => {
             
