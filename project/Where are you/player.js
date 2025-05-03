@@ -33,6 +33,7 @@ let door11 = document.getElementById("door11");
 let door12 = document.getElementById("door12");
 let door13 = document.getElementById("door13");
 let door14 = document.getElementById("door14");
+let door15 = document.getElementById("door15");
 let firstEnding = document.getElementById("firstEnding");
 
 function movePlayer(dx, dy) {
@@ -249,7 +250,7 @@ function checkDoorEntry() {
         document.getElementById("currentRoom").innerText = "Corridor";
         document.getElementById("codeLetter").style.display = "none"; 
         PLAYER.box.style.left = "46.3vw";
-        PLAYER.box.style.top = "66vh";
+        PLAYER.box.style.top = "60vh";
         return;
     }
     
@@ -275,7 +276,8 @@ function checkDoorEntry() {
 
     if (isColliding(PLAYER.box, door11)) {
         setGameActive(false);
-        PLAYER.box.style.display = "none";
+        PLAYER.box.style.left = "55vw";
+        PLAYER.box.style.top = "40vh";
         document.getElementById("room7").style.display = "none";
         document.getElementById("map7").style.display = "none";
         document.getElementById("room8").style.display = "flex";
@@ -308,8 +310,15 @@ function checkDoorEntry() {
         document.getElementById("room9").style.display = "flex";
         document.getElementById("map9").style.display = "block";
         document.getElementById("currentRoom").innerText = "Bedroom";
-        PLAYER.box.style.left = "50vw";
-        PLAYER.box.style.top = "50vh";
+        PLAYER.box.style.left = "44vw";
+        PLAYER.box.style.top = "60vh";
+        
+        const room9Entity = document.getElementById("room9Entity");
+        room9Entity.style.display = "block";
+        
+        setTimeout(() => {
+            document.getElementById("messages").innerText = "Let's leave...";
+        }, 1000);
         return;
     }
     
@@ -320,7 +329,7 @@ function checkDoorEntry() {
         document.getElementById("map10").style.display = "block";
         document.getElementById("currentRoom").innerText = "Corridor";
         PLAYER.box.style.left = "50vw";
-        PLAYER.box.style.top = "50vh";
+        PLAYER.box.style.top = "20vh";
         return;
     }
     
@@ -334,6 +343,11 @@ function checkDoorEntry() {
         PLAYER.box.style.top = "37.6vh";
         return;
     }
+    if (isColliding(PLAYER.box, door15)) {
+        document.getElementById("room9").style.display = "none";
+        document.getElementById("map9").style.display = "none";
+        document.getElementById("messages").innerText = "Is that...";
+    }
     if (isColliding(PLAYER.box, document.getElementById("triggerCollider")) && !entityEntered) {
         entityEntered = true;
         setGameActive(false);
@@ -343,8 +357,7 @@ function checkDoorEntry() {
         entity.style.right = "40vw";
         entity.classList.add("enter-animation");
         document.getElementById("messages").innerText = "Is that...";
-        
-        
+    
         entity.addEventListener('animationend', () => {
             
             const endingMessage = document.getElementById("ending-message");

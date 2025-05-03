@@ -213,7 +213,7 @@ video {
 }
 #map10{
     position: absolute;
-    width: 60%;
+    width: 45%;
     display: none;  
 }
 #room1, #room2, #room3, #room4, #room5, #room6, #room7, #room8, #room9, #room10 {
@@ -600,12 +600,12 @@ video {
 #collider9Top {
     top: 0;
     width: 100%;
-    height: 19vh;
+    height: 7vh;
 }
 
 #collider9Right {
     right: 0;
-    width: 33%;
+    width: 39%;
     height: 100vh;
 }
 
@@ -618,32 +618,67 @@ video {
 #collider9Bottom {
     bottom: 0;
     width: 100%;
-    height: 19vh;
+    height: 17vh;
 }
-
+#collider9Filler1{
+    top: 0;
+    width: 48%;
+    left: 0;
+    height: 25vh;
+}
+#collider9Bed{
+    top: 22vh;
+    width: 38%;
+    left: 0;
+    height: 20vh;
+}
+#collider9tableBed{
+    top: 22vh;
+    width: 42.5%;
+    left: 0;
+    height: 11vh;
+}
+#collider9Couch{
+    bottom: 26vh;
+    width: 10%;
+    right: 33vw;
+    height: 18vh;
+}
+#collider9Chair{
+    bottom: 18vh;
+    width: 5%;
+    right: 42vw;
+    height: 8vh;
+}
+#collider9desk{
+    bottom: 30vh;
+    width: 5%;
+    right: 43vw;
+    height: 8vh;
+}
 /* room10 colliders */
 #collider10Top {
     top: 0;
     width: 100%;
-    height: 19vh;
+    height: 17vh;
 }
 
 #collider10Right {
     right: 0;
-    width: 33%;
+    width: 39%;
     height: 100vh;
 }
 
 #collider10Left {
     left: 0;
-    width: 33%;
+    width: 39%;
     height: 100vh;
 }
 
 #collider10Bottom {
     bottom: 0;
     width: 100%;
-    height: 19vh;
+    height: 17vh;
 }
 
 /*doors*/
@@ -780,6 +815,15 @@ video {
     height: 9vh;
     right:35%;
     top:40vh;
+    z-index: 60;
+}
+#door15{
+    position: absolute;
+    background-color: rgb(138, 247, 255);
+    width: 10%;
+    height: 3vh;
+    right:40%;
+    top:7vh;
     z-index: 60;
 }
 
@@ -1174,4 +1218,15 @@ video {
 #room8Video {
     object-fit: cover;
     background-color: #000;
+}
+#room9Entity {
+    position: absolute;
+    width: 7vw;
+    height: 9vh;
+    background-image: url(img/entity.png);
+    background-size: cover;
+    z-index: 90;
+    display: none;
+    left: 42vw;
+    top: 25vh;
 }
