@@ -137,6 +137,7 @@ function checkDoorEntry() {
 
     if (isColliding(PLAYER.box, door1)) {
         if (hasKey) {
+            sounds.door.play();
             document.getElementById("room1").style.display = "none";
             document.getElementById("room2").style.display = "flex";
             document.getElementById("map2").style.display = "flex";
@@ -153,6 +154,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door2)) {
+        sounds.door.play();
         document.getElementById("room1").style.display = "flex";
         document.getElementById("room2").style.display = "none";
         document.getElementById("map2").style.display = "none";
@@ -173,6 +175,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door3)) {
+        sounds.door.play();
         document.getElementById("map2").style.display = "none";
         document.getElementById("room2").style.display = "none";
         document.getElementById("room3").style.display = "flex";
@@ -187,6 +190,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door4)) {
+        sounds.door.play();
         document.getElementById("map2").style.display = "flex";
         document.getElementById("room2").style.display = "flex";
         document.getElementById("room3").style.display = "none";
@@ -206,6 +210,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door5)) {
+        sounds.door.play();
         document.getElementById("map4").style.display = "flex";
         document.getElementById("room4").style.display = "flex";
         document.getElementById("room2").style.display = "none";
@@ -217,6 +222,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door6)) {
+        sounds.door.play();
         document.getElementById("map2").style.display = "flex";
         document.getElementById("room2").style.display = "flex";
         document.getElementById("room4").style.display = "none";
@@ -228,6 +234,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door7)) {
+        sounds.door.play();
         document.getElementById("map5").style.display = "flex";
         document.getElementById("room5").style.display = "flex";
         document.getElementById("room4").style.display = "none";
@@ -243,6 +250,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door8)) {
+        sounds.door.play();
         document.getElementById("map4").style.display = "flex";
         document.getElementById("room4").style.display = "flex";
         document.getElementById("room5").style.display = "none";
@@ -255,6 +263,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door9)) {
+        sounds.door.play();
         currentDoor = door9;
         document.getElementById("codeInputContainer").style.display = "flex";
         document.getElementById("codeInput").focus();
@@ -263,6 +272,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door10)) {
+        sounds.door.play();
         document.getElementById("map5").style.display = "none";
         document.getElementById("room5").style.display = "none";
         document.getElementById("room6").style.display = "flex";
@@ -275,6 +285,7 @@ function checkDoorEntry() {
     }
 
     if (isColliding(PLAYER.box, door11)) {
+        sounds.door.play();
         setGameActive(false);
         PLAYER.box.style.left = "55vw";
         PLAYER.box.style.top = "40vh";
@@ -283,7 +294,9 @@ function checkDoorEntry() {
         document.getElementById("room8").style.display = "flex";
         document.getElementById("map8").style.display = "block";
         document.getElementById("currentRoom").innerText = "Empty Room";
+
         setTimeout(() => {
+            sounds.scream.play();
             const room8Video = document.getElementById("room8Video");
             room8Video.style.display = "block";
             room8Video.style.position = "fixed";
@@ -293,7 +306,6 @@ function checkDoorEntry() {
             room8Video.style.height = "100vh";
             room8Video.style.zIndex = "1000";
             
-            // This will be your video source - add it later
             // room8Video.src = "path/to/your/video.mp4";
             
             room8Video.play().catch(e => console.error("Video play error:", e));
@@ -305,6 +317,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door12)) {
+        sounds.door.play();
         document.getElementById("room7").style.display = "none";
         document.getElementById("map7").style.display = "none";
         document.getElementById("room9").style.display = "flex";
@@ -323,6 +336,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door13)) {
+        sounds.door.play();
         document.getElementById("room7").style.display = "none";
         document.getElementById("map7").style.display = "none";
         document.getElementById("room10").style.display = "flex";
@@ -334,6 +348,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door14)) {
+        sounds.door.play();
         document.getElementById("room7").style.display = "none";
         document.getElementById("map7").style.display = "none";
         document.getElementById("room5").style.display = "flex";
@@ -344,6 +359,7 @@ function checkDoorEntry() {
         return;
     }
     if (isColliding(PLAYER.box, door15)) {
+        sounds.door.play();
         document.getElementById("room9").style.display = "none";
         document.getElementById("map9").style.display = "none";
         document.getElementById("messages").innerText = "Is that...";
@@ -380,6 +396,20 @@ function gameLoop() {
         if (KEY_EVENTS.a) dx -= speed;
         if (KEY_EVENTS.d) dx += speed;
 
+        const wasMoving = isMoving;
+        isMoving = dx !== 0 || dy !== 0;
+
+       
+        if (isMoving && !wasMoving) {
+           
+            footstepInterval = setInterval(() => {
+                sounds.footstep.play('step');
+            }, 500);
+        } else if (!isMoving && wasMoving) {
+            
+            clearInterval(footstepInterval);
+        }
+
         if (dx !== 0 || dy !== 0) {
             movePlayer(dx, dy);  
             checkKeyPickup();
@@ -388,7 +418,6 @@ function gameLoop() {
     }
     requestAnimationFrame(gameLoop);
 }
-
 requestAnimationFrame(gameLoop);
 
 function setGameActive(state) {

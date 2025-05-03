@@ -1,3 +1,26 @@
+// Sound Effects
+const sounds = {
+    scream: new Howl({
+      src: ['audio/scream.mp3'],
+      volume: 0.7
+    }),
+    footstep: new Howl({
+      src: ['audio/footsteps.mp3'],
+      volume: 0.4,
+      sprite: {
+        step: [0, 200] 
+      }
+    }),
+    door: new Howl({
+      src: ['audio/door_creak.mp3'],
+      volume: 0.5
+    })
+  };
+  
+  // Footstep management
+  let isMoving = false;
+  let footstepInterval;
+
 // Screen elements
 let body1 = document.getElementById("startScreen");
 let body2 = document.getElementById("flashbackScreen");
