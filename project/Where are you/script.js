@@ -5,15 +5,22 @@ const sounds = {
       volume: 0.7
     }),
     footstep: new Howl({
-      src: ['audio/footsteps.mp3'],
-      volume: 0.4,
-      sprite: {
-        step: [0, 200] 
-      }
+        src: ['audio/footsteps.mp3'],
+        volume: 0.4, 
+        sprite: {
+            step: [150, 100] 
+        },
+        rate: 1.2, 
+        onend: function() {
+            this.stop(); 
+        }
     }),
     door: new Howl({
-      src: ['audio/door_creak.mp3'],
-      volume: 0.5
+        src: ['audio/door_creak.mp3'],
+        volume: 0.5,
+        sprite: {
+            short_creak: [50, 450] 
+        }
     })
   };
   
@@ -257,3 +264,14 @@ document.addEventListener("keyup", (event) => {
         skipping = false;
     }
 });
+if (document.getElementById("goodEndingVideo")) {
+    document.getElementById("goodEndingVideo").addEventListener("ended", function() {
+        window.location.href = "./index.html";
+    });
+}
+function stopAllSounds() {
+    sounds.scream.stop();
+    sounds.footstep.stop();
+    sounds.door.stop();
+    clearInterval(footstepInterval);
+}

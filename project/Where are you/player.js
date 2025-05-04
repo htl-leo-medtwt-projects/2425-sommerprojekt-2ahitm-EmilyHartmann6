@@ -137,7 +137,7 @@ function checkDoorEntry() {
 
     if (isColliding(PLAYER.box, door1)) {
         if (hasKey) {
-            sounds.door.play();
+            sounds.door.play('short_creak');
             document.getElementById("room1").style.display = "none";
             document.getElementById("room2").style.display = "flex";
             document.getElementById("map2").style.display = "flex";
@@ -154,7 +154,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door2)) {
-        sounds.door.play();
+        sounds.door.play('short_creak');
         document.getElementById("room1").style.display = "flex";
         document.getElementById("room2").style.display = "none";
         document.getElementById("map2").style.display = "none";
@@ -175,7 +175,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door3)) {
-        sounds.door.play();
+        sounds.door.play('short_creak');
         document.getElementById("map2").style.display = "none";
         document.getElementById("room2").style.display = "none";
         document.getElementById("room3").style.display = "flex";
@@ -190,7 +190,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door4)) {
-        sounds.door.play();
+        sounds.door.play('short_creak');
         document.getElementById("map2").style.display = "flex";
         document.getElementById("room2").style.display = "flex";
         document.getElementById("room3").style.display = "none";
@@ -210,7 +210,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door5)) {
-        sounds.door.play();
+        sounds.door.play('short_creak');
         document.getElementById("map4").style.display = "flex";
         document.getElementById("room4").style.display = "flex";
         document.getElementById("room2").style.display = "none";
@@ -222,7 +222,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door6)) {
-        sounds.door.play();
+        sounds.door.play('short_creak');
         document.getElementById("map2").style.display = "flex";
         document.getElementById("room2").style.display = "flex";
         document.getElementById("room4").style.display = "none";
@@ -234,7 +234,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door7)) {
-        sounds.door.play();
+        sounds.door.play('short_creak');
         document.getElementById("map5").style.display = "flex";
         document.getElementById("room5").style.display = "flex";
         document.getElementById("room4").style.display = "none";
@@ -250,7 +250,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door8)) {
-        sounds.door.play();
+        sounds.door.play('short_creak');
         document.getElementById("map4").style.display = "flex";
         document.getElementById("room4").style.display = "flex";
         document.getElementById("room5").style.display = "none";
@@ -263,7 +263,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door9)) {
-        sounds.door.play();
+        sounds.door.play('short_creak');
         currentDoor = door9;
         document.getElementById("codeInputContainer").style.display = "flex";
         document.getElementById("codeInput").focus();
@@ -272,7 +272,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door10)) {
-        sounds.door.play();
+        sounds.door.play('short_creak');
         document.getElementById("map5").style.display = "none";
         document.getElementById("room5").style.display = "none";
         document.getElementById("room6").style.display = "flex";
@@ -285,7 +285,7 @@ function checkDoorEntry() {
     }
 
     if (isColliding(PLAYER.box, door11)) {
-        sounds.door.play();
+        sounds.door.play('short_creak');
         setGameActive(false);
         PLAYER.box.style.left = "55vw";
         PLAYER.box.style.top = "40vh";
@@ -296,7 +296,7 @@ function checkDoorEntry() {
         document.getElementById("currentRoom").innerText = "Empty Room";
 
         setTimeout(() => {
-            sounds.scream.play();
+            sounds.door.play('short_creak');
             const room8Video = document.getElementById("room8Video");
             room8Video.style.display = "block";
             room8Video.style.position = "fixed";
@@ -317,7 +317,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door12)) {
-        sounds.door.play();
+        sounds.door.play('short_creak');
         document.getElementById("room7").style.display = "none";
         document.getElementById("map7").style.display = "none";
         document.getElementById("room9").style.display = "flex";
@@ -336,7 +336,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door13)) {
-        sounds.door.play();
+        sounds.door.play('short_creak');
         document.getElementById("room7").style.display = "none";
         document.getElementById("map7").style.display = "none";
         document.getElementById("room10").style.display = "flex";
@@ -348,7 +348,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door14)) {
-        sounds.door.play();
+        sounds.door.play('short_creak');
         document.getElementById("room7").style.display = "none";
         document.getElementById("map7").style.display = "none";
         document.getElementById("room5").style.display = "flex";
@@ -359,10 +359,26 @@ function checkDoorEntry() {
         return;
     }
     if (isColliding(PLAYER.box, door15)) {
-        sounds.door.play();
-        document.getElementById("room9").style.display = "none";
-        document.getElementById("map9").style.display = "none";
-        document.getElementById("messages").innerText = "Is that...";
+        sounds.door.play('short_creak');
+        setGameActive(false);
+        
+        
+        document.getElementById("gameScreen").style.display = "none";
+        document.getElementById("goodEndingVideo").style.display = "block";
+       
+        const goodEndingVideo = document.getElementById("goodEndingVideo");
+        goodEndingVideo.style.position = "fixed";
+        goodEndingVideo.style.top = "0";
+        goodEndingVideo.style.left = "0";
+        goodEndingVideo.style.width = "100vw";
+        goodEndingVideo.style.height = "100vh";
+        goodEndingVideo.style.zIndex = "1000";
+        
+        goodEndingVideo.play().catch(e => console.error("Video play error:", e));
+        goodEndingVideo.onended = function() {
+            window.location.href = "./index.html";
+        };
+        return;
     }
     if (isColliding(PLAYER.box, document.getElementById("triggerCollider")) && !entityEntered) {
         entityEntered = true;
