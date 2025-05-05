@@ -140,9 +140,6 @@
             <div class="collider" id="collider8Bottom"></div>
             <div class="collider" id="collider8Left"></div>
             <img src="img/corpse.png" alt="corpse" id="badEndingCorpse">
-            <video id="room8Video" width="100" height="100" muted playsinline style="display: none;">
-                <!-- Source will be added later -->
-            </video>
             <img id="map8" src="map/badEnding.png">
         </div>
 
@@ -227,8 +224,11 @@
         </video>
 
     </div>
-    <video id="goodEndingVideo" width="100" height="100" muted playsinline style="display: none;">
+    <video id="goodEndingVideo" width="100" height="100" playsinline style="display: none;">
         <source src="cutscenes/goodEnding.mp4" type="video/mp4">
+    </video>
+    <video id="badEndingVideo" width="100" height="100" playsinline style="display: none;">
+        <source src="cutscenes/badending.mp4" type="video/mp4">
     </video>
     <!-- Code Letter Modal -->
     <div id="codeLetterModal">

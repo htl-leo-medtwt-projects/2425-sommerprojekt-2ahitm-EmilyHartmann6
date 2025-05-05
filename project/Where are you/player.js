@@ -137,7 +137,7 @@ function checkDoorEntry() {
 
     if (isColliding(PLAYER.box, door1)) {
         if (hasKey) {
-            sounds.door.play('short_creak');
+            
             document.getElementById("room1").style.display = "none";
             document.getElementById("room2").style.display = "flex";
             document.getElementById("map2").style.display = "flex";
@@ -154,7 +154,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door2)) {
-        sounds.door.play('short_creak');
+       
         document.getElementById("room1").style.display = "flex";
         document.getElementById("room2").style.display = "none";
         document.getElementById("map2").style.display = "none";
@@ -167,6 +167,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, firstEnding)) {
+        stopAllSounds()
         PLAYER.box.style.display = "none";
         document.getElementById("gameScreen").style.display = "none";
         document.getElementById("endingOne").style.display = "block";
@@ -175,7 +176,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door3)) {
-        sounds.door.play('short_creak');
+        stopAllSounds()
         document.getElementById("map2").style.display = "none";
         document.getElementById("room2").style.display = "none";
         document.getElementById("room3").style.display = "flex";
@@ -190,7 +191,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door4)) {
-        sounds.door.play('short_creak');
+        
         document.getElementById("map2").style.display = "flex";
         document.getElementById("room2").style.display = "flex";
         document.getElementById("room3").style.display = "none";
@@ -204,13 +205,14 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, document.getElementById("paperBall"))) {
+        stopAllSounds()
         document.getElementById("letterContainer").style.display = "flex";
         document.getElementById("paperBall").style.display = "none";
         return;
     }
     
     if (isColliding(PLAYER.box, door5)) {
-        sounds.door.play('short_creak');
+        
         document.getElementById("map4").style.display = "flex";
         document.getElementById("room4").style.display = "flex";
         document.getElementById("room2").style.display = "none";
@@ -222,7 +224,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door6)) {
-        sounds.door.play('short_creak');
+       
         document.getElementById("map2").style.display = "flex";
         document.getElementById("room2").style.display = "flex";
         document.getElementById("room4").style.display = "none";
@@ -234,7 +236,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door7)) {
-        sounds.door.play('short_creak');
+       
         document.getElementById("map5").style.display = "flex";
         document.getElementById("room5").style.display = "flex";
         document.getElementById("room4").style.display = "none";
@@ -250,7 +252,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door8)) {
-        sounds.door.play('short_creak');
+        
         document.getElementById("map4").style.display = "flex";
         document.getElementById("room4").style.display = "flex";
         document.getElementById("room5").style.display = "none";
@@ -263,7 +265,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door9)) {
-        sounds.door.play('short_creak');
+        stopAllSounds()
         currentDoor = door9;
         document.getElementById("codeInputContainer").style.display = "flex";
         document.getElementById("codeInput").focus();
@@ -272,7 +274,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door10)) {
-        sounds.door.play('short_creak');
+        
         document.getElementById("map5").style.display = "none";
         document.getElementById("room5").style.display = "none";
         document.getElementById("room6").style.display = "flex";
@@ -285,39 +287,52 @@ function checkDoorEntry() {
     }
 
     if (isColliding(PLAYER.box, door11)) {
-        sounds.door.play('short_creak');
-        setGameActive(false);
-        PLAYER.box.style.left = "55vw";
-        PLAYER.box.style.top = "40vh";
+        
         document.getElementById("room7").style.display = "none";
         document.getElementById("map7").style.display = "none";
         document.getElementById("room8").style.display = "flex";
         document.getElementById("map8").style.display = "block";
-        document.getElementById("currentRoom").innerText = "Empty Room";
-
+        document.getElementById("currentRoom").innerText = "empty room";
+        PLAYER.box.style.left = "50vw";
+        PLAYER.box.style.top = "50vh";
+        
         setTimeout(() => {
-            sounds.door.play('short_creak');
-            const room8Video = document.getElementById("room8Video");
-            room8Video.style.display = "block";
-            room8Video.style.position = "fixed";
-            room8Video.style.top = "0";
-            room8Video.style.left = "0";
-            room8Video.style.width = "100vw";
-            room8Video.style.height = "100vh";
-            room8Video.style.zIndex = "1000";
+            sounds.scream.play();
             
-            // room8Video.src = "path/to/your/video.mp4";
-            
-            room8Video.play().catch(e => console.error("Video play error:", e));
-            room8Video.onended = function() {
-                window.location.href = "./index.html";
-            };
-        }, 2000);
+            setTimeout(() => {
+                setGameActive(false);
+                stopAllSounds();
+                
+                const badEndingVideo = document.getElementById("badEndingVideo");
+                badEndingVideo.style.display = "block";
+                badEndingVideo.style.position = "fixed";
+                badEndingVideo.style.top = "0";
+                badEndingVideo.style.left = "0";
+                badEndingVideo.style.width = "100vw";
+                badEndingVideo.style.height = "100vh";
+                badEndingVideo.style.zIndex = "1000";
+                
+                badEndingVideo.muted = false;
+                badEndingVideo.volume = 1;
+                
+                const playPromise = badEndingVideo.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        badEndingVideo.muted = true;
+                        badEndingVideo.play();
+                    });
+                }
+                
+                badEndingVideo.onended = function() {
+                    window.location.href = "./index.html";
+                };
+            }, 2000);
+        }, 1000);
         return;
     }
-    
     if (isColliding(PLAYER.box, door12)) {
-        sounds.door.play('short_creak');
+        
         document.getElementById("room7").style.display = "none";
         document.getElementById("map7").style.display = "none";
         document.getElementById("room9").style.display = "flex";
@@ -336,7 +351,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door13)) {
-        sounds.door.play('short_creak');
+        
         document.getElementById("room7").style.display = "none";
         document.getElementById("map7").style.display = "none";
         document.getElementById("room10").style.display = "flex";
@@ -348,7 +363,7 @@ function checkDoorEntry() {
     }
     
     if (isColliding(PLAYER.box, door14)) {
-        sounds.door.play('short_creak');
+        
         document.getElementById("room7").style.display = "none";
         document.getElementById("map7").style.display = "none";
         document.getElementById("room5").style.display = "flex";
@@ -359,14 +374,11 @@ function checkDoorEntry() {
         return;
     }
     if (isColliding(PLAYER.box, door15)) {
-        sounds.door.play('short_creak');
         setGameActive(false);
+        stopAllSounds();
         
-        
-        document.getElementById("gameScreen").style.display = "none";
-        document.getElementById("goodEndingVideo").style.display = "block";
-       
         const goodEndingVideo = document.getElementById("goodEndingVideo");
+        goodEndingVideo.style.display = "block";
         goodEndingVideo.style.position = "fixed";
         goodEndingVideo.style.top = "0";
         goodEndingVideo.style.left = "0";
@@ -374,13 +386,26 @@ function checkDoorEntry() {
         goodEndingVideo.style.height = "100vh";
         goodEndingVideo.style.zIndex = "1000";
         
-        goodEndingVideo.play().catch(e => console.error("Video play error:", e));
+        goodEndingVideo.muted = false;
+        goodEndingVideo.volume = 1;
+        
+        const playPromise = goodEndingVideo.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+             
+                goodEndingVideo.muted = true;
+                goodEndingVideo.play();
+            });
+        }
+        
         goodEndingVideo.onended = function() {
             window.location.href = "./index.html";
         };
         return;
     }
     if (isColliding(PLAYER.box, document.getElementById("triggerCollider")) && !entityEntered) {
+        stopAllSounds()
         entityEntered = true;
         setGameActive(false);
         let entity = document.getElementById("enteringEntity");

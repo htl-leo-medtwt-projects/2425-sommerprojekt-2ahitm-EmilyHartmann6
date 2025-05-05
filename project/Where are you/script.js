@@ -15,13 +15,6 @@ const sounds = {
             this.stop(); 
         }
     }),
-    door: new Howl({
-        src: ['audio/door_creak.mp3'],
-        volume: 0.5,
-        sprite: {
-            short_creak: [50, 450] 
-        }
-    })
   };
   
   // Footstep management
@@ -227,6 +220,16 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = "./index.html";
         });
     }
+    if (document.getElementById("badEndingVideo")) {
+        document.getElementById("badEndingVideo").addEventListener("ended", function() {
+            window.location.href = "./index.html";
+        });
+    }
+    if (document.getElementById("goodEndingVideo")) {
+        document.getElementById("goodEndingVideo").addEventListener("ended", function() {
+            window.location.href = "./index.html";
+        });
+    }
     
     setupVolumeControls();
 
@@ -264,14 +267,10 @@ document.addEventListener("keyup", (event) => {
         skipping = false;
     }
 });
-if (document.getElementById("goodEndingVideo")) {
-    document.getElementById("goodEndingVideo").addEventListener("ended", function() {
-        window.location.href = "./index.html";
-    });
-}
+
 function stopAllSounds() {
     sounds.scream.stop();
     sounds.footstep.stop();
-    sounds.door.stop();
     clearInterval(footstepInterval);
+    isMoving = false;
 }

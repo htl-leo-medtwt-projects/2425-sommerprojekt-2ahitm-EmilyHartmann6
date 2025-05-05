@@ -229,7 +229,7 @@ video {
 
 /*colliders*/
 .collider {
-    background-color: #6d48ff88;
+    background-color: #6d48ff00;
     position: absolute;
     z-index: 50;
 }
@@ -564,6 +564,7 @@ video {
     left: 0;
     width: 30.5%;
     height: 100vh;
+   
 }
 
 #collider7Bottom {
@@ -783,7 +784,7 @@ video {
 }
 #door11{
     position: absolute;
-    background-color: rgb(138, 247, 255);
+    background-color: rgba(138, 247, 255, 0);
     width: 2%;
     height: 9vh;
     left:30%;
@@ -792,7 +793,7 @@ video {
 }
 #door12{
     position: absolute;
-    background-color: rgb(138, 247, 255);
+    background-color: rgba(138, 247, 255, 0);
     width: 6%;
     height: 3vh;
     left:44%;
@@ -801,7 +802,7 @@ video {
 }
 #door13{
     position: absolute;
-    background-color: rgb(138, 247, 255);
+    background-color: rgba(138, 247, 255, 0);
     width: 6%;
     height: 3vh;
     left:44%;
@@ -810,7 +811,7 @@ video {
 }
 #door14{
     position: absolute;
-    background-color: rgb(138, 247, 255);
+    background-color: rgba(138, 247, 255, 0);
     width: 2%;
     height: 9vh;
     right:35%;
@@ -819,7 +820,7 @@ video {
 }
 #door15{
     position: absolute;
-    background-color: rgb(138, 247, 255);
+    background-color: rgba(138, 247, 255, 0);
     width: 10%;
     height: 3vh;
     right:40%;
@@ -1229,4 +1230,27 @@ video {
     display: none;
     left: 42vw;
     top: 25vh;
+}
+#room8 {
+    transition: opacity 1s ease;
+}
+#badEndingVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 1000;
+    display: none;
+    background-color: #000; 
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.fade-in {
+    opacity: 1;
 }
