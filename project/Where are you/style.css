@@ -175,7 +175,7 @@ video {
 
 #map3 {
     position: absolute;
-    width: 35%;
+    width: 40%;
     display: none;
 }
 
@@ -198,7 +198,7 @@ video {
 }
 #map7{
     position: absolute;
-    width: 65%;
+    width: 60%;
     display: none;  
 }
 #map8{
@@ -208,7 +208,7 @@ video {
 }
 #map9{
     position: absolute;
-    width: 50%;
+    width: 52%;
     display: none;  
 }
 #map10{
@@ -229,7 +229,7 @@ video {
 
 /*colliders*/
 .collider {
-    background-color: #6d48ff00;
+    background-color: #6d48ffa9;
     position: absolute;
     z-index: 50;
 }
@@ -238,25 +238,25 @@ video {
 #collider1Top {
     top: 0;
     width: 100%;
-    height: 16vh;
+    height: 19vh;
 }
 
 #collider1Right {
     right: 0;
-    width: 29%;
+    width: 30%;
     height: 100vh;
 }
 
 #collider1Left {
     left: 0;
-    width: 29%;
+    width: 31%;
     height: 100vh;
 }
 
 #collider1Bottom {
     bottom: 0;
     width: 100%;
-    height: 16vh;
+    height: 19vh;
 }
 
 #desk1 {
@@ -306,13 +306,13 @@ video {
 
 #collider2Right {
     right: 0;
-    width: 22%;
+    width: 23%;
     height: 100vh;
 }
 
 #collider2Left {
     left: 0;
-    width: 27%;
+    width: 25%;
     height: 100vh;
 }
 
@@ -324,21 +324,21 @@ video {
 
 #collider2filler1 {
     top: 0;
-    width: 36%;
-    height: 24vh;
+    width: 34%;
+    height: 26vh;
     left: 0;
 }
 
 #collider2filler2 {
     top: 0;
-    width: 36%;
+    width: 38%;
     height: 41vh;
     right: 0;
 }
 
 #collider2filler3 {
     bottom: 0;
-    width: 36%;
+    width: 38%;
     height: 33vh;
     right: 0;
 }
@@ -347,14 +347,14 @@ video {
     top: 19%;
     width: 10%;
     height: 8vh;
-    right: 36%;
+    right: 38%;
 }
 
 #chair1 {
     width: 4%;
     height: 6vh;
     top: 20%;
-    left: 38%;
+    left: 366%;
 }
 
 /*room3 colliders*/
@@ -472,12 +472,12 @@ video {
 #collider5Top {
     top: 0;
     width: 100%;
-    height: 17vh;
+    height: 18vh;
 }
 
 #collider5Right {
     right: 0;
-    width: 33%;
+    width: 34%;
     height: 100vh;
 }
 
@@ -502,7 +502,7 @@ video {
 
 #collider5Filler2 {
     top: 0;
-    width: 38%;
+    width: 39%;
     height: 52vh;
     right: 0;
 }
@@ -547,6 +547,17 @@ video {
     width: 100%;
     height: 19vh;
 }
+#doubleBodyCorpse{
+    display: none;
+    position: absolute;
+    width: 15%;
+    height: auto;
+    bottom: 34vh;
+    right: 38vw;
+    opacity: 0.7;
+    z-index: 1000;
+}
+
 /*room7 colliders*/
 #collider7Top {
     top: 0;
@@ -556,13 +567,13 @@ video {
 
 #collider7Right {
     right: 0;
-    width: 35%;
+    width: 32.5%;
     height: 100vh;
 }
 
 #collider7Left {
     left: 0;
-    width: 30.5%;
+    width: 32%;
     height: 100vh;
    
 }
@@ -581,13 +592,13 @@ video {
 
 #collider8Right {
     right: 0;
-    width: 39%;
+    width: 38.5%;
     height: 100vh;
 }
 
 #collider8Left {
     left: 0;
-    width: 34%;
+    width: 35%;
     height: 100vh;
 }
 
@@ -595,6 +606,16 @@ video {
     bottom: 0;
     width: 100%;
     height: 30vh;
+}
+#badEndingCorpse{
+    display: none;
+    position: absolute;
+    width: 15%;
+    height: auto;
+    bottom: 38vh;
+    left: 34vw;
+    opacity: 0.7;
+    z-index: 1000;
 }
 
 /* room9 colliders */
@@ -787,9 +808,9 @@ video {
     background-color: rgba(138, 247, 255, 0);
     width: 2%;
     height: 9vh;
-    left:30%;
+    left:32%;
     top:40vh;
-    z-index: 60;
+    z-index: 1000;
 }
 #door12{
     position: absolute;
@@ -963,7 +984,7 @@ video {
 #codeLetter {
     position: absolute;
     z-index: 100;
-    top: 17.5vh;
+    top: 19vh;
     left: 35vw;
     width: 5%;
     display: none;

@@ -283,6 +283,7 @@ function checkDoorEntry() {
         PLAYER.box.style.left = "44.8vw";
         PLAYER.box.style.top = "20.6vh";
         document.getElementById("codeLetter").style.display = "none"; 
+        document.getElementById("doubleBodyCorpse").style.display ="block";
         return;
     }
 
@@ -293,8 +294,9 @@ function checkDoorEntry() {
         document.getElementById("room8").style.display = "flex";
         document.getElementById("map8").style.display = "block";
         document.getElementById("currentRoom").innerText = "empty room";
-        PLAYER.box.style.left = "50vw";
-        PLAYER.box.style.top = "50vh";
+        document.getElementById("badEndingCorpse").style.display ="block";
+        PLAYER.box.style.left = "55vw";
+        PLAYER.box.style.top = "45vh";
         
         setTimeout(() => {
             sounds.scream.play();
