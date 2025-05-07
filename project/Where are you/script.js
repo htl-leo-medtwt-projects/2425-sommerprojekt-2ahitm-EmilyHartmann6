@@ -19,7 +19,7 @@ const sounds = {
         src: ['audio/paperBall.mp3'],
         volume: 0.7,
         sprite: {
-            short: [0, 1000] // 1 second clip
+            short: [0, 1000] 
         },
         preload: true
     }),

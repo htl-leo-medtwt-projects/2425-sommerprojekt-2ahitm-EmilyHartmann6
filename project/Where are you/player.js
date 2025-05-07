@@ -1,7 +1,8 @@
 let PLAYER = {
     box: document.getElementById('player'),
     isActive: false,
-    direction: 'right'
+    direction: 'right',
+    speed: 0.06
 };
 
 PLAYER.box.style.left = "50vw";
@@ -143,7 +144,7 @@ function checkDoorEntry() {
             document.getElementById("map2").style.display = "flex";
             document.getElementById("messages").innerText = "";
             document.getElementById("currentRoom").innerText = "Corridor";
-            PLAYER.box.style.left = "70vw";
+            PLAYER.box.style.left = "68vw";
             PLAYER.box.style.top = "50vh";
             collectedKey.innerHTML = "";
             document.getElementById("paperBall").style.display = "block";
@@ -161,7 +162,7 @@ function checkDoorEntry() {
         document.getElementById("messages").innerText = "You escaped a painful death";
         document.getElementById("currentRoom").innerText = "Bedroom";
         document.getElementById("firstEnding").style.display = "block";
-        PLAYER.box.style.left = "35vw";
+        PLAYER.box.style.left = "32vw";
         PLAYER.box.style.top = "50vh";
         return;
     }
@@ -183,7 +184,7 @@ function checkDoorEntry() {
         document.getElementById("map3").style.display = "block";
         document.getElementById("endingOne").style.display = "none";
         document.getElementById("currentRoom").innerText = "Broom Closet";
-        PLAYER.box.style.left = "50vw";
+        PLAYER.box.style.left = "47vw";
         PLAYER.box.style.top = "55vh";
         colliders = document.querySelectorAll('.collider');
         stanely.play();
@@ -197,7 +198,7 @@ function checkDoorEntry() {
         document.getElementById("room3").style.display = "none";
         document.getElementById("map3").style.display = "none";
         document.getElementById("currentRoom").innerText = "Corridor";
-        PLAYER.box.style.left = "28.7vw";
+        PLAYER.box.style.left = "25vw";
         PLAYER.box.style.top = "34.1vh";
         stanely.pause();
         stanely.currentTime = 0;
@@ -218,7 +219,7 @@ function checkDoorEntry() {
         document.getElementById("room2").style.display = "none";
         document.getElementById("map2").style.display = "none";
         document.getElementById("currentRoom").innerText = "Corridor";
-        PLAYER.box.style.left = "47.8vw";
+        PLAYER.box.style.left = "46vw";
         PLAYER.box.style.top = "23.3vh";
         return;
     }
@@ -230,7 +231,7 @@ function checkDoorEntry() {
         document.getElementById("room4").style.display = "none";
         document.getElementById("map4").style.display = "none";
         document.getElementById("currentRoom").innerText = "Corridor";
-        PLAYER.box.style.left = "47.8vw";
+        PLAYER.box.style.left = "46vw";
         PLAYER.box.style.top = "63.8vh";
         return;
     }
@@ -242,7 +243,7 @@ function checkDoorEntry() {
         document.getElementById("room4").style.display = "none";
         document.getElementById("map4").style.display = "none";
         document.getElementById("currentRoom").innerText = "Corridor";
-        PLAYER.box.style.left = "47.8vw";
+        PLAYER.box.style.left = "46vw";
         PLAYER.box.style.top = "26.8vh";
         
         if (!codeLetterCollected && document.getElementById("collectedCodeLetter").style.display !== "block") {
@@ -259,7 +260,7 @@ function checkDoorEntry() {
         document.getElementById("map5").style.display = "none";
         document.getElementById("currentRoom").innerText = "Corridor";
         document.getElementById("codeLetter").style.display = "none"; 
-        PLAYER.box.style.left = "46.3vw";
+        PLAYER.box.style.left = "45vw";
         PLAYER.box.style.top = "60vh";
         return;
     }
@@ -280,7 +281,7 @@ function checkDoorEntry() {
         document.getElementById("room6").style.display = "flex";
         document.getElementById("map6").style.display = "flex";
         document.getElementById("currentRoom").innerText = "Living Room";
-        PLAYER.box.style.left = "44.8vw";
+        PLAYER.box.style.left = "43vw";
         PLAYER.box.style.top = "20.6vh";
         document.getElementById("codeLetter").style.display = "none"; 
         document.getElementById("doubleBodyCorpse").style.display ="block";
@@ -295,7 +296,7 @@ function checkDoorEntry() {
         document.getElementById("map8").style.display = "block";
         document.getElementById("currentRoom").innerText = "empty room";
         document.getElementById("badEndingCorpse").style.display ="block";
-        PLAYER.box.style.left = "55vw";
+        PLAYER.box.style.left = "52vw";
         PLAYER.box.style.top = "45vh";
         
         setTimeout(() => {
@@ -341,7 +342,7 @@ function checkDoorEntry() {
         document.getElementById("room9").style.display = "flex";
         document.getElementById("map9").style.display = "block";
         document.getElementById("currentRoom").innerText = "Bedroom";
-        PLAYER.box.style.left = "44vw";
+        PLAYER.box.style.left = "42vw";
         PLAYER.box.style.top = "60vh";
         
         const room9Entity = document.getElementById("room9Entity");
@@ -363,7 +364,7 @@ function checkDoorEntry() {
         document.getElementById("room10").style.display = "flex";
         document.getElementById("map10").style.display = "block";
         document.getElementById("currentRoom").innerText = "Corridor";
-        PLAYER.box.style.left = "50vw";
+        PLAYER.box.style.left = "48vw";
         PLAYER.box.style.top = "20vh";
         return;
     }
@@ -375,7 +376,7 @@ function checkDoorEntry() {
         document.getElementById("room5").style.display = "flex";
         document.getElementById("map5").style.display = "flex";
         document.getElementById("currentRoom").innerText = "Corridor";
-        PLAYER.box.style.left = "55.5vw";
+        PLAYER.box.style.left = "54vw";
         PLAYER.box.style.top = "37.6vh";
         return;
     }
@@ -417,7 +418,7 @@ function checkDoorEntry() {
         let entity = document.getElementById("enteringEntity");
         entity.style.display = "block";
         entity.style.top = "20vh";
-        entity.style.right = "40vw";
+        entity.style.right = "38vw";
         entity.classList.add("enter-animation");
         document.getElementById("messages").innerText = "Is that...";
     
@@ -436,7 +437,7 @@ function checkDoorEntry() {
 function gameLoop() {
     if (PLAYER.isActive) {
         let dx = 0, dy = 0;
-        const speed = 0.2;
+        const speed = PLAYER.speed;
 
         if (KEY_EVENTS.w) dy -= speed;
         if (KEY_EVENTS.s) dy += speed;
