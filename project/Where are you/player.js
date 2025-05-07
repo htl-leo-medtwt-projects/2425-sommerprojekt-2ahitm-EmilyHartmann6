@@ -203,9 +203,9 @@ function checkDoorEntry() {
         stanely.currentTime = 0;
         return;
     }
-    
     if (isColliding(PLAYER.box, document.getElementById("paperBall"))) {
-        stopAllSounds()
+        stopAllSounds();
+        sounds.paperBall.play('short'); 
         document.getElementById("letterContainer").style.display = "flex";
         document.getElementById("paperBall").style.display = "none";
         return;
@@ -299,8 +299,9 @@ function checkDoorEntry() {
         PLAYER.box.style.top = "45vh";
         
         setTimeout(() => {
-            sounds.scream.play();
-            
+            sounds.scream.seek(8);
+        	sounds.scream.play();
+            setGameActive(false);
             setTimeout(() => {
                 setGameActive(false);
                 stopAllSounds();
@@ -329,7 +330,7 @@ function checkDoorEntry() {
                 badEndingVideo.onended = function() {
                     window.location.href = "./index.html";
                 };
-            }, 2000);
+            }, 10000);
         }, 1000);
         return;
     }
@@ -347,7 +348,10 @@ function checkDoorEntry() {
         room9Entity.style.display = "block";
         
         setTimeout(() => {
-            document.getElementById("messages").innerText = "Let's leave...";
+            document.getElementById("messages").innerText = "There you are...";
+            setTimeout(() => {
+                document.getElementById("messages").innerText = "Lets leave...";
+            }, 3000);
         }, 1000);
         return;
     }

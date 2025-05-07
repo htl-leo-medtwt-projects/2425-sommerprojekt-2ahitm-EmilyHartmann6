@@ -1,12 +1,12 @@
-// Sound Effects
 const sounds = {
     scream: new Howl({
       src: ['audio/scream.mp3'],
-      volume: 0.7
+      volume: 0.9,
+      preload: true
     }),
     footstep: new Howl({
         src: ['audio/footsteps.mp3'],
-        volume: 0.4, 
+        volume: 0.8, 
         sprite: {
             step: [150, 100] 
         },
@@ -15,7 +15,20 @@ const sounds = {
             this.stop(); 
         }
     }),
-  };
+    paperBall: new Howl({
+        src: ['audio/paperBall.mp3'],
+        volume: 0.7,
+        sprite: {
+            short: [0, 1000] // 1 second clip
+        },
+        preload: true
+    }),
+    letter: new Howl({
+        src: ['audio/letter.mp3'],
+        volume: 0.7,
+        preload: true
+    })
+};
   
   // Footstep management
   let isMoving = false;
@@ -143,6 +156,7 @@ function setupVolumeControls() {
 }
 
 function optionLetter() {
+    sounds.letter.play(); 
     if (document.getElementById("collectedCodeLetter").style.display !== "block") {
         document.getElementById("codeLetterModal").style.display = "flex";
         setGameActive(false);
@@ -150,6 +164,7 @@ function optionLetter() {
 }
 
 function closeCodeLetterModal() {
+    sounds.letter.play(); 
     codeLetterCollected = true;
     document.getElementById("codeLetterModal").style.display = "none";
     document.getElementById("collectedCodeLetter").style.display = "block";
@@ -158,6 +173,7 @@ function closeCodeLetterModal() {
 }
 
 function letterContinue(){
+    sounds.letter.play(); 
     document.getElementById("letterContainer").style.display = "none";
     document.getElementById("letterInventory").style.display = "block";
 }

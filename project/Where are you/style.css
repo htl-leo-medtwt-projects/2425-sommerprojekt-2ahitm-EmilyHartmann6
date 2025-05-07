@@ -229,7 +229,7 @@ video {
 
 /*colliders*/
 .collider {
-    background-color: #6d48ffa9;
+    background-color: #6d48ff00;
     position: absolute;
     z-index: 50;
 }
