@@ -187,7 +187,10 @@ function checkCode() {
     if (input === correctCode) {
         document.getElementById("codeFeedback").innerText = "";
         document.getElementById("codeInputContainer").style.display = "none";
-        proceedThroughDoor(currentDoor);
+        
+        setTimeout(() => {
+            proceedThroughDoor(currentDoor);
+        }, 100);
     } else {
         document.getElementById("codeFeedback").innerText = "WRONG CODE";
         document.getElementById("codeInput").value = "";
@@ -205,17 +208,35 @@ function closeCodeInput() {
 }
 
 function proceedThroughDoor(door) {
-    if (door === door9) {
-        document.getElementById("map5").style.display = "none";
-        document.getElementById("room5").style.display = "none";
-        document.getElementById("room7").style.display = "flex";
-        document.getElementById("map7").style.display = "flex";
-        document.getElementById("currentRoom").innerText = "Corridor";
-        document.getElementById("codeLetter").style.display = "none"; 
-        PLAYER.box.style.left = "55.5vw";
-        PLAYER.box.style.top = "37.6vh";
+    const fadeScreen = document.getElementById("fadeScreen");
+    
+    async function doTransition() {
+        
+        fadeScreen.classList.add("fade-out");
+        await new Promise(resolve => setTimeout(resolve, 500));
+       
+        if (door === door9) {
+            document.getElementById("map5").style.display = "none";
+            document.getElementById("room5").style.display = "none";
+            document.getElementById("room7").style.display = "flex";
+            document.getElementById("map7").style.display = "flex";
+            document.getElementById("currentRoom").innerText = "Corridor";
+            document.getElementById("codeLetter").style.display = "none"; 
+            PLAYER.box.style.left = "55.5vw";
+            PLAYER.box.style.top = "37.6vh";
+        }
+        
+       
+        fadeScreen.classList.remove("fade-out");
+        fadeScreen.classList.add("fade-in");
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        fadeScreen.classList.remove("fade-in");
+        setGameActive(true);
     }
-    setGameActive(true);
+    
+    setGameActive(false);
+    doTransition();
 }
 
 document.addEventListener("DOMContentLoaded", function() {
