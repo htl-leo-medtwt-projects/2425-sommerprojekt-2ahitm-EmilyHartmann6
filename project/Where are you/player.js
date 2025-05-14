@@ -2,7 +2,7 @@ let PLAYER = {
     box: document.getElementById('player'),
     isActive: false,
     direction: 'right',
-    speed: 0.08
+    speed: 0.2
 };
 
 PLAYER.box.style.left = "50vw";
@@ -14,8 +14,8 @@ let keyItem = document.getElementById("keyItem");
 let hasKey = false;
 let collectedKey = document.getElementById("collectedKey");
 let collectedLetter = document.getElementById("collectedLetter");
-const correctCode = "135"; 
-let currentDoor = null; 
+const correctCode = "135";
+let currentDoor = null;
 let codeLetterCollected = false;
 let entityEntered = false;
 
@@ -35,14 +35,19 @@ let door12 = document.getElementById("door12");
 let door13 = document.getElementById("door13");
 let door14 = document.getElementById("door14");
 let door15 = document.getElementById("door15");
+let door16 = document.getElementById("door16");
+let door17 = document.getElementById("door17");
+let door18 = document.getElementById("door18");
+let door19 = document.getElementById("door19");
+let door20 = document.getElementById("door20");
 let firstEnding = document.getElementById("firstEnding");
 
 function movePlayer(dx, dy) {
     if (!PLAYER.isActive) return;
 
-    
+
     if (dx !== 0 || dy !== 0) {
-       
+
         if (Math.abs(dx) > Math.abs(dy)) {
             if (dx > 0) {
                 // Moving right
@@ -84,7 +89,7 @@ function movePlayer(dx, dy) {
     let newLeft = currentLeft + dx;
     let newTop = currentTop + dy;
 
-    
+
     let playerRect = PLAYER.box.getBoundingClientRect();
     let newPlayerRect = {
         left: (newLeft / 100) * window.innerWidth,
@@ -98,7 +103,7 @@ function movePlayer(dx, dy) {
     colliders.forEach(collider => {
         if (window.getComputedStyle(collider).display !== "none") {
             let colliderRect = collider.getBoundingClientRect();
-            
+
             if (newPlayerRect.left < colliderRect.right &&
                 newPlayerRect.right > colliderRect.left &&
                 newPlayerRect.top < colliderRect.bottom &&
@@ -108,7 +113,7 @@ function movePlayer(dx, dy) {
         }
     });
 
-   
+
     if (!collisionDetected) {
         PLAYER.box.style.left = newLeft + 'vw';
         PLAYER.box.style.top = newTop + 'vh';
@@ -139,17 +144,17 @@ function checkDoorEntry() {
     async function transitionThroughDoor(callback) {
         const fadeScreen = document.getElementById("fadeScreen");
         setGameActive(false);
-       
+
         fadeScreen.classList.add("fade-out");
         await new Promise(resolve => setTimeout(resolve, 500));
-      
+
         callback();
-        
-       
+
+
         fadeScreen.classList.remove("fade-out");
         fadeScreen.classList.add("fade-in");
         await new Promise(resolve => setTimeout(resolve, 500));
-        
+
         fadeScreen.classList.remove("fade-in");
         setGameActive(true);
     }
@@ -172,7 +177,7 @@ function checkDoorEntry() {
         }
         return;
     }
-    
+
     if (isColliding(PLAYER.box, door2)) {
         transitionThroughDoor(() => {
             document.getElementById("room1").style.display = "flex";
@@ -186,7 +191,7 @@ function checkDoorEntry() {
         });
         return;
     }
-    
+
     if (isColliding(PLAYER.box, firstEnding)) {
         stopAllSounds();
         PLAYER.box.style.display = "none";
@@ -195,7 +200,7 @@ function checkDoorEntry() {
         playVideo1();
         return;
     }
-    
+
     if (isColliding(PLAYER.box, door3)) {
         transitionThroughDoor(() => {
             stopAllSounds();
@@ -212,7 +217,7 @@ function checkDoorEntry() {
         });
         return;
     }
-    
+
     if (isColliding(PLAYER.box, door4)) {
         transitionThroughDoor(() => {
             document.getElementById("map2").style.display = "flex";
@@ -235,7 +240,7 @@ function checkDoorEntry() {
         document.getElementById("paperBall").style.display = "none";
         return;
     }
-    
+
     if (isColliding(PLAYER.box, door5)) {
         transitionThroughDoor(() => {
             document.getElementById("map4").style.display = "flex";
@@ -248,7 +253,7 @@ function checkDoorEntry() {
         });
         return;
     }
-    
+
     if (isColliding(PLAYER.box, door6)) {
         transitionThroughDoor(() => {
             document.getElementById("map2").style.display = "flex";
@@ -261,7 +266,7 @@ function checkDoorEntry() {
         });
         return;
     }
-    
+
     if (isColliding(PLAYER.box, door7)) {
         transitionThroughDoor(() => {
             document.getElementById("map5").style.display = "flex";
@@ -271,14 +276,14 @@ function checkDoorEntry() {
             document.getElementById("currentRoom").innerText = "Corridor";
             PLAYER.box.style.left = "46vw";
             PLAYER.box.style.top = "26.8vh";
-            
+
             if (!codeLetterCollected && document.getElementById("collectedCodeLetter").style.display !== "block") {
                 document.getElementById("codeLetter").style.display = "block";
             }
         });
         return;
     }
-    
+
     if (isColliding(PLAYER.box, door8)) {
         transitionThroughDoor(() => {
             document.getElementById("map4").style.display = "flex";
@@ -292,7 +297,7 @@ function checkDoorEntry() {
         });
         return;
     }
-    
+
     if (isColliding(PLAYER.box, door9)) {
         stopAllSounds();
         currentDoor = door9;
@@ -301,7 +306,7 @@ function checkDoorEntry() {
         setGameActive(false);
         return;
     }
-    
+
     if (isColliding(PLAYER.box, door10)) {
         transitionThroughDoor(() => {
             document.getElementById("map5").style.display = "none";
@@ -327,7 +332,7 @@ function checkDoorEntry() {
             document.getElementById("badEndingCorpse").style.display = "block";
             PLAYER.box.style.left = "52vw";
             PLAYER.box.style.top = "45vh";
-            
+
             setTimeout(() => {
                 sounds.scream.seek(8);
                 sounds.scream.play();
@@ -335,7 +340,7 @@ function checkDoorEntry() {
                 setTimeout(() => {
                     setGameActive(false);
                     stopAllSounds();
-                    
+
                     const badEndingVideo = document.getElementById("badEndingVideo");
                     badEndingVideo.style.display = "block";
                     badEndingVideo.style.position = "fixed";
@@ -344,20 +349,20 @@ function checkDoorEntry() {
                     badEndingVideo.style.width = "100vw";
                     badEndingVideo.style.height = "100vh";
                     badEndingVideo.style.zIndex = "1000";
-                    
+
                     badEndingVideo.muted = false;
                     badEndingVideo.volume = 1;
-                    
+
                     const playPromise = badEndingVideo.play();
-                    
+
                     if (playPromise !== undefined) {
                         playPromise.catch(error => {
                             badEndingVideo.muted = true;
                             badEndingVideo.play();
                         });
                     }
-                    
-                    badEndingVideo.onended = function() {
+
+                    badEndingVideo.onended = function () {
                         window.location.href = "./index.html";
                     };
                 }, 10000);
@@ -375,10 +380,10 @@ function checkDoorEntry() {
             document.getElementById("currentRoom").innerText = "Bedroom";
             PLAYER.box.style.left = "42vw";
             PLAYER.box.style.top = "60vh";
-            
+
             const room9Entity = document.getElementById("room9Entity");
             room9Entity.style.display = "block";
-            
+
             setTimeout(() => {
                 document.getElementById("messages").innerText = "There you are...";
                 setTimeout(() => {
@@ -388,7 +393,7 @@ function checkDoorEntry() {
         });
         return;
     }
-    
+
     if (isColliding(PLAYER.box, door13)) {
         transitionThroughDoor(() => {
             document.getElementById("room7").style.display = "none";
@@ -397,11 +402,11 @@ function checkDoorEntry() {
             document.getElementById("map10").style.display = "block";
             document.getElementById("currentRoom").innerText = "Corridor";
             PLAYER.box.style.left = "48vw";
-            PLAYER.box.style.top = "20vh";
+            PLAYER.box.style.top = "23vh";
         });
         return;
     }
-    
+
     if (isColliding(PLAYER.box, door14)) {
         transitionThroughDoor(() => {
             document.getElementById("room7").style.display = "none";
@@ -419,7 +424,7 @@ function checkDoorEntry() {
         transitionThroughDoor(() => {
             setGameActive(false);
             stopAllSounds();
-            
+
             const goodEndingVideo = document.getElementById("goodEndingVideo");
             goodEndingVideo.style.display = "block";
             goodEndingVideo.style.position = "fixed";
@@ -428,25 +433,112 @@ function checkDoorEntry() {
             goodEndingVideo.style.width = "100vw";
             goodEndingVideo.style.height = "100vh";
             goodEndingVideo.style.zIndex = "1000";
-            
+
             goodEndingVideo.muted = false;
             goodEndingVideo.volume = 1;
-            
+
             const playPromise = goodEndingVideo.play();
-            
+
             if (playPromise !== undefined) {
                 playPromise.catch(error => {
                     goodEndingVideo.muted = true;
                     goodEndingVideo.play();
                 });
             }
-            
-            goodEndingVideo.onended = function() {
+
+            goodEndingVideo.onended = function () {
                 window.location.href = "./index.html";
             };
         });
         return;
     }
+
+if (isColliding(PLAYER.box, door16)) {
+    transitionThroughDoor(() => {
+        document.getElementById("room10").style.display = "none";
+        document.getElementById("room11").style.display = "flex";
+        document.getElementById("map11").style.display = "block";
+        document.getElementById("currentRoom").innerText = "Corridor";
+        PLAYER.box.style.left = "48vw";
+        PLAYER.box.style.top = "20vh";
+    });
+    return;
+}
+
+if (isColliding(PLAYER.box, door17)) {
+    transitionThroughDoor(() => {
+        document.getElementById("room11").style.display = "none";
+        document.getElementById("room12").style.display = "flex";
+        document.getElementById("map12").style.display = "block";
+        document.getElementById("currentRoom").innerText = "Corridor";
+        PLAYER.box.style.left = "48vw";
+        PLAYER.box.style.top = "80vh";
+    });
+    return;
+}
+
+if (isColliding(PLAYER.box, door18)) {
+    transitionThroughDoor(() => {
+        document.getElementById("room12").style.display = "none";
+        document.getElementById("room13").style.display = "flex";
+        document.getElementById("map13").style.display = "block";
+        document.getElementById("currentRoom").innerText = "Corridor";
+        PLAYER.box.style.left = "48vw";
+        PLAYER.box.style.top = "20vh";
+    });
+    return;
+}
+
+if (isColliding(PLAYER.box, door19)) {
+    transitionThroughDoor(() => {
+        document.getElementById("room13").style.display = "none";
+        document.getElementById("room12").style.display = "flex";
+        document.getElementById("map12").style.display = "block";
+        document.getElementById("currentRoom").innerText = "Corridor";
+        PLAYER.box.style.left = "48vw";
+        PLAYER.box.style.top = "80vh";
+    });
+    return;
+}
+
+if (isColliding(PLAYER.box, door20)) {
+    transitionThroughDoor(() => {
+        document.getElementById("room13").style.display = "none";
+        document.getElementById("room14").style.display = "flex";
+        document.getElementById("map14").style.display = "block";
+        document.getElementById("currentRoom").innerText = "Final Room";
+        PLAYER.box.style.left = "48vw";
+        PLAYER.box.style.top = "50vh";
+    });
+    return;
+}
+
+if (isColliding(PLAYER.box, door21)) {
+    transitionThroughDoor(() => {
+        document.getElementById("room14").style.display = "none";
+        document.getElementById("room13").style.display = "flex";
+        document.getElementById("map13").style.display = "block";
+        document.getElementById("currentRoom").innerText = "Corridor";
+        PLAYER.box.style.left = "48vw";
+        PLAYER.box.style.top = "20vh";
+    });
+    return;
+}
+
+    if (isColliding(PLAYER.box, document.getElementById("door14"))) {
+        transitionThroughDoor(() => {
+            document.getElementById("room10").style.display = "none";
+            document.getElementById("map10").style.display = "none";
+            document.getElementById("room11").style.display = "flex";
+            document.getElementById("map11").style.display = "block";
+            document.getElementById("currentRoom").innerText = "Corridor";
+            PLAYER.box.style.left = "48vw";
+            PLAYER.box.style.top = "20vh";
+        });
+        return;
+    }
+
+    
 
     if (isColliding(PLAYER.box, document.getElementById("triggerCollider")) && !entityEntered) {
         stopAllSounds();
@@ -458,11 +550,11 @@ function checkDoorEntry() {
         entity.style.right = "38vw";
         entity.classList.add("enter-animation");
         document.getElementById("messages").innerText = "Is that...";
-    
+
         entity.addEventListener('animationend', () => {
             const endingMessage = document.getElementById("ending-message");
             endingMessage.classList.add("show");
-            
+
             setTimeout(() => {
                 window.location.href = "./index.html";
             }, 3000);
@@ -483,19 +575,19 @@ function gameLoop() {
         const wasMoving = isMoving;
         isMoving = dx !== 0 || dy !== 0;
 
-       
+
         if (isMoving && !wasMoving) {
-           
+
             footstepInterval = setInterval(() => {
                 sounds.footstep.play('step');
             }, 500);
         } else if (!isMoving && wasMoving) {
-            
+
             clearInterval(footstepInterval);
         }
 
         if (dx !== 0 || dy !== 0) {
-            movePlayer(dx, dy);  
+            movePlayer(dx, dy);
             checkKeyPickup();
             checkDoorEntry();
         }

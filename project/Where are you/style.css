@@ -253,7 +253,7 @@ video {
 
 /*colliders*/
 .collider {
-    background-color: #6d48ff00;
+    background-color: #6d48ffc4;
     position: absolute;
     z-index: 50;
 }
@@ -706,26 +706,124 @@ video {
 #collider10Top {
     top: 0;
     width: 100%;
-    height: 17vh;
+    height: 22vh;
 }
 
 #collider10Right {
     right: 0;
-    width: 39%;
+    width: 40.5%;
     height: 100vh;
 }
 
 #collider10Left {
     left: 0;
-    width: 39%;
+    width: 42%;
     height: 100vh;
 }
 
 #collider10Bottom {
     bottom: 0;
     width: 100%;
+    height: 22vh;
+}
+/* room11 colliders */
+#collider11Top {
+    top: 0;
+    width: 100%;
     height: 17vh;
 }
+
+#collider11Right {
+    right: 0;
+    width: 39%;
+    height: 100vh;
+}
+
+#collider11Left {
+    left: 0;
+    width: 39%;
+    height: 100vh;
+}
+
+#collider11Bottom {
+    bottom: 0;
+    width: 100%;
+    height: 17vh;
+}
+/* room12 colliders */
+#collider12Top {
+    top: 0;
+    width: 100%;
+    height: 17vh;
+}
+
+#collider12Right {
+    right: 0;
+    width: 39%;
+    height: 100vh;
+}
+
+#collider12Left {
+    left: 0;
+    width: 39%;
+    height: 100vh;
+}
+
+#collider12Bottom {
+    bottom: 0;
+    width: 100%;
+    height: 17vh;
+}
+/* room13 colliders */
+#collider12Top {
+    top: 0;
+    width: 100%;
+    height: 17vh;
+}
+
+#collider13Right {
+    right: 0;
+    width: 39%;
+    height: 100vh;
+}
+
+#collider13Left {
+    left: 0;
+    width: 39%;
+    height: 100vh;
+}
+
+#collider13Bottom {
+    bottom: 0;
+    width: 100%;
+    height: 17vh;
+}
+/* room14 colliders */
+#collider14Top {
+    top: 0;
+    width: 100%;
+    height: 17vh;
+}
+
+#collider14Right {
+    right: 0;
+    width: 39%;
+    height: 100vh;
+}
+
+#collider14Left {
+    left: 0;
+    width: 39%;
+    height: 100vh;
+}
+
+#collider14Bottom {
+    bottom: 0;
+    width: 100%;
+    height: 17vh;
+}
+
+
 
 /*doors*/
 #door1 {
@@ -870,6 +968,65 @@ video {
     height: 3vh;
     right:40%;
     top:7vh;
+    z-index: 60;
+}
+#door16 {
+    position: absolute;
+    background-color: rgba(138, 247, 255, 0);
+    width: 8%;
+    height: 4vh;
+    right: 45%;
+    bottom: 19vh;
+    z-index: 60;
+}
+
+#door17 {
+    position: absolute;
+    background-color: rgba(138, 247, 255, 0);
+    width: 8%;
+    height: 4vh;
+    right: 45%;
+    top: 19vh;
+    z-index: 60;
+}
+
+#door18 {
+    position: absolute;
+    background-color: rgba(138, 247, 255, 0);
+    width: 8%;
+    height: 4vh;
+    left: 45%;
+    top: 19vh;
+    z-index: 60;
+}
+
+#door19 {
+    position: absolute;
+    background-color: rgba(138, 247, 255, 0);
+    width: 8%;
+    height: 4vh;
+    left: 45%;
+    bottom: 19vh;
+    z-index: 60;
+}
+
+#door20 {
+    position: absolute;
+    background-color: rgba(138, 247, 255, 0);
+    width: 8%;
+    height: 4vh;
+    right: 45%;
+    top: 19vh;
+    z-index: 60;
+}
+
+#door21 {
+    position: absolute;
+    background-color: rgba(138, 247, 255, 0);
+    width: 8%;
+    height: 4vh;
+    left: 45%;
+    bottom: 19vh;
     z-index: 60;
 }
 
