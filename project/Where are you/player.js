@@ -472,7 +472,7 @@ if (isColliding(PLAYER.box, door17)) {
         document.getElementById("map12").style.display = "block";
         document.getElementById("currentRoom").innerText = "Corridor";
         PLAYER.box.style.left = "48vw";
-        PLAYER.box.style.top = "80vh";
+        PLAYER.box.style.top = "20vh";
     });
     return;
 }
@@ -513,17 +513,7 @@ if (isColliding(PLAYER.box, door20)) {
     return;
 }
 
-if (isColliding(PLAYER.box, door21)) {
-    transitionThroughDoor(() => {
-        document.getElementById("room14").style.display = "none";
-        document.getElementById("room13").style.display = "flex";
-        document.getElementById("map13").style.display = "block";
-        document.getElementById("currentRoom").innerText = "Corridor";
-        PLAYER.box.style.left = "48vw";
-        PLAYER.box.style.top = "20vh";
-    });
-    return;
-}
+
 
     if (isColliding(PLAYER.box, document.getElementById("door14"))) {
         transitionThroughDoor(() => {
