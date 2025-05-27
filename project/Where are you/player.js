@@ -87,6 +87,7 @@ function movePlayer(dx, dy) {
                 newPlayerRect.top < colliderRect.bottom &&
                 newPlayerRect.bottom > colliderRect.top) {
                 collisionDetected = true;
+                console.warn("Collision detected with collider:", collider.id);
             }
         }
     });
@@ -181,6 +182,7 @@ function checkDoorEntry() {
 }
 
     if (isColliding(PLAYER.box, door1)) {
+
         
         if (hasKey) {
             sounds.doorCreak.play();
@@ -190,7 +192,7 @@ function checkDoorEntry() {
                 document.getElementById("map2").style.display = "flex";
                 document.getElementById("messages").innerText = "";
                 document.getElementById("currentRoom").innerText = "Corridor";
-                PLAYER.box.style.left = "68vw";
+                PLAYER.box.style.left = "66vw";
                 PLAYER.box.style.top = "50vh";
                 collectedKey.innerHTML = "";
                 document.getElementById("paperBall").style.display = "block";
