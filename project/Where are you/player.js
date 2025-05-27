@@ -87,7 +87,7 @@ function movePlayer(dx, dy) {
                 newPlayerRect.top < colliderRect.bottom &&
                 newPlayerRect.bottom > colliderRect.top) {
                 collisionDetected = true;
-                console.warn("Collision detected with collider:", collider.id);
+                
             }
         }
     });
@@ -128,14 +128,6 @@ function setGameActive(state) {
 }
 
 let ambientInterval;
-const roomSettings = {
-    'Bedroom': { interval: 12000, volume: 0.2 },
-    'Corridor': { interval: 10000, volume: 0.3 },
-    'Broom Closet': { interval: 8000, volume: 0.3 },
-    'Living Room': { interval: 6000, volume: 0.4 },
-    'empty room': { interval: 1000, volume: 1.0 },
-    'Final Room': { interval: 500, volume: 1.0 }
-};
 
 function stopAmbientSound() {
     if (ambientInterval) {
@@ -145,21 +137,98 @@ function stopAmbientSound() {
     sounds.whereAreYou.stop();
 }
 
-function startAmbientSound(roomName) {
+function startAmbientSound(roomId) {
     stopAmbientSound();
 
-    const settings = roomSettings[roomName];
-    if (!settings) return;
+    let interval = 0;
+    let volume = 0;
 
-    sounds.whereAreYou.volume(settings.volume);
+    switch (roomId) {
+        case 'room1': 
+            interval = 7000;
+            volume = 0.2;
+            break;
+        case 'room2': 
+            interval = 6000;
+            volume = 0.3;
+            break;
+        case 'room4':
+            interval = 5000;
+            volume = 0.3;
+            break;
+        case 'room5':
+            interval = 4000;
+            volume = 0.3;
+            break;
+        case 'room7':
+            interval = 3000;
+            volume = 0.3;
+            break;
+        case 'room3': 
+            return;
+        case 'room6': 
+            return;
+        case 'room8': 
+           return;
+        case 'room9': 
+           return;
+        case 'room10':
+            interval = 2500;
+            volume = 0.3;
+            break;
+        case 'room11':
+            interval = 2000;
+            volume = 0.4;
+            break;
+        case 'room12':
+            interval = 1800;
+            volume = 0.6;
+            break;
+        case 'room13':
+            interval = 1600;
+            volume = 0.8;
+            break;
+        case 'room14': 
+            interval = 1500;
+            volume = 1.9;
+            break;
+        case 'room15': 
+            interval = 1200;
+            volume = 2.1;
+            break;
+        case 'room16': 
+            interval = 1000;
+            volume = 2.3;
+            break;
+        case 'room17': 
+            interval = 700;
+            volume = 2.5;
+            break;
+        default:
+            return; 
+    }
+
+    sounds.whereAreYou.volume(volume);
     sounds.whereAreYou.play();
 
     ambientInterval = setInterval(() => {
         sounds.whereAreYou.play();
-    }, settings.interval);
+    }, interval);
 }
+
+function getCurrentVisibleRoomId() {
+    for (let i = 1; i <= 14; i++) {
+        const room = document.getElementById(`room${i}`);
+        if (room && room.style.display === 'flex') {
+            return `room${i}`;
+        }
+    }
+    return null;
+}
+
 function checkDoorEntry() {
     if (!PLAYER.isActive) return;
+
 
     async function transitionThroughDoor(callback) {
     const fadeScreen = document.getElementById("fadeScreen");
@@ -170,8 +239,9 @@ function checkDoorEntry() {
 
     callback();
     
-    const roomName = document.getElementById("currentRoom").innerText;
-    startAmbientSound(roomName);
+    const currentRoomId = getCurrentVisibleRoomId();
+    startAmbientSound(currentRoomId);
+
 
     fadeScreen.classList.remove("fade-out");
     fadeScreen.classList.add("fade-in");
@@ -529,7 +599,7 @@ if (isColliding(PLAYER.box, door18)) {
         document.getElementById("room13").style.display = "flex";
         document.getElementById("map13").style.display = "block";
         document.getElementById("currentRoom").innerText = "Corridor";
-        PLAYER.box.style.left = "48vw";
+        PLAYER.box.style.left = "46vw";
         PLAYER.box.style.top = "20vh";
     });
     return;
@@ -539,24 +609,47 @@ if (isColliding(PLAYER.box, door19)) {
     sounds.doorCreak.play();
     transitionThroughDoor(() => {
         document.getElementById("room13").style.display = "none";
-        document.getElementById("room12").style.display = "flex";
-        document.getElementById("map12").style.display = "block";
+        document.getElementById("room14").style.display = "flex";
+        document.getElementById("map14").style.display = "block";
         document.getElementById("currentRoom").innerText = "Corridor";
         PLAYER.box.style.left = "48vw";
-        PLAYER.box.style.top = "80vh";
+        PLAYER.box.style.top = "30vh";
     });
     return;
 }
-
 if (isColliding(PLAYER.box, door20)) {
     sounds.doorCreak.play();
     transitionThroughDoor(() => {
-        document.getElementById("room13").style.display = "none";
-        document.getElementById("room14").style.display = "flex";
-        document.getElementById("map14").style.display = "block";
-        document.getElementById("currentRoom").innerText = "Final Room";
+        document.getElementById("room14").style.display = "none";
+        document.getElementById("room15").style.display = "flex";
+        document.getElementById("map15").style.display = "block";
+        document.getElementById("currentRoom").innerText = "Corridor";
         PLAYER.box.style.left = "48vw";
-        PLAYER.box.style.top = "50vh";
+        PLAYER.box.style.top = "30vh";
+    });
+    return;
+}
+if (isColliding(PLAYER.box, door21)) {
+    sounds.doorCreak.play();
+    transitionThroughDoor(() => {
+        document.getElementById("room15").style.display = "none";
+        document.getElementById("room16").style.display = "flex";
+        document.getElementById("map16").style.display = "block";
+        document.getElementById("currentRoom").innerText = "Corridor";
+        PLAYER.box.style.left = "48vw";
+        PLAYER.box.style.top = "30vh";
+    });
+    return;
+}
+if (isColliding(PLAYER.box, door22)) {
+    sounds.doorCreak.play();
+    transitionThroughDoor(() => {
+        document.getElementById("room16").style.display = "none";
+        document.getElementById("room17").style.display = "flex";
+        document.getElementById("map17").style.display = "block";
+        document.getElementById("currentRoom").innerText = "Corridor";
+        PLAYER.box.style.left = "48vw";
+        PLAYER.box.style.top = "30vh";
     });
     return;
 }
@@ -577,9 +670,8 @@ if (isColliding(PLAYER.box, door20)) {
         return;
     }
 
-    
-
     if (isColliding(PLAYER.box, document.getElementById("triggerCollider")) && !entityEntered) {
+        console.warn("collision with ending trigger")
          sounds.background.stop();
         stopAllSounds();
         entityEntered = true;
@@ -587,11 +679,12 @@ if (isColliding(PLAYER.box, door20)) {
         let entity = document.getElementById("enteringEntity");
         entity.style.display = "block";
         entity.style.top = "20vh";
-        entity.style.right = "38vw";
+        entity.style.left = "45vw";
         entity.classList.add("enter-animation");
         document.getElementById("messages").innerText = "Is that...";
 
         entity.addEventListener('animationend', () => {
+            console.warn("animation triggerd")
             const endingMessage = document.getElementById("ending-message");
             endingMessage.classList.add("show");
     	    sounds.sorryMessage.play();

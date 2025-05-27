@@ -239,8 +239,23 @@ video {
     width: 38%;
     display: none;
 }
+#map15 {
+    position: absolute;
+    width: 40%;
+    display: none;
+}
+#map16 {
+    position: absolute;
+    width: 42%;
+    display: none;
+}
 
-#room1, #room2, #room3, #room4, #room5, #room6, #room7, #room8, #room9, #room10, #room11, #room12, #room13, #room14 {
+#map17 {
+    position: absolute;
+    width: 43%;
+    display: none;
+}
+#room1, #room2, #room3, #room4, #room5, #room6, #room7, #room8, #room9, #room10, #room11, #room12, #room13, #room14, #room15, #room16, #room17 {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -726,6 +741,18 @@ video {
     width: 100%;
     height: 22vh;
 }
+#collider10Desk{
+    left: 0;
+    width: 46%;
+    height: 16vh;
+    top: 30vh;
+}
+#collider10chair{
+    right: 40vw;
+    width: 3.5vw;
+    height: 5vh;
+    top: 25vh;
+}
 /* room11 colliders */
 #collider11Top {
     top: 0;
@@ -749,6 +776,24 @@ video {
     bottom: 0;
     width: 100%;
     height: 17vh;
+}
+#collider11couch{
+    top: 20vh;
+    width: 10%;
+    left: 33vw;
+    height: 18vh;
+}
+#collider11desk{
+    bottom: 21vh;
+    width: 5%;
+    left: 40vw;
+    height: 8vh;
+}
+#collider11box{
+    top: 20vh;
+    width: 4%;
+    right: 40vw;
+    height: 8vh;
 }
 /* room12 colliders */
 #collider12Top {
@@ -774,6 +819,12 @@ video {
     width: 100%;
     height: 17vh;
 }
+#collider12box{
+    top: 20vh;
+    width: 6%;
+    left: 40vw;
+    height: 35vh;
+}
 /* room13 colliders */
 #collider13Top {
     top: 0;
@@ -797,6 +848,18 @@ video {
     bottom: 0;
     width: 100%;
     height: 17vh;
+}
+#collider13chair{
+    top: 20vh;
+    width: 4%;
+    right: 42vw;
+    height: 8vh;
+}
+#collider13box{
+    bottom: 20vh;
+    width: 6%;
+    right: 38vw;
+    height: 10vh;
 }
 /* room14 colliders */
 #collider14Top {
@@ -822,7 +885,78 @@ video {
     width: 100%;
     height: 17vh;
 }
+/* room15 colliders */
+#collider15Top {
+    top: 0;
+    width: 100%;
+    height: 17vh;
+}
 
+#collider15Right {
+    right: 0;
+    width: 39%;
+    height: 100vh;
+}
+
+#collider15Left {
+    left: 0;
+    width: 39%;
+    height: 100vh;
+}
+
+#collider15Bottom {
+    bottom: 0;
+    width: 100%;
+    height: 17vh;
+}
+/* room16 colliders */
+#collider16Top {
+    top: 0;
+    width: 100%;
+    height: 17vh;
+}
+
+#collider16Right {
+    right: 0;
+    width: 39%;
+    height: 100vh;
+}
+
+#collider16Left {
+    left: 0;
+    width: 39%;
+    height: 100vh;
+}
+
+#collider16Bottom {
+    bottom: 0;
+    width: 100%;
+    height: 17vh;
+}
+/* room17 colliders */
+#collider17Top {
+    top: 0;
+    width: 100%;
+    height: 17vh;
+}
+
+#collider17Right {
+    right: 0;
+    width: 39%;
+    height: 100vh;
+}
+
+#collider17Left {
+    left: 0;
+    width: 39%;
+    height: 100vh;
+}
+
+#collider17Bottom {
+    bottom: 0;
+    width: 100%;
+    height: 17vh;
+}
 
 
 /*doors*/
@@ -1011,6 +1145,24 @@ video {
 }
 
 #door20 {
+    position: absolute;
+    background-color: rgba(138, 247, 255, 0.667);
+    width: 8%;
+    height: 4vh;
+    right: 45%;
+    bottom: 19vh;
+    z-index: 60;
+}
+#door21 {
+    position: absolute;
+    background-color: rgba(138, 247, 255, 0.667);
+    width: 8%;
+    height: 4vh;
+    right: 45%;
+    bottom: 19vh;
+    z-index: 60;
+}
+#door22 {
     position: absolute;
     background-color: rgba(138, 247, 255, 0.667);
     width: 8%;
@@ -1319,11 +1471,13 @@ video {
 }
 
 #triggerCollider {
+    position: absolute;
     width: 100%;
     height: 10vh;
     top: 45vh;
     background-color: rgba(255, 0, 0, 0); 
     z-index: 60;
+
 }
 
 #enteringEntity {
@@ -1364,7 +1518,10 @@ video {
     background-size: contain;
     transition: transform 0.1s ease;
     display: none;
+    will-change: transform;
 }
+
+
 
 .player-front {
     background-image: url(img/playerback.png);
