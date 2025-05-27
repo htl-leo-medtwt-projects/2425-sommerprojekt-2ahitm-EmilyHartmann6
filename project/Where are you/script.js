@@ -6,20 +6,20 @@ const sounds = {
     }),
     footstep: new Howl({
         src: ['audio/footsteps.mp3'],
-        volume: 0.8, 
+        volume: 0.4,
         sprite: {
-            step: [150, 100] 
+            step: [0, 60]
         },
-        rate: 1.2, 
+        rate: 1.2,
         onend: function() {
-            this.stop(); 
+            this.stop();
         }
     }),
     paperBall: new Howl({
         src: ['audio/paperBall.mp3'],
         volume: 0.7,
         sprite: {
-            short: [0, 1000] 
+            short: [0, 1000]
         },
         preload: true
     }),
@@ -27,9 +27,35 @@ const sounds = {
         src: ['audio/letter.mp3'],
         volume: 0.7,
         preload: true
+    }),
+    doorCreak: new Howl({
+        src: ['audio/door_creak.mp3'],
+        volume: 0.6,
+        preload: true
+    }),
+    background: new Howl({
+        src: ['audio/background.mp3'],
+        volume: 0.04,  
+        loop: true,   
+        preload: true
+    }),
+       laughing: new Howl({
+        src: ['audio/laughing.mp3'],
+        volume: 0.8,
+        preload: true
+    }),
+     sorryMessage: new Howl({
+        src: ['audio/sorryMessage.mp3'],
+        volume: 0.7,
+        preload: true
+    }),
+     whereAreYou: new Howl({
+        src: ['audio/whereAreYou.mp3'],
+        volume: 0.2,  
+        preload: true
     })
-};
-  
+}
+
   // Footstep management
   let isMoving = false;
   let footstepInterval;
@@ -62,6 +88,7 @@ function switchToflashbackScreen() {
 }
 
 function switchTogameScreen() {
+     sounds.background.play();
     body2.style.display = "none";
     body3.style.display = "flex";
     document.getElementById("player").style.display = "block";
@@ -88,11 +115,13 @@ function continueOn() {
 }
 
 function playVideo() {
+     sounds.background.stop();
     video.muted = false;
     video.play().catch(error => console.error("Playback error:", error));
 }
 
 function playVideo1() {
+     sounds.background.stop();
     video1.muted = false;
     video1.play().catch(error => console.error("Playback error:", error));
 }
@@ -143,6 +172,12 @@ function setupVolumeControls() {
             video.volume = volume;
             video1.volume = volume;
             stanely.volume = volume;
+            sounds.background.volume(volume * 0.3); 
+            sounds.doorCreak.volume(volume * 0.6);
+            sounds.footstep.volume(volume * 0.8);
+            sounds.paperBall.volume(volume * 0.7);
+            sounds.letter.volume(volume * 0.7);
+            sounds.scream.volume(volume * 0.9);
 
             bars.forEach((b, index) => {
                 if (index < level) {
@@ -150,9 +185,9 @@ function setupVolumeControls() {
                 } else {
                     b.classList.remove("active");
                 }
-            });
-        });
-    });
+            })
+        })
+    })
 }
 
 function optionLetter() {
@@ -308,6 +343,7 @@ document.addEventListener("keyup", (event) => {
 function stopAllSounds() {
     sounds.scream.stop();
     sounds.footstep.stop();
+   stopAmbientSound();
     clearInterval(footstepInterval);
     isMoving = false;
 }

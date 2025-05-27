@@ -1353,39 +1353,37 @@ video {
     display: block;
     animation: enterRoom 2s forwards;
 }
-/* Player*/
+/* Player */
 #player {
     position: absolute;
     z-index: 100;
-    width: 5vw;
-    height: 14vh;
-    background-size: cover;
+    width: 8vw;
+    height: 8vw;
     background-repeat: no-repeat;
     background-position: center;
-    transform-origin: center;
-    transition: transform 0.15s ease, background-image 0.15s ease;
-    will-change: transform; 
+    background-size: contain;
+    transition: transform 0.1s ease;
     display: none;
 }
 
 .player-front {
     background-image: url(img/playerback.png);
-    transform: scaleX(1) rotate(180deg);
+    transform: rotate(180deg);
 }
 
 .player-back {
     background-image: url(img/playerback.png);
-    transform: scaleX(1);
+    transform: rotate(0deg);
 }
 
 .player-left {
     background-image: url(img/playerside.png);
-    transform: scaleX(-1);
+    transform: scaleX(-1) rotate(0deg);
 }
 
 .player-right {
     background-image: url(img/playerside.png);
-    transform: scaleX(1);
+    transform: scaleX(1) rotate(0deg);
 }
 #ending-message {
     position: fixed;
