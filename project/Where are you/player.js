@@ -186,23 +186,23 @@ function startAmbientSound(roomId) {
             break;
         case 'room13':
             interval = 1600;
-            volume = 0.8;
+            volume = 0.7;
             break;
         case 'room14': 
             interval = 1500;
-            volume = 1.9;
+            volume = 0.8;
             break;
         case 'room15': 
             interval = 1200;
-            volume = 2.1;
+            volume = 0.9;
             break;
         case 'room16': 
             interval = 1000;
-            volume = 2.3;
+            volume = 1.0;
             break;
         case 'room17': 
             interval = 700;
-            volume = 2.5;
+            volume = 1.0;
             break;
         default:
             return; 
@@ -403,7 +403,7 @@ function checkDoorEntry() {
     }
 
     if (isColliding(PLAYER.box, door9)) {
-        sounds.doorCreak.play();
+        
         stopAllSounds();
         currentDoor = door9;
         document.getElementById("codeInputContainer").style.display = "flex";
@@ -592,6 +592,7 @@ if (isColliding(PLAYER.box, door17)) {
     return;
 }
 
+// In the checkDoorEntry function in player.js, update the room transitions:
 if (isColliding(PLAYER.box, door18)) {
     sounds.doorCreak.play();
     transitionThroughDoor(() => {
@@ -601,6 +602,9 @@ if (isColliding(PLAYER.box, door18)) {
         document.getElementById("currentRoom").innerText = "Corridor";
         PLAYER.box.style.left = "46vw";
         PLAYER.box.style.top = "20vh";
+        
+        PLAYER.box.classList.add("player-flicker-slow");
+        document.getElementById("room13").classList.add("flicker-slow");
     });
     return;
 }
@@ -614,9 +618,13 @@ if (isColliding(PLAYER.box, door19)) {
         document.getElementById("currentRoom").innerText = "Corridor";
         PLAYER.box.style.left = "48vw";
         PLAYER.box.style.top = "30vh";
+        
+        PLAYER.box.classList.add("player-flicker-medium");
+        document.getElementById("room14").classList.add("flicker-medium");
     });
     return;
 }
+
 if (isColliding(PLAYER.box, door20)) {
     sounds.doorCreak.play();
     transitionThroughDoor(() => {
@@ -626,9 +634,13 @@ if (isColliding(PLAYER.box, door20)) {
         document.getElementById("currentRoom").innerText = "Corridor";
         PLAYER.box.style.left = "48vw";
         PLAYER.box.style.top = "30vh";
+        
+        PLAYER.box.classList.add("player-flicker-fast");
+        document.getElementById("room15").classList.add("flicker-fast");
     });
     return;
 }
+
 if (isColliding(PLAYER.box, door21)) {
     sounds.doorCreak.play();
     transitionThroughDoor(() => {
@@ -638,9 +650,13 @@ if (isColliding(PLAYER.box, door21)) {
         document.getElementById("currentRoom").innerText = "Corridor";
         PLAYER.box.style.left = "48vw";
         PLAYER.box.style.top = "30vh";
+        
+        PLAYER.box.classList.add("player-flicker-very-fast");
+        document.getElementById("room16").classList.add("flicker-very-fast");
     });
     return;
 }
+
 if (isColliding(PLAYER.box, door22)) {
     sounds.doorCreak.play();
     transitionThroughDoor(() => {
@@ -650,10 +666,11 @@ if (isColliding(PLAYER.box, door22)) {
         document.getElementById("currentRoom").innerText = "Corridor";
         PLAYER.box.style.left = "48vw";
         PLAYER.box.style.top = "30vh";
+        PLAYER.box.classList.add("player-flicker-very-fast");
+        document.getElementById("room17").classList.add("flicker-very-fast");
     });
     return;
 }
-
 
 
     if (isColliding(PLAYER.box, document.getElementById("door14"))) {

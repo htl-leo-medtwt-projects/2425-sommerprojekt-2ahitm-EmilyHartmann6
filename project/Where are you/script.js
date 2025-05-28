@@ -6,7 +6,7 @@ const sounds = {
     }),
     footstep: new Howl({
         src: ['audio/footsteps.mp3'],
-        volume: 0.4,
+        volume: 0.7,
         sprite: {
             step: [0, 60]
         },
@@ -35,7 +35,7 @@ const sounds = {
     }),
     background: new Howl({
         src: ['audio/background.mp3'],
-        volume: 0.04,  
+        volume: 0.1,  
         loop: true,   
         preload: true
     }),
@@ -51,7 +51,7 @@ const sounds = {
     }),
      whereAreYou: new Howl({
         src: ['audio/whereAreYou.mp3'],
-        volume: 0.2,  
+        volume: 1.0,  
         preload: true
     })
 }
@@ -157,10 +157,10 @@ function setupVolumeControls() {
     const bars = document.querySelectorAll(".bar");
     
     const volumeLevels = {
-        1: 0.1,
-        2: 0.3,
-        3: 0.5,
-        4: 0.7,
+        1: 0.3,  
+        2: 0.6,
+        3: 0.8,
+        4: 0.9,
         5: 1.0
     };
 
@@ -169,15 +169,19 @@ function setupVolumeControls() {
             let level = parseInt(this.getAttribute("data-level"));
             let volume = volumeLevels[level];
 
-            video.volume = volume;
-            video1.volume = volume;
+            
+            video.volume = 1.0;
+            video1.volume = 1.0;
+            
+           
             stanely.volume = volume;
             sounds.background.volume(volume * 0.3); 
-            sounds.doorCreak.volume(volume * 0.6);
-            sounds.footstep.volume(volume * 0.8);
-            sounds.paperBall.volume(volume * 0.7);
-            sounds.letter.volume(volume * 0.7);
-            sounds.scream.volume(volume * 0.9);
+            sounds.doorCreak.volume(volume);
+            sounds.footstep.volume(volume);
+            sounds.paperBall.volume(volume);
+            sounds.letter.volume(volume);
+            sounds.scream.volume(volume);
+            sounds.whereAreYou.volume(volume * 0.5);
 
             bars.forEach((b, index) => {
                 if (index < level) {
@@ -224,6 +228,7 @@ function checkCode() {
         document.getElementById("codeInputContainer").style.display = "none";
         
         setTimeout(() => {
+            sounds.doorCreak.play();
             proceedThroughDoor(currentDoor);
         }, 100);
     } else {

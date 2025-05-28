@@ -268,7 +268,7 @@ video {
 
 /*colliders*/
 .collider {
-    background-color: #6d48ffc4;
+    background-color: #6d48ff00;
     position: absolute;
     z-index: 50;
 }
@@ -1088,7 +1088,7 @@ video {
 }
 #door14{
     position: absolute;
-    background-color: rgb(138, 247, 255);
+    background-color: rgba(138, 247, 255, 0);
     width: 2%;
     height: 9vh;
     right:33%;
@@ -1097,7 +1097,7 @@ video {
 }
 #door15{
     position: absolute;
-    background-color: rgba(138, 247, 255, 0.843);
+    background-color: rgba(138, 247, 255, 0);
     width: 10%;
     height: 3vh;
     right:40%;
@@ -1106,7 +1106,7 @@ video {
 }
 #door16 {
     position: absolute;
-    background-color: rgba(138, 247, 255, 0.599);
+    background-color: rgba(138, 247, 255, 0);
     width: 8%;
     height: 4vh;
     right: 45%;
@@ -1116,7 +1116,7 @@ video {
 
 #door17 {
     position: absolute;
-    background-color: rgba(138, 247, 255, 0.69);
+    background-color: rgba(138, 247, 255, 0);
     width: 8%;
     height: 4vh;
     right: 45%;
@@ -1126,17 +1126,17 @@ video {
 
 #door18 {
     position: absolute;
-    background-color: rgba(148, 255, 138, 0.698);
+    background-color: rgba(148, 255, 138, 0);
     width: 8%;
     height: 4vh;
     left: 45%;
-    bottom: 19vh;
+    bottom: 17vh;
     z-index: 60;
 }
 
 #door19 {
     position: absolute;
-    background-color: rgba(138, 247, 255, 0.732);
+    background-color: rgba(138, 247, 255, 0);
     width: 8%;
     height: 4vh;
     left: 45%;
@@ -1146,7 +1146,7 @@ video {
 
 #door20 {
     position: absolute;
-    background-color: rgba(138, 247, 255, 0.667);
+    background-color: rgba(138, 247, 255, 0);
     width: 8%;
     height: 4vh;
     right: 45%;
@@ -1155,7 +1155,7 @@ video {
 }
 #door21 {
     position: absolute;
-    background-color: rgba(138, 247, 255, 0.667);
+    background-color: rgba(138, 247, 255, 0);
     width: 8%;
     height: 4vh;
     right: 45%;
@@ -1164,7 +1164,7 @@ video {
 }
 #door22 {
     position: absolute;
-    background-color: rgba(138, 247, 255, 0.667);
+    background-color: rgba(138, 247, 255, 0);
     width: 8%;
     height: 4vh;
     right: 45%;
@@ -1622,4 +1622,51 @@ video {
 
 .fade-in {
     opacity: 0;
+}
+/* Flicker effects */
+@keyframes flicker {
+    0% { opacity: 1; }
+    10% { opacity: 0.8; }
+    20% { opacity: 1; }
+    30% { opacity: 0.6; }
+    40% { opacity: 1; }
+    50% { opacity: 0.4; }
+    60% { opacity: 1; }
+    70% { opacity: 0.2; }
+    80% { opacity: 1; }
+    90% { opacity: 0.1; }
+    100% { opacity: 1; }
+}
+
+.flicker-slow {
+    animation: flicker 5s infinite;
+}
+
+.flicker-medium {
+    animation: flicker 3s infinite;
+}
+
+.flicker-fast {
+    animation: flicker 1s infinite;
+}
+
+.flicker-very-fast {
+    animation: flicker 0.5s infinite;
+}
+
+.player-flicker-slow {
+    animation: flicker 5s infinite;
+}
+
+.player-flicker-medium {
+    animation: flicker 3s infinite;
+}
+
+.player-flicker-fast {
+    animation: flicker 1s infinite;
+}
+
+.player-flicker-very-fast {
+    animation: flicker 0.5s infinite;
+    animation-timing-function: steps(1, end);
 }
