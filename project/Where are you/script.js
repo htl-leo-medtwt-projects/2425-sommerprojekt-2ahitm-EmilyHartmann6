@@ -53,6 +53,11 @@ const sounds = {
         src: ['audio/whereAreYou.mp3'],
         volume: 1.0,  
         preload: true
+    }),
+      horrorScream: new Howl({
+        src: ['audio/horrorScream.mp3'], 
+        volume: 0.8,
+        preload: true
     })
 }
 

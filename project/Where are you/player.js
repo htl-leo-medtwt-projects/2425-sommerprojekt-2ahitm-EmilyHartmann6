@@ -592,7 +592,7 @@ if (isColliding(PLAYER.box, door17)) {
     return;
 }
 
-// In the checkDoorEntry function in player.js, update the room transitions:
+
 if (isColliding(PLAYER.box, door18)) {
     sounds.doorCreak.play();
     transitionThroughDoor(() => {
@@ -668,6 +668,19 @@ if (isColliding(PLAYER.box, door22)) {
         PLAYER.box.style.top = "30vh";
         PLAYER.box.classList.add("player-flicker-very-fast");
         document.getElementById("room17").classList.add("flicker-very-fast");
+        
+       
+        setTimeout(() => {
+            sounds.horrorScream.play();
+            const fadeScreen = document.getElementById("fadeScreen");
+            fadeScreen.style.zIndex = "10000";
+            fadeScreen.style.backgroundColor = "#000";
+            fadeScreen.classList.add("fade-out");
+            
+            setTimeout(() => {
+                window.location.href = "./index.html";
+            }, 4000);
+        }, 3000); 
     });
     return;
 }
