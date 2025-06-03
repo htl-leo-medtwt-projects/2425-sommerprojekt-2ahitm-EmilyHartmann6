@@ -525,7 +525,7 @@ function checkDoorEntry() {
             document.getElementById("room5").style.display = "flex";
             document.getElementById("map5").style.display = "flex";
             document.getElementById("currentRoom").innerText = "Corridor";
-            PLAYER.box.style.left = "54vw";
+            PLAYER.box.style.left = "40vw";
             PLAYER.box.style.top = "37.6vh";
         });
         return;
